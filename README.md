@@ -1,5 +1,5 @@
 # Archivos de Configuracion
 Archivos de configuracion para OSX, dentro de los cuales 
-estan inclidos .vimrc, .zshrc, motd...
+estan incluidos .vimrc, .zshrc, motd...
 
-`code`
+`cp motd /etc/`
