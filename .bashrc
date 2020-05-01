@@ -7,11 +7,22 @@
 
 ### Exports
 export EDITOR=vim
+export GOROOT="/usr/lib/go"
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
+export PATH="$GOBIN:$PATH"
+export CLICOLOR=1
+export TERM=xterm-256color
+export TERMINAL=terminator
 
 ### Aliases
-alias ls='ls --color=auto'
-alias l='ls -lah'
+alias ls='exa'
+alias l='exa -lahg'
 alias grep='grep --color=auto'
+alias mv='mv -i'
 
-PS1='[\u@\h \W]\$ '
+###
+
+PS1="[\[\e[31m\]\u\[\e[m\]@\[\e[36m\]\h\[\e[m\] \W]\\$ "
 cat /etc/motd
+
