@@ -24,5 +24,8 @@ alias mv='mv -i'
 ###
 
 PS1="[\[\e[31m\]\u\[\e[m\]@\[\e[36m\]\h\[\e[m\] \W]\\$ "
-cat /etc/motd
 
+### Macros
+bind "set completion-ignore-case on"
+
+neofetch
