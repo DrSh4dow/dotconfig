@@ -1,0 +1,44 @@
+#!/bin/bash
+### Cleanup
+bspc rule -r "*"
+killall "picom"
+killall "nm-applet"
+killall "sxhkd"
+killall "feh"
+
+### Rules
+bspc rule -a mplayer2 state=floating
+bspc rule -a steam state=floating
+bspc rule -a vlc state=floating
+bspc rule -a mpv state=floating
+bspc rule -a lutris state=floating
+bspc rule -a spotify state=floating
+bspc rule -a wine state=floating
+
+### Autostart Applications
+nm-applet &
+picom &
+sxhkd &
+feh --bg-scale --no-fehbg ~/Pictures/backgrounds/04.jpg
+allisfloating &
+
+### Monitor & Desktop Settings
+
+bspc monitor -d 1 2 3 4 5 6 7 8 9
+
+### Global Settings
+bspc config click_to_focus button1
+bspc config initial_polarity second_child
+bspc config pointer_modifier mod1
+
+### Color Settings
+bspc config normal_border_color "#000000"
+bspc config focused_border_color "#121212"
+
+### Desktop Settings
+bspc config top_padding 0
+bspc config bottom_padding 0
+bspc config left_padding 0
+bspc config right_padding 0
+bspc config border_width 1
+bspc config window_gap 10
