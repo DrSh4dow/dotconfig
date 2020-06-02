@@ -1,0 +1,98 @@
+############### BSPWM Key Bindings ###############
+
+# Quit bspwm
+super + x
+  bspc quit
+
+# Restart bspwm
+super + shift + r
+  bspc wm -r
+
+# Focus on window in direction
+super + {Left,Down,Up,Right}
+  bspc node -f {west,south,north,east}
+
+# Close Focused Window
+super + shift + q
+  bspc node focused -c
+
+# Rofi run 
+super + shift + d
+  rofi -show drun 
+
+# Rofi Window Switcher
+mod1 + Tab
+  rofi -show window
+
+# Send window to desktop and follow
+super + shift + {0-9}
+  bspc node -d {0-9} 
+
+# Focus on Desktop
+super + {0-9}
+  bspc desktop -f {0-9}
+
+# Volume Up
+XF86AudioRaiseVolume
+  volumeup 
+
+# Volume Down
+XF86AudioLowerVolume
+  pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -5%
+
+# Audio Mute
+XF86AudioMute
+  pactl set-sink-mute 0 toggle
+
+# Toggle fullscreen
+super + shift + f
+  bspfullscreen
+
+# Toggle floating
+super + o
+  bspc node focused.tiled -t floating || bspc node focused.floating -t tiled
+
+# Swap window with direction
+super + shift + {Left,Down,Up,Right}
+  bspc node -s {west,south,north,east}
+
+# Less Gaps
+super + plus
+  bspc config window_gap $(($(bspc config window_gap)-5))
+
+# Moar Gaps
+super + minus
+  bspc config window_gap $(($(bspc config window_gap)+5))
+
+############### Applications Key Bindings ###############
+# Terminal
+super + Return
+  alacritty
+
+# Text Editor
+super + e
+ alacritty -e nvim
+
+# Browser
+super + f
+  firefox
+
+# File Manager
+super + shift + Return
+  thunar
+
+# Steam
+super + g
+  steam-runtime
+
+# Lutris
+super + l
+  lutris
+
+# Spotify 
+super + m
+  com.spotify.Client
+
+# Brave
+super + b
+  brave
