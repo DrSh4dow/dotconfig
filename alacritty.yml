@@ -1,0 +1,28 @@
+font:
+  normal:
+    family: Source Code Pro 
+    style: Regular
+
+  bold:
+    family: Source Code Pro
+    style: Bold
+
+  italic:
+    family: Source Code Pro
+    style: Italic
+
+  bold_italic:
+    family: Source Code Pro
+    style: Bold Italic
+
+  size: 10
+
+background_opacity: 0.75
+window:
+  decorations: full
+
+colors:
+  # Default colors
+  primary:
+    background: '#000000'
+    foreground: '#4AF626'
