@@ -81,18 +81,10 @@ super + f
 super + shift + Return
   thunar
 
-# Steam
-super + g
-  steam-runtime
-
 # Lutris
 super + l
   lutris
 
-# Spotify 
-super + m
-  com.spotify.Client
-
 # Brave
 super + b
-  brave
+  brave-browser
