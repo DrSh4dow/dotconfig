@@ -7,20 +7,12 @@ killall "sxhkd"
 killall "feh"
 
 ### Rules
-bspc rule -a mplayer2 state=floating
-bspc rule -a steam state=floating
-bspc rule -a vlc state=floating
-bspc rule -a mpv state=floating
-bspc rule -a lutris state=floating
-bspc rule -a spotify state=floating
 bspc rule -a wine state=floating
 
 ### Autostart Applications
-nm-applet &
 picom &
 sxhkd &
-feh --bg-scale --no-fehbg ~/Pictures/backgrounds/04.jpg
-allisfloating &
+feh --bg-scale --no-fehbg ~/Pictures/backgrounds/$(echo $((1 + RANDOM % 62))).*
 
 ### Monitor & Desktop Settings
 
