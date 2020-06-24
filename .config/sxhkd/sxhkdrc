@@ -1,7 +1,7 @@
 ############### BSPWM Key Bindings ###############
 
 # Quit bspwm
-super + x
+super + shift + x
   bspc quit
 
 # Restart bspwm
@@ -44,10 +44,6 @@ XF86AudioLowerVolume
 XF86AudioMute
   pactl set-sink-mute 0 toggle
 
-# Toggle fullscreen
-super + shift + f
-  bspfullscreen
-
 # Toggle floating
 super + o
   bspc node focused.tiled -t floating || bspc node focused.floating -t tiled
@@ -87,4 +83,11 @@ super + l
 
 # Brave
 super + b
-  brave-browser
+  brave
+
+############# Utilities Key Bindings ###################
+# Take Rectangular Screenshot
+#
+# Change wallpaper
+super + exclamdown
+  feh --bg-scale --no-fehbg ~/Pictures/backgrounds/$(echo $((1 + RANDOM % 62))).*

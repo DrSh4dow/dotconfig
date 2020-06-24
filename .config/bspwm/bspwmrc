@@ -2,7 +2,6 @@
 ### Cleanup
 bspc rule -r "*"
 killall "picom"
-killall "nm-applet"
 killall "sxhkd"
 killall "feh"
 
