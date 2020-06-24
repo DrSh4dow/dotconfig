@@ -13,7 +13,13 @@ export GOBIN="$GOPATH/bin"
 export PATH="$GOBIN:$PATH"
 export CLICOLOR=1
 export TERM=xterm-256color
-export TERMINAL=terminator
+export TERMINAL=alacritty
+export BROWSER=brave
+
+### StartX
+if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+	exec startx
+fi
 
 ### Aliases
 alias ls='exa'

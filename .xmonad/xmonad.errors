@@ -1,0 +1,5 @@
+
+xmonad.hs:213:3: error: parse error on input ‘spacingRaw’
+    |
+213 |   spacingRaw True (Border 0 10 10 10) True (Border 10 10 10 10) True $
+    |   ^^^^^^^^^^
