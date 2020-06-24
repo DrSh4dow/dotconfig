@@ -1,0 +1,7 @@
+configuration {
+ modi: "window,drun";
+ theme: "onedark";
+ font: "hack 10";
+ icon-theme: "Papirus";
+ show-icons: true;
+ }
