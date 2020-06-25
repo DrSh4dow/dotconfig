@@ -71,7 +71,9 @@ super + m
 
 ############# Utilities Key Bindings ###################
 # Take Rectangular Screenshot
-#
+super + shift + BackSpace
+  spectacle -r
+
 # Change wallpaper
 super + exclamdown
   feh --bg-scale --no-fehbg ~/Pictures/backgrounds/$(echo $((1 + RANDOM % 62))).*
