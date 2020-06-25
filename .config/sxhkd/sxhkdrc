@@ -16,14 +16,6 @@ super + {Left,Down,Up,Right}
 super + shift + q
   bspc node focused -c
 
-# Rofi run 
-super + shift + d
-  rofi -show drun 
-
-# Rofi Window Switcher
-mod1 + Tab
-  rofi -show window
-
 # Send window to desktop and follow
 super + shift + {0-9}
   bspc node -d {0-9} 
@@ -31,18 +23,6 @@ super + shift + {0-9}
 # Focus on Desktop
 super + {0-9}
   bspc desktop -f {0-9}
-
-# Volume Up
-XF86AudioRaiseVolume
-  volumeup 
-
-# Volume Down
-XF86AudioLowerVolume
-  pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -5%
-
-# Audio Mute
-XF86AudioMute
-  pactl set-sink-mute 0 toggle
 
 # Toggle floating
 super + o
@@ -96,6 +76,38 @@ super + m
 super + exclamdown
   feh --bg-scale --no-fehbg ~/Pictures/backgrounds/$(echo $((1 + RANDOM % 62))).*
 
-# Toggle Tray icons
+# Toggle Tray iconis -- requires custom script
 super + shift + exclamdown
   trayer-toggler
+
+# Rofi run 
+super + shift + d
+  rofi -show drun 
+
+# Rofi Window Switcher
+mod1 + Tab
+  rofi -show window
+
+# Volume Up -- requires custom script
+XF86AudioRaiseVolume
+  volumeup 
+
+# Volume Down
+XF86AudioLowerVolume
+  pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -5%
+
+# Audio Mute
+XF86AudioMute
+  pactl set-sink-mute 0 toggle
+
+# Pause/Play current song
+XF86AudioPlay
+  dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+
+# Play Next Song
+XF86AudioNext
+  dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+
+# Play Previous Song
+XF86AudioPrev
+  dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
