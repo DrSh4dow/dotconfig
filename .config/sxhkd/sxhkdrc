@@ -85,9 +85,17 @@ super + l
 super + b
   brave
 
+# Spotify
+super + m
+  spotify
+
 ############# Utilities Key Bindings ###################
 # Take Rectangular Screenshot
 #
 # Change wallpaper
 super + exclamdown
   feh --bg-scale --no-fehbg ~/Pictures/backgrounds/$(echo $((1 + RANDOM % 62))).*
+
+# Toggle Tray icons
+super + shift + exclamdown
+  trayer-toggler
