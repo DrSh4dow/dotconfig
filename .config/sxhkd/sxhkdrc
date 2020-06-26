@@ -40,6 +40,15 @@ super + plus
 super + minus
   bspc config window_gap $(($(bspc config window_gap)+5))
 
+# Expand a window by moving one of its side outward
+super + alt + {Left,Down,Up,Right}
+  bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# Contract a window by moving one of its side inward
+super + alt + shift + {Left,Down,Up,Right}
+  bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+
 ############### Applications Key Bindings ###############
 # Terminal
 super + Return
@@ -113,3 +122,7 @@ XF86AudioNext
 # Play Previous Song
 XF86AudioPrev
   dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+
+# Display Date
+super + apostrophe
+  dunstify Fecha "$(date)"
