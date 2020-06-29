@@ -16,10 +16,13 @@ export TERM=xterm-256color
 export TERMINAL=alacritty
 export BROWSER=brave
 
+################################################
 ### StartX
-if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-	exec startx
-fi
+#if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+#	exec startx
+#fi
+################################################
+
 
 ### Aliases
 alias ls='exa'
