@@ -19,7 +19,7 @@ font:
 
 background_opacity: 0.75
 window:
-  decorations: full
+  decorations: none
 
 colors:
   # Default colors
