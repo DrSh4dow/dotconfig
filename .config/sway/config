@@ -23,7 +23,7 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/drsh4dow/Pictures/backgrounds/4.jpg fill
+output * bg /home/drsh4dow/Pictures/backgrounds/71.jpg fill
 #
 # Example configuration:
 #
@@ -82,7 +82,7 @@ focus_follows_mouse no
     bindsym $mod+Return exec $term
 
     # Start a File manager
-    bindsym $mod+Shift+Return exec thunar
+    bindsym $mod+Shift+Return exec nautilus -w
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -92,6 +92,9 @@ focus_follows_mouse no
 
     # Rofi Menu
     bindsym $mod+Shift+d exec rofi -show drun
+
+    # Switch windows
+    bindsym mod1+Tab exec rofi -show window
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -104,24 +107,33 @@ focus_follows_mouse no
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+x exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
 ### Utilities
     # Take an Screenshot of a rectangular area (copy to clipboard)
     bindsym $mod+Shift+BackSpace exec grim -g "$(slurp)" - | wl-copy 
 
+    # Start screen recording
+    bindsym $mod+mod1+Shift+BackSpace exec alacritty -e wf-recorder --audio -f "$(date --iso)-$RANDOM.mp4"
+
     # audio
-    bindsym XF86AudioRaiseVolume exec volumeup
-    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym XF86AudioRaiseVolume exec /usr/bin/pulseaudio-ctl up
+    bindsym XF86AudioLowerVolume exec /usr/bin/pulseaudio-ctl down
+    bindsym XF86AudioMute exec /usr/bin/pulseaudio-ctl mute
+    bindsym $mod+m exec /usr/bin/pulseaudio-ctl mute-input
+
     bindsym XF86AudioPlay exec playerctl play-pause
     bindsym XF86AudioNext exec playerctl next
     bindsym XF86AudioPrev exec playerctl previous
 
+    # Show date and time
+    bindsym $mod+apostrophe exec notify-send Fecha "$(date)"
+
 #
 
 ### Aplications
-    bindsym $mod+b exec brave-browser
+#Browser
+    bindsym $mod+b exec firefox
 
 # Moving around:
 #
@@ -205,14 +217,23 @@ focus_follows_mouse no
     # You can send windows there and get them back later.
 
     # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
+    #bindsym $mod+Shift+minus move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
+    #bindsym $mod+minus scratchpad show
 #
 # Resizing containers:
 #
+    # Moar Gaps
+    bindsym $mod+minus exec swaymsg gaps outer current plus 4 && swaymsg gaps inner current plus 4
+
+    # Less Gaps
+    bindsym $mod+plus exec swaymsg gaps outer current minus 4 && swaymsg gaps inner current minus 4
+    
+gaps outer 8
+gaps inner 8
+
 mode "resize" {
     # left will shrink the containers width
     # right will grow the containers width
@@ -253,5 +274,15 @@ bindsym $mod+r mode "resize"
    # }
 #}
 
+### Some theming stuff
+set $gnome-schema org.gnome.desktop.interface
+
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Flat-Remix-GTK-Blue-Dark'
+    gsettings set $gnome-schema icon-theme 'candy-icons'
+}
+
+### Autostart applications
+exec mako
 
 include /etc/sway/config.d/*
