@@ -23,9 +23,9 @@ export BROWSER=brave
 #fi
 
 ### Start Wayland
-if [ "$(tty)" = "/dev/tty1" ]; then
-	exec sway
-fi
+#if [ "$(tty)" = "/dev/tty1" ]; then
+#	exec sway
+#fi
 ################################################
 
 
