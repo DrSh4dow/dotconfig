@@ -111,7 +111,7 @@ focus_follows_mouse no
 
 ### Utilities
     # Take an Screenshot of a rectangular area (copy to clipboard)
-    bindsym $mod+Shift+BackSpace exec grim -g "$(slurp)" - | wl-copy 
+    bindsym $mod+Shift+BackSpace exec grim -g "$(slurp)" -t png - | wl-copy -t image/png 
 
     # Start screen recording
     bindsym $mod+mod1+Shift+BackSpace exec alacritty -e wf-recorder --audio -f "$(date --iso)-$RANDOM.mp4"
@@ -284,5 +284,6 @@ exec_always {
 
 ### Autostart applications
 exec mako
+exec libinput-gestures-setup start
 
 include /etc/sway/config.d/*
