@@ -5,6 +5,10 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+### Some enviromental variables
+GDK_BACKEND=wayland
+CLUTTER_BACKEND=wayland
+
 ### Exports
 export EDITOR=vim
 export GOROOT="/usr/lib/go"
@@ -14,7 +18,7 @@ export PATH="$GOBIN:$PATH"
 export CLICOLOR=1
 export TERM=xterm-256color
 export TERMINAL=alacritty
-export BROWSER=brave
+export BROWSER=firefox-developer-edition
 
 ################################################
 ### StartX
@@ -23,9 +27,9 @@ export BROWSER=brave
 #fi
 
 ### Start Wayland
-#if [ "$(tty)" = "/dev/tty1" ]; then
-#	exec sway
-#fi
+if [ "$(tty)" = "/dev/tty1" ]; then
+	exec sway
+fi
 ################################################
 
 

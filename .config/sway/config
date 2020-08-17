@@ -19,17 +19,25 @@ set $term alacritty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $laptop eDP-1
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/drsh4dow/Pictures/backgrounds/71.jpg fill
+output * bg /home/drsh4dow/Pictures/backgrounds/17.jpg fill
 #
-# Example configuration:
+# Resolution Configuration:
 #
 output eDP-1 resolution 2560x1600 position 0,0 scale 2 
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
+
+#
+# Event Laptop Lid Configuration
+#
+
+bindswitch --locked lid:on output $laptop disable
+bindswitch --locked lid:off output $laptop enable
 
 ### Idle configuration
 #
@@ -82,7 +90,7 @@ focus_follows_mouse no
     bindsym $mod+Return exec $term
 
     # Start a File manager
-    bindsym $mod+Shift+Return exec nautilus -w
+    bindsym $mod+Shift+Return exec caja
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -95,6 +103,9 @@ focus_follows_mouse no
 
     # Switch windows
     bindsym mod1+Tab exec rofi -show window
+
+    # Lock Screen
+    bindsym $mod+l exec swaylock -s fill --font "Nunito" -i /home/drsh4dow/Pictures/backgrounds/hallowen.png --fade-in 0.5 -f --clock --indicator --effect-blur 4x2 --effect-vignette 0.4:0.75 --datestr "%a %e.%m.%Y" --timestr "%k:%m" --indicator --indicator-radius 100 --ring-color 44475a --key-hl-color f8f8f2aa --line-color 1A202C00 --inside-color 282a3688 --inside-clear-color f8f8f244 --ring-clear-color 44475a --text-color ffb86c --text-clear-color ffb86c
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -126,22 +137,27 @@ focus_follows_mouse no
     bindsym XF86AudioNext exec playerctl next
     bindsym XF86AudioPrev exec playerctl previous
 
+    # Brightness 
+    bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+    bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+
     # Show date and time
     bindsym $mod+apostrophe exec notify-send Fecha "$(date)"
 
-#
+    # Change Wallpaper to Random
+    bindsym $mod+Shift+apostrophe exec setrandom "/home/drsh4dow/Pictures/backgrounds"
 
 ### Aplications
 #Browser
-    bindsym $mod+b exec firefox
+    bindsym $mod+b exec firefox-developer-edition
 
 # Moving around:
 #
     # Move your focus around
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
+    #bindsym $mod+$left focus left
+    #bindsym $mod+$down focus down
+    #bindsym $mod+$up focus up
+    #bindsym $mod+$right focus right
     # Or use $mod+[up|down|left|right]
     bindsym $mod+Left focus left
     bindsym $mod+Down focus down
@@ -149,10 +165,10 @@ focus_follows_mouse no
     bindsym $mod+Right focus right
 
     # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
+    #bindsym $mod+Shift+$left move left
+    #bindsym $mod+Shift+$down move down
+    #bindsym $mod+Shift+$up move up
+    #bindsym $mod+Shift+$right move right
     # Ditto, with arrow keys
     bindsym $mod+Shift+Left move left
     bindsym $mod+Shift+Down move down
@@ -284,6 +300,5 @@ exec_always {
 
 ### Autostart applications
 exec mako
-exec libinput-gestures-setup start
 
 include /etc/sway/config.d/*
