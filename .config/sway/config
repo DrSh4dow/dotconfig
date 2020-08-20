@@ -20,11 +20,12 @@ set $term alacritty
 # on the original workspace that the command was run on.
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $laptop eDP-1
+set $backgroundname 17.jpg
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/drsh4dow/Pictures/backgrounds/17.jpg fill
+output * bg /home/drsh4dow/Pictures/backgrounds/$backgroundname fill
 #
 # Resolution Configuration:
 #
@@ -69,7 +70,20 @@ bindswitch --locked lid:off output $laptop enable
 input type:keyboard { 
     xkb_layout es
 }
+
+### For Window Config
+for_window [title="Alacritty"] border pixel 1
+
+### borders Config
+
+
+font Nunito
+client.focused   #44475a #44475a #f8f8f2
+client.unfocused #282a36 #282a36 #6272a4
+
+
 default_border none
+default_floating_border none
 focus_follows_mouse no
 
 #
