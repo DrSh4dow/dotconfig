@@ -20,7 +20,7 @@ set $term alacritty
 # on the original workspace that the command was run on.
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $laptop eDP-1
-set $backgroundname 17.jpg
+set $backgroundname 71.jpg
 
 ### Output configuration
 #
@@ -104,7 +104,7 @@ focus_follows_mouse no
     bindsym $mod+Return exec $term
 
     # Start a File manager
-    bindsym $mod+Shift+Return exec caja
+    bindsym $mod+Shift+Return exec alacritty -e nnn
 
     # Kill focused window
     bindsym $mod+Shift+q kill
