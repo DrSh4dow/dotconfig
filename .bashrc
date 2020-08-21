@@ -11,6 +11,7 @@ CLUTTER_BACKEND=wayland
 
 ### Exports
 export EDITOR=vim
+export VISUAL=code
 export GOROOT="/usr/lib/go"
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
@@ -19,6 +20,11 @@ export CLICOLOR=1
 export TERM=xterm-256color
 export TERMINAL=alacritty
 export BROWSER=firefox-developer-edition
+
+### NNN Configuration
+export NNN_TRASH=1
+export NNN_FIFO=/tmp/nnn.fifo
+
 
 ################################################
 ### StartX
