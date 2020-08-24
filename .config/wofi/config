@@ -1,0 +1,9 @@
+show=drun
+width=75%
+height=75%
+term=alacritty
+hide_scroll=false
+insensitive=true
+gtk_dark=true
+allow_images=true
+no_actions=true
