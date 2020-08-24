@@ -20,7 +20,7 @@ set $term alacritty
 # on the original workspace that the command was run on.
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $laptop eDP-1
-set $backgroundname 71.jpg
+set $backgroundname 502.jpg
 
 ### Output configuration
 #
@@ -145,7 +145,6 @@ focus_follows_mouse no
     bindsym XF86AudioRaiseVolume exec /usr/bin/pulseaudio-ctl up
     bindsym XF86AudioLowerVolume exec /usr/bin/pulseaudio-ctl down
     bindsym XF86AudioMute exec /usr/bin/pulseaudio-ctl mute
-    bindsym $mod+m exec /usr/bin/pulseaudio-ctl mute-input
 
     bindsym XF86AudioPlay exec playerctl play-pause
     bindsym XF86AudioNext exec playerctl next
@@ -164,6 +163,9 @@ focus_follows_mouse no
 ### Aplications
 #Browser
     bindsym $mod+b exec firefox-developer-edition
+
+#ncspot
+    bindsym $mod+m exec alacritty -e ncspot
 
 # Moving around:
 #
