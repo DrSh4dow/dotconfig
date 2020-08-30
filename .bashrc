@@ -6,12 +6,14 @@
 [[ $- != *i* ]] && return
 
 ### Some enviromental variables
-GDK_BACKEND=wayland
-CLUTTER_BACKEND=wayland
+#export CLUTTER_BACKEND=wayland
+#export MOZ_ENABLE_WAYLAND=1
+#export XDG_SESSION_TYPE=wayland
+#export _JAVA_AWT_WM_NONREPARENTING=1
 
 ### Exports
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR=nvim
+export VISUAL=nvim
 export VIDEO=mpv
 export IMAGE=imv
 export OPENER="xdg-open"
@@ -23,9 +25,11 @@ export PATH="$GOBIN:$PATH"
 export CLICOLOR=1
 export TERM=xterm-256color
 export TERMINAL=alacritty
+#export TERMINAL=kitty
 export BROWSER=firefox-developer-edition
 export PAGER="less"
-export WM="sway"
+#export WM="sway"
+export WM="i3"
 export COLORTERM="truecolor"
 
 
@@ -34,18 +38,18 @@ export NNN_TRASH=1
 export NNN_COLORS='4444'
 export NNN_FCOLORS='c1e2272e006033f7c6d6abc4'
 export NNN_FIFO='/tmp/nnn.fifo'
-export NNN_PLUG='m:nmount'
+export NNN_PLUG='m:nmount;d:dragdrop'
 
 ################################################
 ### StartX
-#if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-#	exec startx
-#fi
+if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+	exec startx
+fi
 
 ### Start Wayland
-if [ "$(tty)" = "/dev/tty1" ]; then
-	exec sway
-fi
+#if [ "$(tty)" = "/dev/tty1" ]; then
+#	exec sway
+#fi
 ################################################
 
 
@@ -56,7 +60,6 @@ alias grep='grep --color=auto'
 alias mv='mv -i'
 alias cmatrix='cmatrix -bC blue'
 alias tiktak='tty-clock -scC 4'
-
 ###
 
 PS1="[\[\e[31m\]\u\[\e[m\]@\[\e[36m\]\h\[\e[m\] \W]\\$ "
