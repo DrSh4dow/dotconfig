@@ -1,62 +1,39 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
-
 ### Variables
 #
-# Logo key. Use Mod1 for Alt.
-set $mod Mod4
-# Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
-set $right l
-# Your preferred terminal emulator
-set $term alacritty
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $laptop eDP-1
-set $backgroundname 502.jpg
+#
+#
+
+	set $mod Mod4
+	set $left h
+	set $down j
+	set $up k
+	set $right l
+	set $term alacritty
+	set $laptop eDP-1
+	set $backgroundname 502.jpg
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/drsh4dow/Pictures/backgrounds/$backgroundname fill
+#
+
+	output * bg /home/drsh4dow/Pictures/backgrounds/$backgroundname fill
+
 #
 # Resolution Configuration:
 #
-output eDP-1 resolution 2560x1600 position 0,0 scale 2 
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
+	output eDP-1 resolution 2560x1600 position 0,0 scale 2 
+
 
 #
 # Event Laptop Lid Configuration
 #
-
-bindswitch --locked lid:on output $laptop disable
-bindswitch --locked lid:off output $laptop enable
-
-### Idle configuration
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' \
-#               resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
+	bindswitch --reload --locked lid:on exec swaylock -s fill --font "Nunito" -i /home/drsh4dow/Pictures/backgrounds/hallowen.png --fade-in 0.5 -f --clock --indicator --effect-blur 4x2 --effect-vignette 0.4:0.75 --datestr "%a %e.%m.%Y" --timestr "%k:%m" --indicator --indicator-radius 100 --ring-color 44475a --key-hl-color f8f8f2aa --line-color 1A202C00 --inside-color 282a3688 --inside-clear-color f8f8f244 --ring-clear-color 44475a --text-color ffb86c --text-clear-color ffb86c && swaymsg output $laptop disable
+	bindswitch --reload --locked lid:off output $laptop enable
 
 ### Input configuration
 #
-# Example configuration:
+#
 #
        input "1452:627:bcm5974" {
        dwt disabled
@@ -67,34 +44,40 @@ bindswitch --locked lid:off output $laptop enable
        drag disabled
        drag_lock disabled
    }
-input type:keyboard { 
+   
+	input type:keyboard { 
     xkb_layout es
 }
 
-### For Window Config
-for_window [title="Alacritty"] border pixel 1
-
-### borders Config
 
 
-font Nunito
-client.focused   #44475a #44475a #f8f8f2
-client.unfocused #282a36 #282a36 #6272a4
-
-
-default_border none
-default_floating_border none
-focus_follows_mouse no
-
+### Misc Options
 #
-# Cursor Theme
+# Rules
+#
+
+	for_window [title="Alacritty"] border pixel 1
+#
+# Style
 #
 
 
+	font Nunito
+	client.focused   #44475a #44475a #f8f8f2
+	client.unfocused #282a36 #282a36 #6272a4
+
+
+	default_border none
+	default_floating_border none
+	gaps outer 8
+	gaps inner 8
 
 #
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
+# Behevior
+#
+
+	focus_follows_mouse no
+	xwayland disabled
 
 ### Key bindings
 #
@@ -136,7 +119,7 @@ focus_follows_mouse no
     bindsym $mod+Shift+BackSpace exec grim -g "$(slurp)" -t png - | wl-copy -t image/png 
 
     # Start screen recording
-    bindsym $mod+mod1+Shift+BackSpace exec alacritty -e wf-recorder --audio -f "$(date --iso)-$RANDOM.mp4"
+    bindsym $mod+mod1+Shift+BackSpace exec alacritty -e wf-recorder -f "$(date --iso)-$RANDOM.mp4"
 
     # audio
     bindsym XF86AudioRaiseVolume exec /usr/bin/pulseaudio-ctl up
@@ -164,29 +147,18 @@ focus_follows_mouse no
 #ncspot
     bindsym $mod+m exec alacritty -e ncspot
 
+#
 # Moving around:
 #
-    # Move your focus around
-    #bindsym $mod+$left focus left
-    #bindsym $mod+$down focus down
-    #bindsym $mod+$up focus up
-    #bindsym $mod+$right focus right
-    # Or use $mod+[up|down|left|right]
     bindsym $mod+Left focus left
     bindsym $mod+Down focus down
     bindsym $mod+Up focus up
     bindsym $mod+Right focus right
-
-    # Move the focused window with the same, but add Shift
-    #bindsym $mod+Shift+$left move left
-    #bindsym $mod+Shift+$down move down
-    #bindsym $mod+Shift+$up move up
-    #bindsym $mod+Shift+$right move right
-    # Ditto, with arrow keys
     bindsym $mod+Shift+Left move left
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
+
 #
 # Workspaces:
 #
@@ -260,20 +232,9 @@ focus_follows_mouse no
     # Less Gaps
     bindsym $mod+plus exec swaymsg gaps outer current minus 4 && swaymsg gaps inner current minus 4
     
-gaps outer 8
-gaps inner 8
+
 
 mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
-
-    # Ditto, with arrow keys
     bindsym Left resize shrink width 10px
     bindsym Down resize grow height 10px
     bindsym Up resize shrink height 10px
@@ -285,25 +246,11 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-#bar {
- #   position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
- #   status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
-
- #   colors {
-  #      statusline #ffffff
-   #     background #323232
-   #     inactive_workspace #32323200 #32323200 #5c5c5c
-   # }
-#}
-
 ### Some theming stuff
+#
+# Gnome and GTK
+#
+
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
@@ -312,6 +259,16 @@ exec_always {
 }
 
 ### Autostart applications
+#
+#
+#
+
 exec mako
+
+
+### Extras
+#
+#
+#
 
 include /etc/sway/config.d/*
