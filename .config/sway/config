@@ -77,7 +77,6 @@
 #
 
 	focus_follows_mouse no
-	xwayland disabled
 
 ### Key bindings
 #
@@ -87,7 +86,7 @@
     bindsym $mod+Return exec $term
 
     # Start a File manager
-    bindsym $mod+Shift+Return exec alacritty -e nnn
+    bindsym $mod+Shift+Return exec nautilus -w
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -251,12 +250,6 @@ bindsym $mod+r mode "resize"
 # Gnome and GTK
 #
 
-set $gnome-schema org.gnome.desktop.interface
-
-exec_always {
-    gsettings set $gnome-schema gtk-theme 'Flat-Remix-GTK-Blue-Dark'
-    gsettings set $gnome-schema icon-theme 'candy-icons'
-}
 
 ### Autostart applications
 #
