@@ -6,14 +6,15 @@
 [[ $- != *i* ]] && return
 
 ### Some enviromental variables
-#export CLUTTER_BACKEND=wayland
-#export MOZ_ENABLE_WAYLAND=1
-#export XDG_SESSION_TYPE=wayland
-#export _JAVA_AWT_WM_NONREPARENTING=1
+export CLUTTER_BACKEND=wayland
+export MOZ_ENABLE_WAYLAND=1
+export _JAVA_AWT_WM_NONREPARENTING=1
+export XDG_SESSION_TYPE=wayland
+export QT_QPA_PLATFORM=wayland
 
 ### Exports
-export EDITOR=nvim
-export VISUAL=nvim
+export EDITOR=vim
+export VISUAL=vim
 export VIDEO=mpv
 export IMAGE=imv
 export OPENER="xdg-open"
@@ -28,8 +29,8 @@ export TERMINAL=alacritty
 #export TERMINAL=kitty
 export BROWSER=firefox-developer-edition
 export PAGER="less"
-#export WM="sway"
-export WM="i3"
+export WM="sway"
+#export WM="i3"
 export COLORTERM="truecolor"
 
 
@@ -42,15 +43,21 @@ export NNN_PLUG='m:nmount;d:dragdrop'
 
 ################################################
 ### StartX
-if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-	exec startx
-fi
+#if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+#	exec startx
+#fi
 
 ### Start Wayland
-#if [ "$(tty)" = "/dev/tty1" ]; then
-#	exec sway
+if [ "$(tty)" = "/dev/tty1" ]; then
+	exec sway
+fi
+
+### Start Gnome Wayland
+#if [[ -z $DISPLAY && $(tty) == /dev/tty1 && $XDG_SESSION_TYPE == tty ]]; then
+#  exec dbus-run-session gnome-session
 #fi
 ################################################
+
 
 
 ### Aliases
