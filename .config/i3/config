@@ -1,7 +1,7 @@
 # DrSh4dow I3 Config File
 # Variables
 set $mod Mod4
-set $term alacritty
+set $term kitty
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
