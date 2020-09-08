@@ -86,7 +86,7 @@
     bindsym $mod+Return exec $term
 
     # Start a File manager
-    bindsym $mod+Shift+Return exec nautilus -w
+    bindsym $mod+Shift+Return exec alacritty -e nnn
 
     # Kill focused window
     bindsym $mod+Shift+q kill
