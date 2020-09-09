@@ -121,9 +121,9 @@
     bindsym $mod+mod1+Shift+BackSpace exec alacritty -e wf-recorder -f "$(date --iso)-$RANDOM.mp4"
 
     # audio
-    bindsym XF86AudioRaiseVolume exec /usr/bin/pulseaudio-ctl up
-    bindsym XF86AudioLowerVolume exec /usr/bin/pulseaudio-ctl down
-    bindsym XF86AudioMute exec /usr/bin/pulseaudio-ctl mute
+    bindsym XF86AudioRaiseVolume exec /usr/local/bin/volumeup
+    bindsym XF86AudioLowerVolume exec /usr/local/bin/volumedown
+    bindsym XF86AudioMute exec /usr/local/bin/mute-audio
 
     bindsym XF86AudioPlay exec playerctl play-pause
     bindsym XF86AudioNext exec playerctl next
@@ -141,7 +141,7 @@
 
 ### Aplications
 #Browser
-    bindsym $mod+b exec firefox-developer-edition
+    bindsym $mod+b exec firefox
 
 #ncspot
     bindsym $mod+m exec alacritty -e ncspot
