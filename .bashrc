@@ -48,9 +48,9 @@ export NNN_PLUG='m:nmount;d:dragdrop'
 #fi
 
 ### Start Wayland
-if [ "$(tty)" = "/dev/tty1" ]; then
-	exec sway
-fi
+#if [ "$(tty)" = "/dev/tty1" ]; then
+#	exec sway
+#fi
 
 ### Start Gnome Wayland
 #if [[ -z $DISPLAY && $(tty) == /dev/tty1 && $XDG_SESSION_TYPE == tty ]]; then
