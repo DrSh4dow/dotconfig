@@ -21,11 +21,11 @@ bindkey -e
 # End of lines configured by zsh-newuser-install
 
 ### Some enviromental variables
-export CLUTTER_BACKEND=wayland
-export MOZ_ENABLE_WAYLAND=1
-export _JAVA_AWT_WM_NONREPARENTING=1
-export XDG_SESSION_TYPE=wayland
-export QT_QPA_PLATFORM=wayland
+#export CLUTTER_BACKEND=wayland
+#export MOZ_ENABLE_WAYLAND=1
+#export _JAVA_AWT_WM_NONREPARENTING=1
+#export XDG_SESSION_TYPE=wayland
+#export QT_QPA_PLATFORM=wayland
 
 ### Exports
 export EDITOR=vim
@@ -63,9 +63,9 @@ export NNN_PLUG='m:nmount;d:dragdrop'
 #fi
 
 ### Start Wayland
-if [ "$(tty)" = "/dev/tty1" ]; then
-	exec sway
-fi
+#if [ "$(tty)" = "/dev/tty1" ]; then
+#	exec sway
+#fi
 
 ### Start Gnome Wayland
 #if [[ -z $DISPLAY && $(tty) == /dev/tty1 && $XDG_SESSION_TYPE == tty ]]; then
