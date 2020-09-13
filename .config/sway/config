@@ -10,7 +10,7 @@
 	set $right l
 	set $term alacritty
 	set $laptop eDP-1
-	set $backgroundname 502.jpg
+	set $backgroundname 624.jpg
 
 ### Output configuration
 #
@@ -63,8 +63,9 @@
 
 
 	font Nunito
-	client.focused   #44475a #44475a #f8f8f2
-	client.unfocused #282a36 #282a36 #6272a4
+	client.focused          #44475a #44475a #f8f8f2 #bd93f9
+    client.focused_inactive #282a36 #282a36 #6272a4 #bd93f9
+	client.unfocused        #282a36 #282a36 #6272a4 #bd93f9
 
 
 	default_border none
@@ -121,9 +122,9 @@
     bindsym $mod+mod1+Shift+BackSpace exec alacritty -e wf-recorder -f "$(date --iso)-$RANDOM.mp4"
 
     # audio
-    bindsym XF86AudioRaiseVolume exec /usr/local/bin/volumeup
-    bindsym XF86AudioLowerVolume exec /usr/local/bin/volumedown
-    bindsym XF86AudioMute exec /usr/local/bin/mute-audio
+    bindsym XF86AudioRaiseVolume exec /usr/bin/pulseaudio-ctl up
+    bindsym XF86AudioLowerVolume exec /usr/bin/pulseaudio-ctl down
+    bindsym XF86AudioMute exec  /usr/bin/pulseaudio-ctl mute
 
     bindsym XF86AudioPlay exec playerctl play-pause
     bindsym XF86AudioNext exec playerctl next
@@ -139,9 +140,12 @@
     # Change Wallpaper to Random
     bindsym $mod+Shift+apostrophe exec setrandom "/home/drsh4dow/Pictures/backgrounds"
 
+    # Toggle Waybar
+    bindsym $mod+u exec /usr/local/bin/toggle-waybar
+
 ### Aplications
 #Browser
-    bindsym $mod+b exec firefox
+    bindsym $mod+b exec firefox-developer-edition
 
 #ncspot
     bindsym $mod+m exec alacritty -e ncspot
@@ -264,6 +268,8 @@ exec_always {
 #
 
 exec mako
+exec /usr/local/bin/launch-waybar
+
 
 
 ### Extras

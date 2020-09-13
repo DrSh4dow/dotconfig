@@ -11,6 +11,7 @@
 #export _JAVA_AWT_WM_NONREPARENTING=1
 #export XDG_SESSION_TYPE=wayland
 #export QT_QPA_PLATFORM=wayland
+#export SDL_VIDEODRIVER=wayland
 
 ### Exports
 export EDITOR=vim
