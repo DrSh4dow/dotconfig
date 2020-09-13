@@ -1,7 +1,7 @@
 # DrSh4dow I3 Config File
 # Variables
 set $mod Mod4
-set $term kitty
+set $term alacritty
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -57,16 +57,16 @@ client.background       #F8F8F2
     bindsym $mod+Return exec --no-startup-id $term
 
     # Start a File manager
-    bindsym $mod+Shift+Return exec --no-startup-id $term -e nnn
+    bindsym $mod+Shift+Return exec --no-startup-id nautilus -w
 
     # Kill focused window
     bindsym $mod+Shift+q kill
 
     # Rofi Menu
-    bindsym $mod+Shift+d exec rofi -show drun
+    bindsym $mod+Shift+d exec --no-startup-id rofi -show drun
 
     # Take screeshot and copy to clipboard
-    bindsym $mod+Shift+BackSpace exec maim -s | xclip -selection clipboard -t image/png
+    bindsym $mod+Shift+BackSpace exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
 
 
 #
@@ -115,20 +115,20 @@ client.background       #F8F8F2
 # Parameters Control
 #
     # audio
-    bindsym XF86AudioRaiseVolume exec /usr/bin/pulseaudio-ctl up
-    bindsym XF86AudioLowerVolume exec /usr/bin/pulseaudio-ctl down
-    bindsym XF86AudioMute exec /usr/bin/pulseaudio-ctl mute
+    bindsym XF86AudioRaiseVolume exec --no-startup-id /usr/bin/pulseaudio-ctl up
+    bindsym XF86AudioLowerVolume exec --no-startup-id /usr/bin/pulseaudio-ctl down
+    bindsym XF86AudioMute exec --no-startup-id /usr/bin/pulseaudio-ctl mute
 
-    bindsym XF86AudioPlay exec playerctl play-pause
-    bindsym XF86AudioNext exec playerctl next
-    bindsym XF86AudioPrev exec playerctl previous
+    bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+    bindsym XF86AudioNext exec --no-startup-id playerctl next
+    bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
     # Brightness
-    bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-    bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+    bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+    bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 
     # Show date and time
-    bindsym $mod+apostrophe exec notify-send Fecha "$(date)"
+    bindsym $mod+apostrophe exec --no-startup-id notify-send Fecha "$(date)"
 
 
 #
