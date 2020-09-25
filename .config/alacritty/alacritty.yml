@@ -20,6 +20,9 @@ font:
 background_opacity: 0.75
 window:
   decorations: none
+  dimensions:
+    columns: 96
+    lines: 32
 
   #colors:
   # Default colors

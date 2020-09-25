@@ -119,7 +119,7 @@
     bindsym $mod+Shift+BackSpace exec grim -g "$(slurp)" -t png - | wl-copy -t image/png 
 
     # Start screen recording
-    bindsym $mod+mod1+Shift+BackSpace exec alacritty -e wf-recorder -f "$(date --iso)-$RANDOM.mp4"
+    bindsym $mod+mod1+Shift+BackSpace exec alacritty -e wf-recorder -f "$(date --iso)-$RANDOM.mkv"
 
     # audio
     bindsym XF86AudioRaiseVolume exec /usr/bin/pulseaudio-ctl up
@@ -268,7 +268,10 @@ exec_always {
 #
 
 exec mako
-exec /usr/local/bin/launch-waybar
+
+bar {
+  swaybar_command waybar
+}
 
 
 
