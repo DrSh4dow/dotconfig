@@ -6,12 +6,12 @@
 [[ $- != *i* ]] && return
 
 ### Some enviromental variables
-#export CLUTTER_BACKEND=wayland
-#export MOZ_ENABLE_WAYLAND=1
-#export _JAVA_AWT_WM_NONREPARENTING=1
-#export XDG_SESSION_TYPE=wayland
-#export QT_QPA_PLATFORM=wayland
-#export SDL_VIDEODRIVER=wayland
+export CLUTTER_BACKEND=wayland
+export MOZ_ENABLE_WAYLAND=1
+export _JAVA_AWT_WM_NONREPARENTING=1
+export XDG_SESSION_TYPE=wayland
+export QT_QPA_PLATFORM=wayland
+export SDL_VIDEODRIVER=wayland
 
 ### Exports
 export EDITOR=vim
@@ -30,7 +30,7 @@ export TERMINAL=alacritty
 #export TERMINAL=kitty
 export BROWSER=firefox-developer-edition
 export PAGER="less"
-export WM="sway"
+#export WM="sway"
 #export WM="i3"
 export COLORTERM="truecolor"
 
@@ -49,9 +49,9 @@ export NNN_PLUG='m:nmount;d:dragdrop'
 #fi
 
 ### Start Wayland
-#if [ "$(tty)" = "/dev/tty1" ]; then
-#	exec sway
-#fi
+if [ "$(tty)" = "/dev/tty1" ]; then
+	exec sway
+fi
 
 ### Start Gnome Wayland
 #if [[ -z $DISPLAY && $(tty) == /dev/tty1 && $XDG_SESSION_TYPE == tty ]]; then
