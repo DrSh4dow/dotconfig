@@ -86,8 +86,11 @@
     # Start a terminal
     bindsym $mod+Return exec $term
 
-    # Start a File manager
+    # Start a Graphical File Manager
     bindsym $mod+Shift+Return exec nautilus -w
+
+    # Start a Terminal File Manager
+    bindsym $mod+n exec $term -e nnn
 
     # Kill focused window
     bindsym $mod+Shift+q kill

@@ -165,7 +165,7 @@ function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
-    call CocAction('doHover')
+    call CocActionAsync('doHover')
   endif
 endfunction
 
@@ -209,7 +209,7 @@ xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
 " Use CTRL-S for selections ranges.
-" Requires 'textDocument/selectionRange' support of LS, ex: coc-tsserver
+" Requires 'textDocument/selectionRange' support of language server.
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 
@@ -250,8 +250,8 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 - [coc.nvim 插件体系介绍](https://zhuanlan.zhihu.com/p/65524706)
 - [CocList 入坑指南](https://zhuanlan.zhihu.com/p/71846145)
-- [Create coc.nvim extension to improve Vim
-  experience](https://medium.com/@chemzqm/create-coc-nvim-extension-to-improve-vim-experience-4461df269173)
+- [Create coc.nvim extension to improve Vim experience](https://medium.com/@chemzqm/create-coc-nvim-extension-to-improve-vim-experience-4461df269173)
+- [How to write a coc.nvim extension (and why)](https://samroeca.com/coc-plugin.html)
 
 ## Trouble shooting
 

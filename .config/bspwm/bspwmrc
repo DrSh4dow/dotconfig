@@ -1,19 +1,14 @@
 #!/bin/bash
 ### Cleanup
 bspc rule -r "*"
-killall "picom"
-killall "sxhkd"
-killall "feh"
-killall "dunst"
+killall sxhkd
+
+sleep 1
+sxhkd&
 
 ### Rules
 bspc rule -a wine state=floating
 
-### Autostart Applications
-picom &
-feh --bg-scale --no-fehbg ~/Pictures/backgrounds/4.*
-sxhkd &
-dunst &
 ### Monitor & Desktop Settings
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9
