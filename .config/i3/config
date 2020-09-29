@@ -1,4 +1,7 @@
 # DrSh4dow I3 Config File
+exec --no-startup-id killall picom
+exec --no-startup-id xrandr --output eDP1 --mode 1280x800
+
 # Variables
 set $mod Mod4
 set $term alacritty
@@ -135,7 +138,7 @@ client.background       #F8F8F2
 # Applications
 #
     #Browser
-    bindsym $mod+b exec --no-startup-id firefox-developer-edition
+    bindsym $mod+b exec --no-startup-id google-chrome-stable
 
     #ncspot
     bindsym $mod+m exec --no-startup-id $term -e ncspot
@@ -206,3 +209,7 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+
+exec_always --no-startup-id picom &
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh

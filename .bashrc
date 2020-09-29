@@ -6,12 +6,17 @@
 [[ $- != *i* ]] && return
 
 ### Some enviromental variables
+
+## Wayland Variables
 export CLUTTER_BACKEND=wayland
 export MOZ_ENABLE_WAYLAND=1
 export _JAVA_AWT_WM_NONREPARENTING=1
 export XDG_SESSION_TYPE=wayland
 export QT_QPA_PLATFORM=wayland
 export SDL_VIDEODRIVER=wayland
+
+## HiDPI Variables
+#export QT_AUTO_SCREEN_SCALE_FACTOR=1
 
 ### Exports
 export EDITOR=vim
@@ -43,15 +48,16 @@ export NNN_FIFO='/tmp/nnn.fifo'
 export NNN_PLUG='m:nmount;d:dragdrop'
 
 ################################################
-### StartX
-#if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-#	exec startx
-#fi
-
-### Start Wayland
+### Start Sway
 if [ "$(tty)" = "/dev/tty1" ]; then
 	exec sway
 fi
+
+
+### Start Xorg
+#if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+#  exec startx
+#fi
 
 ### Start Gnome Wayland
 #if [[ -z $DISPLAY && $(tty) == /dev/tty1 && $XDG_SESSION_TYPE == tty ]]; then
