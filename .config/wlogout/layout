@@ -1,0 +1,36 @@
+{
+    "label" : "lock",
+    "action" : "swaylock -s fill --font 'Nunito' -i /home/drsh4dow/Pictures/backgrounds/hallowen.png --fade-in 0.5 -f --clock --indicator --effect-blur 4x2 --effect-vignette 0.4:0.75 --datestr '%a %e.%m.%Y' --timestr '%k:%m' --indicator --indicator-radius 100 --ring-color 44475a --key-hl-color f8f8f2aa --line-color 1A202C00 --inside-color 282a3688 --inside-clear-color f8f8f244 --ring-clear-color 44475a --text-color ffb86c --text-clear-color ffb86c",
+    "text" : "Lock",
+    "keybind" : "l"
+}
+{
+    "label" : "hibernate",
+    "action" : "systemctl hibernate",
+    "text" : "Hibernate",
+    "keybind" : "h"
+}
+{
+    "label" : "logout",
+    "action" : "loginctl terminate-user $USER",
+    "text" : "Logout",
+    "keybind" : "e"
+}
+{
+    "label" : "shutdown",
+    "action" : "systemctl poweroff",
+    "text" : "Shutdown",
+    "keybind" : "s"
+}
+{
+    "label" : "suspend",
+    "action" : "systemctl suspend",
+    "text" : "Suspend",
+    "keybind" : "u"
+}
+{
+    "label" : "reboot",
+    "action" : "systemctl reboot",
+    "text" : "Reboot",
+    "keybind" : "r"
+}

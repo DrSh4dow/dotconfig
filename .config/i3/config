@@ -1,7 +1,3 @@
-# DrSh4dow I3 Config File
-exec --no-startup-id killall picom
-exec --no-startup-id xrandr --output eDP1 --mode 1280x800
-
 # Variables
 set $mod Mod4
 set $term alacritty
@@ -211,5 +207,5 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
-exec_always --no-startup-id picom &
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+#exec_always --no-startup-id picom &
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
