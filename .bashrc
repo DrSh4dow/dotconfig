@@ -35,7 +35,7 @@ export TERMINAL=alacritty
 #export TERMINAL=kitty
 export BROWSER=firefox-developer-edition
 export PAGER="less"
-#export WM="sway"
+export WM="sway"
 #export WM="i3"
 export COLORTERM="truecolor"
 

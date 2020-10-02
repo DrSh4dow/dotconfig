@@ -44,9 +44,10 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-#export XDG_SESSION_TYPE=x11
-#export GDK_BACKEND=x11
+export XDG_SESSION_TYPE=x11
+export GDK_BACKEND=x11
 #exec gnome-session
 
-feh --bg-scale /home/drsh4dow/Pictures/backgrounds/624.jpg
+#xrandr --output eDP1 --mode 1280x800
+#feh --bg-scale /home/drsh4dow/Pictures/backgrounds/624.jpg
 exec i3
