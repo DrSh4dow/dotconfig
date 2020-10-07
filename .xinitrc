@@ -6,8 +6,8 @@ sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
 # Kill some nice programs
-killall feh
-killall picom
+#killall feh
+#killall picom
 
 # merge in defaults and keymaps
 
@@ -48,6 +48,5 @@ export XDG_SESSION_TYPE=x11
 export GDK_BACKEND=x11
 #exec gnome-session
 
-#xrandr --output eDP1 --mode 1280x800
-#feh --bg-scale /home/drsh4dow/Pictures/backgrounds/624.jpg
+xrandr --output eDP1 --mode 1280x800
 exec i3

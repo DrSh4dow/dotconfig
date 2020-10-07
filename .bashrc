@@ -35,7 +35,7 @@ export TERMINAL=alacritty
 #export TERMINAL=kitty
 export BROWSER=firefox-developer-edition
 export PAGER="less"
-export WM="sway"
+#export WM="sway"
 #export WM="i3"
 export COLORTERM="truecolor"
 
@@ -60,7 +60,7 @@ fi
 #fi
 
 ### Start Gnome Wayland
-#if [[ -z $DISPLAY && $(tty) == /dev/tty1 && $XDG_SESSION_TYPE == tty ]]; then
+#if [[ -z $DISPLAY && $(tty) == /dev/tty1 ]]; then
 #  exec dbus-run-session gnome-session
 #fi
 ################################################
