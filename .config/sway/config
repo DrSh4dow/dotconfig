@@ -10,9 +10,7 @@
 	set $right l
 	set $term alacritty
 	set $laptop eDP-1
-	set $backgroundname 624.jpg
-
-	xwayland disable
+	set $backgroundname 912.png
 
 ### Output configuration
 #
@@ -24,14 +22,14 @@
 #
 # Resolution Configuration:
 #
-	output eDP-1 resolution 2560x1600 position 0,0 scale 2 
+	#output eDP-1 resolution 2560x1600 position 0,0 scale 2 
 
 
 #
 # Event Laptop Lid Configuration
 #
-	bindswitch --reload --locked lid:on exec swaylock -s fill --font "Nunito" -i /home/drsh4dow/Pictures/backgrounds/hallowen.png --fade-in 0.5 -f --clock --indicator --effect-blur 4x2 --effect-vignette 0.4:0.75 --datestr "%a %e.%m.%Y" --timestr "%k:%m" --indicator --indicator-radius 100 --ring-color 44475a --key-hl-color f8f8f2aa --line-color 1A202C00 --inside-color 282a3688 --inside-clear-color f8f8f244 --ring-clear-color 44475a --text-color ffb86c --text-clear-color ffb86c && swaymsg output $laptop disable
-	bindswitch --reload --locked lid:off output $laptop enable
+#	bindswitch --reload --locked lid:on exec swaylock -s fill --font "Nunito" -i /home/drsh4dow/Pictures/backgrounds/hallowen.png --fade-in 0.5 -f --clock --indicator --effect-blur 4x2 --effect-vignette 0.4:0.75 --datestr "%a %e.%m.%Y" --timestr "%k:%m" --indicator --indicator-radius 100 --ring-color 44475a --key-hl-color f8f8f2aa --line-color 1A202C00 --inside-color 282a3688 --inside-clear-color f8f8f244 --ring-clear-color 44475a --text-color ffb86c --text-clear-color ffb86c && swaymsg output $laptop disable
+#	bindswitch --reload --locked lid:off output $laptop enable
 
 ### Input configuration
 #
@@ -48,7 +46,8 @@
    }
    
 	input type:keyboard { 
-    xkb_layout es
+    xkb_layout us
+    xkb_variant "intl"
 }
 
 
@@ -59,6 +58,8 @@
 #
 
 	for_window [title="Alacritty"] border pixel 1
+        for_window [title="Calculator"] floating enable
+	for_window [title="Progress"] floating enable
 #
 # Style
 #
@@ -90,6 +91,7 @@
 
     # Start a Graphical File Manager
     bindsym $mod+Shift+Return exec nautilus -w
+    bindsym XF86HomePage exec nautilus -w
 
     # Start a Terminal File Manager
     bindsym $mod+n exec $term -e nnn
@@ -97,11 +99,9 @@
     # Kill focused window
     bindsym $mod+Shift+q kill
 
-    # Start your launcher
-    bindsym $mod+d exec $menu
-
     # Wofi Menu
     bindsym $mod+Shift+d exec wofi
+    bindsym XF86Search exec wofi
 
     # Lock Screen
     bindsym $mod+l exec swaylock -s fill --font "Nunito" -i /home/drsh4dow/Pictures/backgrounds/hallowen.png --fade-in 0.5 -f --clock --indicator --effect-blur 4x2 --effect-vignette 0.4:0.75 --datestr "%a %e.%m.%Y" --timestr "%k:%m" --indicator --indicator-radius 100 --ring-color 44475a --key-hl-color f8f8f2aa --line-color 1A202C00 --inside-color 282a3688 --inside-clear-color f8f8f244 --ring-clear-color 44475a --text-color ffb86c --text-clear-color ffb86c
@@ -117,14 +117,14 @@
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+x exec wlogout
+    bindsym $mod+Pause exec wlogout
 
 ### Utilities
     # Take an Screenshot of a rectangular area (copy to clipboard)
-    bindsym $mod+Shift+BackSpace exec grim -g "$(slurp)" -t png - | wl-copy -t image/png 
+    bindsym $mod+Shift+Print exec grim -g "$(slurp)" -t png - | wl-copy -t image/png 
 
     # Start screen recording
-    bindsym $mod+mod1+Shift+BackSpace exec alacritty -e wf-recorder -f "$(date --iso)-$RANDOM.mkv"
+    bindsym $mod+mod1+Shift+Print exec alacritty -e wf-recorder -f "$(date --iso)-$RANDOM.mkv"
 
     # audio
     bindsym XF86AudioRaiseVolume exec /usr/bin/pulseaudio-ctl up
@@ -143,17 +143,23 @@
     bindsym $mod+apostrophe exec notify-send Fecha "$(date)"
 
     # Change Wallpaper to Random
-    bindsym $mod+Shift+apostrophe exec setrandom "/home/drsh4dow/Pictures/backgrounds"
+    bindsym XF86Explorer exec setrandom "/home/drsh4dow/Pictures/backgrounds"
 
     # Toggle Waybar
     bindsym $mod+u exec /usr/local/bin/toggle-waybar
 
 ### Aplications
 #Browser
-    bindsym $mod+b exec firefox
+    bindsym $mod+b exec brave
 
 #ncspot
-    bindsym $mod+m exec alacritty -e ncspot
+    bindsym XF86Tools exec alacritty -e ncspot
+
+#Email Client
+    bindsym XF86Mail exec thunderbird
+
+#Calculator
+    bindsym XF86Calculator exec gnome-calculator
 
 #
 # Moving around:
@@ -200,8 +206,8 @@
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+exclamdown splith
-    bindsym $mod+Shift+exclamdown splitv
+    bindsym $mod+KP_Down splitv
+    bindsym $mod+KP_Right splith
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
@@ -238,7 +244,7 @@
     bindsym $mod+minus exec swaymsg gaps outer current plus 4 && swaymsg gaps inner current plus 4
 
     # Less Gaps
-    bindsym $mod+plus exec swaymsg gaps outer current minus 4 && swaymsg gaps inner current minus 4
+    bindsym $mod+equal exec swaymsg gaps outer current minus 4 && swaymsg gaps inner current minus 4
     
 
 
