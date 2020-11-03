@@ -13,7 +13,7 @@ export MOZ_ENABLE_WAYLAND=1
 export _JAVA_AWT_WM_NONREPARENTING=1
 export XDG_SESSION_TYPE=wayland
 export QT_QPA_PLATFORM=wayland
-export SDL_VIDEODRIVER=wayland
+#export SDL_VIDEODRIVER=wayland
 
 ## HiDPI Variables
 #export QT_AUTO_SCREEN_SCALE_FACTOR=1
@@ -35,7 +35,7 @@ export TERMINAL=alacritty
 #export TERMINAL=kitty
 export BROWSER=firefox-developer-edition
 export PAGER="less"
-#export WM="sway"
+export WM="sway"
 #export WM="i3"
 export COLORTERM="truecolor"
 
