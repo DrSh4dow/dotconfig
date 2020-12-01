@@ -8,11 +8,11 @@
 ### Some enviromental variables
 
 ## Wayland Variables
-export CLUTTER_BACKEND=wayland
-export MOZ_ENABLE_WAYLAND=1
-export _JAVA_AWT_WM_NONREPARENTING=1
-export XDG_SESSION_TYPE=wayland
-export QT_QPA_PLATFORM=wayland
+#export CLUTTER_BACKEND=wayland
+#export MOZ_ENABLE_WAYLAND=1
+#export _JAVA_AWT_WM_NONREPARENTING=1
+#export XDG_SESSION_TYPE=wayland
+#export QT_QPA_PLATFORM=wayland
 #export SDL_VIDEODRIVER=wayland
 
 ## HiDPI Variables
@@ -49,9 +49,9 @@ export NNN_PLUG='m:nmount;d:dragdrop'
 
 ################################################
 ### Start Sway
-if [ "$(tty)" = "/dev/tty1" ]; then
-	exec sway
-fi
+#if [ "$(tty)" = "/dev/tty1" ]; then
+#	exec sway
+#fi
 
 
 ### Start Xorg
