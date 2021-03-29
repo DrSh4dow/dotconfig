@@ -35,20 +35,20 @@
 #
 #
 #
-       input "1452:627:bcm5974" {
-       dwt disabled
-       click_method button_areas
-       tap enabled
-       natural_scroll enabled
-       middle_emulation enabled
-       drag disabled
-       drag_lock disabled
-   }
+#       input "1452:627:bcm5974" {
+#       dwt disabled
+#       click_method button_areas
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#       drag disabled
+#       drag_lock disabled
+#   }
    
 	input type:keyboard { 
-    xkb_layout us
-    xkb_variant "intl"
-}
+          xkb_layout us
+          xkb_variant "intl"
+        }
 
 
 
@@ -60,6 +60,7 @@
 	for_window [title="Alacritty"] border pixel 1
         for_window [title="Calculator"] floating enable
 	for_window [title="Progress"] floating enable
+	for_window [title="zenity"] floating enable
 #
 # Style
 #
@@ -71,8 +72,8 @@
 	client.unfocused        #282a36 #282a36 #6272a4 #bd93f9
 
 
-	default_border none
-	default_floating_border none
+	default_border pixel 1
+	default_floating_border pixel 1
 	gaps outer 8
 	gaps inner 8
 
@@ -121,15 +122,15 @@
 
 ### Utilities
     # Take an Screenshot of a rectangular area (copy to clipboard)
-    bindsym $mod+Shift+Print exec grim -g "$(slurp)" -t png - | wl-copy -t image/png 
+    bindsym Control+Shift+Print exec grim -g "$(slurp)" -t png - | wl-copy -t image/png 
 
     # Start screen recording
     bindsym $mod+mod1+Shift+Print exec alacritty -e wf-recorder -f "$(date --iso)-$RANDOM.mkv"
 
     # audio
-    bindsym XF86AudioRaiseVolume exec /usr/bin/pulseaudio-ctl up
-    bindsym XF86AudioLowerVolume exec /usr/bin/pulseaudio-ctl down
-    bindsym XF86AudioMute exec  /usr/bin/pulseaudio-ctl mute
+    bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute && notify-send " " -h int:value:$(pactl list sinks | grep '^[[:space:]]Volume:' | sed '3d' | sed '1d' | cut -d " " -f 6 | cut -d "%" -f 1)
+    bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute && notify-send " " -h int:value:$(pactl list sinks | grep '^[[:space:]]Volume:' | sed '3d' | sed '1d' | cut -d " " -f 6 | cut -d "%" -f 1)
+    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && notify-send "mute toggled"
 
     bindsym XF86AudioPlay exec playerctl play-pause
     bindsym XF86AudioNext exec playerctl next
@@ -150,7 +151,7 @@
 
 ### Aplications
 #Browser
-    bindsym $mod+b exec brave
+    bindsym $mod+b exec firefox
 
 #ncspot
     bindsym XF86Tools exec alacritty -e ncspot
@@ -168,6 +169,8 @@
     bindsym $mod+Down focus down
     bindsym $mod+Up focus up
     bindsym $mod+Right focus right
+    bindsym Alt+Tab focus next
+
     bindsym $mod+Shift+Left move left
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
@@ -206,8 +209,8 @@
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+KP_Down splitv
-    bindsym $mod+KP_Right splith
+    bindsym $mod+Alt+Down splitv
+    bindsym $mod+Alt+Right splith
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
@@ -268,8 +271,8 @@ bindsym $mod+r mode "resize"
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
-    gsettings set $gnome-schema gtk-theme 'gtk-master'
-    gsettings set $gnome-schema icon-theme 'candy-icons'
+    gsettings set $gnome-schema gtk-theme 'Dracula'
+    gsettings set $gnome-schema icon-theme 'BeautyLine'
 }
 
 
@@ -278,8 +281,16 @@ exec_always {
 #
 #
 
+# Notification Manager
 exec mako
 
+# XDG-app manager
+exec dex -a -s ~/.config/autostart/
+
+# Clipboard manager
+exec wl-paste -t text --watch clipman store
+
+# Waybar
 bar {
   swaybar_command waybar
 }

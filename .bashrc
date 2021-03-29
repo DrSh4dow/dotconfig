@@ -11,9 +11,10 @@
 #export CLUTTER_BACKEND=wayland
 #export MOZ_ENABLE_WAYLAND=1
 #export _JAVA_AWT_WM_NONREPARENTING=1
-#export XDG_SESSION_TYPE=wayland
+export XDG_SESSION_TYPE=wayland
 #export QT_QPA_PLATFORM=wayland
 #export SDL_VIDEODRIVER=wayland
+export XDG_CURRENT_DESKTOP=sway
 
 ## HiDPI Variables
 #export QT_AUTO_SCREEN_SCALE_FACTOR=1
@@ -22,9 +23,9 @@
 export EDITOR=vim
 export VISUAL=vim
 export VIDEO=mpv
-export IMAGE=imv
+export IMAGE=eog
 export OPENER="xdg-open"
-export READER=zathura
+export READER=evince
 export GOROOT="/usr/lib/go"
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
@@ -49,9 +50,9 @@ export NNN_PLUG='m:nmount;d:dragdrop'
 
 ################################################
 ### Start Sway
-#if [ "$(tty)" = "/dev/tty1" ]; then
-#	exec sway
-#fi
+if [ "$(tty)" = "/dev/tty1" ]; then
+	exec sway
+fi
 
 
 ### Start Xorg

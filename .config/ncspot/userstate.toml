@@ -1,0 +1,6 @@
+volume = 65535
+shuffle = false
+repeat = 'off'
+queue = []
+
+[playlist_orders]
