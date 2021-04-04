@@ -125,11 +125,11 @@
     bindsym Control+Shift+Print exec grim -g "$(slurp)" -t png - | wl-copy -t image/png 
 
     # Start screen recording
-    bindsym $mod+mod1+Shift+Print exec alacritty -e wf-recorder -f "$(date --iso)-$RANDOM.mkv"
+    bindsym $mod+Shift+Print exec alacritty -e wf-recorder -a -f "$(date --iso)-$RANDOM.mkv"
 
     # audio
-    bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute && notify-send " " -h int:value:$(pactl list sinks | grep '^[[:space:]]Volume:' | sed '3d' | sed '1d' | cut -d " " -f 6 | cut -d "%" -f 1)
-    bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute && notify-send " " -h int:value:$(pactl list sinks | grep '^[[:space:]]Volume:' | sed '3d' | sed '1d' | cut -d " " -f 6 | cut -d "%" -f 1)
+    bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute && notify-send " " -h int:value:$(pactl list sinks | grep '^[[:space:]]Volume:' | sed '2d' | sed '1d' | cut -d " " -f 6 | cut -d "%" -f 1)
+    bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute && notify-send " " -h int:value:$(pactl list sinks | grep '^[[:space:]]Volume:' | sed '2d' | sed '1d' | cut -d " " -f 6 | cut -d "%" -f 1)
     bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && notify-send "mute toggled"
 
     bindsym XF86AudioPlay exec playerctl play-pause
