@@ -10,7 +10,7 @@
 	set $right l
 	set $term alacritty
 	set $laptop eDP-1
-	set $backgroundname 912.png
+	set $backgroundname 1312.jpg
 
 ### Output configuration
 #
@@ -128,9 +128,9 @@
     bindsym $mod+Shift+Print exec alacritty -e wf-recorder -a -f "$(date --iso)-$RANDOM.mkv"
 
     # audio
-    bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute && notify-send " " -h int:value:$(pactl list sinks | grep '^[[:space:]]Volume:' | sed '2d' | sed '1d' | cut -d " " -f 6 | cut -d "%" -f 1)
-    bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute && notify-send " " -h int:value:$(pactl list sinks | grep '^[[:space:]]Volume:' | sed '2d' | sed '1d' | cut -d " " -f 6 | cut -d "%" -f 1)
-    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && notify-send "mute toggled"
+    bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ | sed -En 's/.*\[([0-9]+)%\].*/\1/p' | head -1 > $SWAYSOCK.wob
+    bindsym XF86AudioLowerVolume exec amixer set Master 5%- | sed -En 's/.*\[([0-9]+)%\].*/\1/p' | head -1 > $SWAYSOCK.wob
+    bindsym XF86AudioMute exec amixer sset Master toggle | sed -En '/\[on\]/ s/.*\[([0-9]+)%\].*/\1/ p; /\[off\]/ s/.*/0/p' | head -1 > $SWAYSOCK.wob
 
     bindsym XF86AudioPlay exec playerctl play-pause
     bindsym XF86AudioNext exec playerctl next
@@ -151,7 +151,7 @@
 
 ### Aplications
 #Browser
-    bindsym $mod+b exec firefox
+    bindsym $mod+b exec brave
 
 #ncspot
     bindsym XF86Tools exec alacritty -e ncspot
@@ -289,6 +289,9 @@ exec dex -a -s ~/.config/autostart/
 
 # Clipboard manager
 exec wl-paste -t text --watch clipman store
+
+# Audio Bar
+exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob -W 240 -H 32 -a right -a top -M 24 --background-color "#ff161925" --border-color "#ff161925" --bar-color "#ffc74ded" -o 0
 
 # Waybar
 bar {

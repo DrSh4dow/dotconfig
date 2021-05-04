@@ -1,0 +1,6 @@
+[Unit]
+Description=Change wallpaper at regular intervals
+
+[Service]
+Type=oneshot
+ExecStart=setrandom /home/drsh4dow/Pictures/backgrounds
