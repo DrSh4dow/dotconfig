@@ -3,8 +3,6 @@
 " Package Management
 "
 
-  packadd! dracula
-
 """"""""""""""""""""""""""""""
 "
 " General Configuration
