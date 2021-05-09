@@ -67,8 +67,8 @@
 
 
 	font Nunito
-	client.focused          #44475a #44475a #f8f8f2 #bd93f9
-        client.focused_inactive #282a36 #282a36 #6272a4 #bd93f9
+	client.focused          #44475a #44475a #f8f8f2 #44475a
+    client.focused_inactive #282a36 #282a36 #6272a4 #bd93f9
 	client.unfocused        #282a36 #282a36 #6272a4 #bd93f9
 
 
@@ -82,6 +82,7 @@
 #
 
 	focus_follows_mouse no
+    xwayland enable
 
 ### Key bindings
 #

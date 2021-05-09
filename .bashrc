@@ -8,14 +8,14 @@
 ### Some enviromental variables
 
 ## Wayland Variables
-export CLUTTER_BACKEND=wayland
+#export CLUTTER_BACKEND=wayland
 #export MOZ_ENABLE_WAYLAND=1
-export _JAVA_AWT_WM_NONREPARENTING=1
-export XDG_SESSION_TYPE=wayland
-export QT_QPA_PLATFORM=wayland
+#export _JAVA_AWT_WM_NONREPARENTING=1
+#export XDG_SESSION_TYPE=wayland
+#export QT_QPA_PLATFORM=wayland
 #export SDL_VIDEODRIVER=wayland
-export XDG_CURRENT_DESKTOP=sway
-export QT_QPA_PLATFORMTHEME=qt5ct
+#export XDG_CURRENT_DESKTOP=sway
+#export QT_QPA_PLATFORMTHEME=qt5ct
 
 ## HiDPI Variables
 #export QT_AUTO_SCREEN_SCALE_FACTOR=1
@@ -51,10 +51,10 @@ export NNN_PLUG='m:nmount;d:dragdrop'
 
 ################################################
 ### Start Sway
-if [ "$(tty)" = "/dev/tty1" ]; then
-	systemctl --user start wallpaper.timer
-	exec sway
-fi
+#if [ "$(tty)" = "/dev/tty1" ]; then
+#	systemctl --user start wallpaper.timer
+#	exec sway
+#fi
 
 
 ### Start Xorg
