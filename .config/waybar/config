@@ -2,7 +2,7 @@
     "layer": "top",
     "modules-left": ["sway/workspaces"],
     "modules-center": ["sway/window"],
-    "modules-right": ["tray","memory","cpu","battery","network" ,"clock"],
+    "modules-right": ["tray","memory","cpu","network" ,"clock"],
     "sway/window": {
         "format": "{}",
         "max-length": 50

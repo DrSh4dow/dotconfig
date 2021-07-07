@@ -58,9 +58,10 @@
 #
 
 	for_window [title="Alacritty"] border pixel 1
-        for_window [title="Calculator"] floating enable
+    for_window [title="Calculator"] floating enable
 	for_window [title="Progress"] floating enable
 	for_window [title="zenity"] floating enable
+	for_window [title="video0"] floating enable
 #
 # Style
 #
@@ -125,13 +126,19 @@
     # Take an Screenshot of a rectangular area (copy to clipboard)
     bindsym Control+Shift+Print exec grim -g "$(slurp)" -t png - | wl-copy -t image/png 
 
+    # Take an Screenshot of an area and save it to Pictures
+    bindsym Print exec grim -g "$(slurp)" -t png ~/Pictures/$(date +%Y-%m-%d_%H-%m-%s).png
+
+    # Start Webcam Screencast
+    bindsym $mod+w exec /home/drsh4dow/Projects/myconfigs/scripts/webcam-screencast
+
     # Start screen recording
     bindsym $mod+Shift+Print exec alacritty -e wf-recorder -a -f "$(date --iso)-$RANDOM.mkv"
 
     # audio
-    bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ | sed -En 's/.*\[([0-9]+)%\].*/\1/p' | head -1 > $SWAYSOCK.wob
-    bindsym XF86AudioLowerVolume exec amixer set Master 5%- | sed -En 's/.*\[([0-9]+)%\].*/\1/p' | head -1 > $SWAYSOCK.wob
-    bindsym XF86AudioMute exec amixer sset Master toggle | sed -En '/\[on\]/ s/.*\[([0-9]+)%\].*/\1/ p; /\[off\]/ s/.*/0/p' | head -1 > $SWAYSOCK.wob
+    bindsym XF86AudioRaiseVolume exec pamixer -i 5 && pamixer --get-volume > $SWAYSOCK.wob
+    bindsym XF86AudioLowerVolume exec pamixer -d 5 && pamixer --get-volume > $SWAYSOCK.wob
+    bindsym XF86AudioMute exec pamixer -t && notify-send "Muted: $(pamixer --get-mute)"
 
     bindsym XF86AudioPlay exec playerctl play-pause
     bindsym XF86AudioNext exec playerctl next
@@ -152,10 +159,10 @@
 
 ### Aplications
 #Browser
-    bindsym $mod+b exec brave
+    bindsym $mod+b exec brave --enable-features=UseOzonePlatform --ozone-platform=wayland
 
 #ncspot
-    bindsym XF86Tools exec alacritty -e ncspot
+    bindsym $mod+m exec alacritty -e ncspot
 
 #Email Client
     bindsym XF86Mail exec thunderbird
@@ -213,11 +220,8 @@
     bindsym $mod+Alt+Down splitv
     bindsym $mod+Alt+Right splith
 
-    # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
-
+    bindsym $mod+t layout tabbed
+    bindsym $mod+e layout default
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
 
@@ -252,17 +256,17 @@
     
 
 
-mode "resize" {
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
-
-    # Return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+r mode "resize"
+#mode "resize" {
+#    bindsym Left resize shrink width 10px
+#    bindsym Down resize grow height 10px
+#    bindsym Up resize shrink height 10px
+#    bindsym Right resize grow width 10px
+#
+#    # Return to default mode
+#    bindsym Return mode "default"
+#    bindsym Escape mode "default"
+#}
+#bindsym $mod+r mode "resize"
 
 ### Some theming stuff
 #
@@ -281,6 +285,9 @@ exec_always {
 #
 #
 #
+
+# Polkit manager
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Notification Manager
 exec mako
