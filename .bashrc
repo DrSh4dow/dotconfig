@@ -30,7 +30,7 @@ export READER=evince
 export GOROOT="/usr/lib/go"
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
-export PATH="$GOBIN:$HOME/Projects/myconfigs/scripts:$HOME/.local/bin:$PATH"
+export PATH="$GOBIN:$HOME/Projects/myconfigs/scripts:$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
 export CLICOLOR=1
 export TERM=xterm-256color
 export TERMINAL=alacritty
@@ -39,6 +39,7 @@ export PAGER="less"
 export WM="sway"
 #export WM="i3"
 export COLORTERM="truecolor"
+export RUSTFLAGS="-C target-cpu=native -C opt-level=2"
 
 
 ### NNN Configuration
