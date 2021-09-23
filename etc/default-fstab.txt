@@ -1,0 +1,13 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+
+tmpfs /tmp tmpfs defaults,noatime,mode=1777 0 0
+# /dev/nvme0n1p2
+UUID=bd54a7fb-c6f2-4a68-82ef-dbf689e5908b	/         	btrfs     	rw,relatime,ssd,space_cache,subvolid=5,subvol=/	0 0
+
+# /dev/nvme0n1p1
+UUID=C137-7FD7      	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
+
+UUID="8fb8db50-e29d-4c28-a5d7-fe7683f55a9f"	/mnt/teradisk	ext4	defaults,rw,noatime	0 2
