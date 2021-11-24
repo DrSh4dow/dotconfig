@@ -7,10 +7,6 @@
         "format": "{}",
         "max-length": 50
     },
-    "battery": {
-        "format": "{icon}",
-        "format-icons": ["", "", "", "", ""]
-    },
     "clock": {
         "interval": 60,
         "format": "{:%d, %b  %H:%M}",
