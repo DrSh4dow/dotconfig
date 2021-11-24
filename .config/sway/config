@@ -10,7 +10,7 @@
 	set $right l
 	set $term alacritty
 	set $laptop eDP-1
-	set $backgroundname 1312.jpg
+	set $backgroundname 1947.png
 
 ### Output configuration
 #
@@ -23,6 +23,7 @@
 # Resolution Configuration:
 #
 	#output eDP-1 resolution 2560x1600 position 0,0 scale 2 
+	output DP-1 mode 1920x1080@165.003Hz
 
 
 #
@@ -58,7 +59,7 @@
 #
 
 	for_window [title="Alacritty"] border pixel 1
-    for_window [title="Calculator"] floating enable
+        for_window [title="Calculator"] floating enable
 	for_window [title="Progress"] floating enable
 	for_window [title="zenity"] floating enable
 	for_window [title="video0"] floating enable
@@ -97,7 +98,7 @@
     bindsym XF86HomePage exec nautilus -w
 
     # Start a Terminal File Manager
-    bindsym $mod+n exec $term -e nnn
+    #bindsym $mod+n exec $term -e nnn
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -159,7 +160,7 @@
 
 ### Aplications
 #Browser
-    bindsym $mod+b exec brave --enable-features=UseOzonePlatform --ozone-platform=wayland
+    bindsym $mod+b exec brave
 
 #ncspot
     bindsym $mod+m exec alacritty -e ncspot
@@ -299,7 +300,7 @@ exec dex -a -s ~/.config/autostart/
 exec wl-paste -t text --watch clipman store
 
 # Audio Bar
-exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob -W 240 -H 32 -a right -a top -M 24 --background-color "#ff161925" --border-color "#ff161925" --bar-color "#ffc74ded" -o 0
+exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob -W 240 -H 32 -a right -a top -M 24 --background-color "#161925ff" --border-color "#161925ff" --bar-color "#c74dedff" -o 0
 
 # Waybar
 bar {
