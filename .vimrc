@@ -86,14 +86,6 @@ packadd! dracula
   let g:syntastic_check_on_open = 1
   let g:syntastic_check_on_wq = 0
 
-"
-" Rust.Vim
-"
-
-  let g:rustfmt_autosave = 1
-
- 
-
 """"""""""""""""""""""""""""""
 "
 " Keybindings
@@ -104,9 +96,6 @@ packadd! dracula
   nmap <silent> <A-Down> :wincmd j<CR>
   nmap <silent> <A-Left> :wincmd h<CR>
   nmap <silent> <A-Right> :wincmd l<CR>
-
-" Use <c-space> to trigger completion.
-  inoremap <silent><expr> <c-@> coc#refresh()
 
 
 

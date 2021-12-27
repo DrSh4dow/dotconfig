@@ -8,9 +8,9 @@
 ### Some enviromental variables
 
 ## Wayland Variables
-export CLUTTER_BACKEND=wayland
-export MOZ_ENABLE_WAYLAND=1
-export _JAVA_AWT_WM_NONREPARENTING=1
+#export CLUTTER_BACKEND=wayland
+#export MOZ_ENABLE_WAYLAND=1
+#export _JAVA_AWT_WM_NONREPARENTING=1
 #export XDG_SESSION_TYPE=wayland
 #export QT_QPA_PLATFORM=wayland
 #export SDL_VIDEODRIVER=wayland
@@ -34,9 +34,9 @@ export PATH="$GOBIN:$HOME/Projects/myconfigs/scripts:$HOME/.local/bin:$HOME/.car
 export CLICOLOR=1
 export TERM=xterm-256color
 export TERMINAL=konsole
-export BROWSER=firefox
+export BROWSER=brave
 export PAGER="less"
-export WM="sway"
+#export WM="sway"
 export COLORTERM="truecolor"
 export RUSTFLAGS="-C target-cpu=native -C opt-level=2"
 
@@ -77,7 +77,7 @@ alias mv='mv -i'
 alias cmatrix='cmatrix -bC blue'
 alias tiktak='tty-clock -scC 4'
 alias tr='transmission-remote'
-alias mpv='SDL_VIDEODRIVER=wayland mpv'
+#alias mpv='SDL_VIDEODRIVER=wayland mpv'
 ###
 
 PS1="[\[\e[31m\]\u\[\e[m\]@\[\e[36m\]\h\[\e[m\] \W]\\$ "
