@@ -2,7 +2,7 @@
     "layer": "top",
     "modules-left": ["sway/workspaces"],
     "modules-center": ["sway/window"],
-    "modules-right": ["tray","memory","cpu","network" ,"clock"],
+    "modules-right": ["tray","memory","cpu","battery","network" ,"clock"],
     "sway/window": {
         "format": "{}",
         "max-length": 50
@@ -37,5 +37,16 @@
 "tray": {
     "icon-size": 21,
     "spacing": 10
+},
+"battery": {
+    "bat": "BAT1",
+    "interval": 60,
+    "states": {
+        "warning": 30,
+        "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-icons": ["", "", "", "", ""],
+    "max-length": 25
 }
 }
