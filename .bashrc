@@ -71,13 +71,14 @@ fi
 
 ### Aliases
 alias ls='exa'
-alias l='exa -lahg'
+alias l='exa -lahg --icons'
 alias grep='grep --color=auto'
 alias mv='mv -i'
 alias cmatrix='cmatrix -bC blue'
 alias tiktak='tty-clock -scC 4'
 alias tr='transmission-remote'
 alias mpv='SDL_VIDEODRIVER=wayland mpv'
+alias vim='nvim'
 ###
 
 PS1="[\[\e[31m\]\u\[\e[m\]@\[\e[36m\]\h\[\e[m\] \W]\\$ "
