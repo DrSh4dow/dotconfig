@@ -47,7 +47,8 @@
        }
    
 	input type:keyboard { 
-          xkb_layout es
+          xkb_layout es,us
+	  xkb_variant "alt-intl"
         }
 	
 	seat seat0 hide_cursor 5000
