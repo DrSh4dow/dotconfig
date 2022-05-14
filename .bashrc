@@ -71,7 +71,7 @@ export NNN_PLUG='m:nmount;d:dragdrop'
 
 ### Aliases
 alias ls='exa'
-alias l='exa -lahg'
+alias l='exa -lahg --icons'
 alias grep='grep --color=auto'
 alias mv='mv -i'
 alias cmatrix='cmatrix -bC blue'
