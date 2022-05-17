@@ -8,9 +8,9 @@
 	set $down j
 	set $up k
 	set $right l
-	set $term alacritty
+	set $term foot
 	set $laptop eDP-1
-	set $backgroundname 1947.png
+	set $backgroundname 1949.png
 
 ### Output configuration
 #
@@ -23,7 +23,7 @@
 # Resolution Configuration:
 #
 	#output eDP-1 resolution 2560x1600 position 0,0 scale 2 
-	output DP-1 mode 1920x1080@165.003Hz
+#	output DP-1 mode 1920x1080@165.003Hz
 
 
 #
@@ -36,20 +36,22 @@
 #
 #
 #
-#       input "1452:627:bcm5974" {
-#       dwt disabled
-#       click_method button_areas
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#       drag disabled
-#       drag_lock disabled
-#   }
+       input type:touchpad {
+       dwt disabled
+       click_method button_areas
+       tap enabled
+       natural_scroll enabled
+       middle_emulation enabled
+       drag disabled
+       drag_lock disabled
+       }
    
 	input type:keyboard { 
-          xkb_layout us
-          xkb_variant "intl"
+          xkb_layout es,us
+	  xkb_variant "alt-intl"
         }
+	
+	seat seat0 hide_cursor 5000
 
 
 
@@ -59,6 +61,7 @@
 #
 
 	for_window [title="Alacritty"] border pixel 1
+	for_window [title="Foot"] border pixel 1
         for_window [title="Calculator"] floating enable
 	for_window [title="Progress"] floating enable
 	for_window [title="zenity"] floating enable
@@ -70,7 +73,7 @@
 
 	font Nunito
 	client.focused          #44475a #44475a #f8f8f2 #44475a
-    client.focused_inactive #282a36 #282a36 #6272a4 #bd93f9
+        client.focused_inactive #282a36 #282a36 #6272a4 #bd93f9
 	client.unfocused        #282a36 #282a36 #6272a4 #bd93f9
 
 
@@ -84,7 +87,7 @@
 #
 
 	focus_follows_mouse no
-    xwayland enable
+        xwayland enable
 
 ### Key bindings
 #
@@ -94,11 +97,11 @@
     bindsym $mod+Return exec $term
 
     # Start a Graphical File Manager
-    bindsym $mod+Shift+Return exec nautilus -w
-    bindsym XF86HomePage exec nautilus -w
+    bindsym $mod+Shift+Return exec dolphin
+    bindsym XF86HomePage exec dolphin
 
     # Start a Terminal File Manager
-    #bindsym $mod+n exec $term -e nnn
+    bindsym $mod+n exec $term -e nnn
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -108,7 +111,7 @@
     bindsym XF86Search exec wofi
 
     # Lock Screen
-    bindsym $mod+l exec swaylock -s fill --font "Nunito" -i /home/drsh4dow/Pictures/backgrounds/hallowen.png --fade-in 0.5 -f --clock --indicator --effect-blur 4x2 --effect-vignette 0.4:0.75 --datestr "%a %e.%m.%Y" --timestr "%k:%m" --indicator --indicator-radius 100 --ring-color 44475a --key-hl-color f8f8f2aa --line-color 1A202C00 --inside-color 282a3688 --inside-clear-color f8f8f244 --ring-clear-color 44475a --text-color ffb86c --text-clear-color ffb86c
+    bindsym $mod+l exec swaylock 
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -121,7 +124,7 @@
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Pause exec wlogout
+    bindsym Insert exec wlogout
 
 ### Utilities
     # Take an Screenshot of a rectangular area (copy to clipboard)
@@ -134,7 +137,7 @@
     bindsym $mod+w exec /home/drsh4dow/Projects/myconfigs/scripts/webcam-screencast
 
     # Start screen recording
-    bindsym $mod+Shift+Print exec alacritty -e wf-recorder -a -f "$(date --iso)-$RANDOM.mkv"
+    bindsym $mod+Shift+Print exec foot wf-recorder -a -f "$(date --iso)-$RANDOM.mkv"
 
     # audio
     bindsym XF86AudioRaiseVolume exec pamixer -i 5 && pamixer --get-volume > $SWAYSOCK.wob
@@ -153,23 +156,23 @@
     bindsym $mod+apostrophe exec notify-send Fecha "$(date)"
 
     # Change Wallpaper to Random
-    bindsym XF86Explorer exec setrandom "/home/drsh4dow/Pictures/backgrounds"
+    bindsym $mod+exclamdown exec setrandom "/home/drsh4dow/Pictures/backgrounds"
 
     # Toggle Waybar
-    bindsym $mod+u exec /usr/local/bin/toggle-waybar
+#    bindsym $mod+u exec /usr/local/bin/toggle-waybar
 
 ### Aplications
 #Browser
-    bindsym $mod+b exec brave
+    bindsym $mod+b exec firefox
 
 #ncspot
-    bindsym $mod+m exec alacritty -e ncspot
+    bindsym $mod+m exec foot ncspot
 
 #Email Client
     bindsym XF86Mail exec thunderbird
 
 #Calculator
-    bindsym XF86Calculator exec gnome-calculator
+    bindsym XF86Calculator exec qalculate-qt
 
 #
 # Moving around:
@@ -253,7 +256,7 @@
     bindsym $mod+minus exec swaymsg gaps outer current plus 4 && swaymsg gaps inner current plus 4
 
     # Less Gaps
-    bindsym $mod+equal exec swaymsg gaps outer current minus 4 && swaymsg gaps inner current minus 4
+    bindsym $mod+plus exec swaymsg gaps outer current minus 4 && swaymsg gaps inner current minus 4
     
 
 
