@@ -2,16 +2,18 @@
 # ~/.bashrc
 #
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
 
 ### Some enviromental variables
 
 ## Wayland Variables
-#export CLUTTER_BACKEND=wayland
-#export MOZ_ENABLE_WAYLAND=1
-#export _JAVA_AWT_WM_NONREPARENTING=1
-#export XDG_SESSION_TYPE=wayland
+export CLUTTER_BACKEND=wayland
+export MOZ_ENABLE_WAYLAND=1
+export _JAVA_AWT_WM_NONREPARENTING=1
+export XDG_SESSION_TYPE=wayland
 #export QT_QPA_PLATFORM=wayland-egl
 #export SDL_VIDEODRIVER=wayland
 #export XDG_CURRENT_DESKTOP=sway
@@ -30,11 +32,11 @@ export READER=okular
 export GOROOT="/usr/lib/go"
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
-export PATH="$GOBIN:$HOME/Projects/myconfigs/scripts:$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
+export PATH="$GOBIN:$HOME/Projects/dotconfig/scripts:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/bin:$PATH"
 export CLICOLOR=1
 export TERM=xterm-256color
 export TERMINAL=konsole
-#export BROWSER=firefox
+export BROWSER=firefox
 export PAGER="less"
 #export WM="sway"
 export COLORTERM="truecolor"
@@ -68,6 +70,19 @@ export NNN_PLUG='m:nmount;d:dragdrop'
 ################################################
 
 
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+        for rc in ~/.bashrc.d/*; do
+                if [ -f "$rc" ]; then
+                        . "$rc"
+                fi
+        done
+fi
+
+unset rc
 
 ### Aliases
 alias ls='exa'
@@ -78,7 +93,7 @@ alias cmatrix='cmatrix -bC blue'
 alias tiktak='tty-clock -scC 4'
 alias tr='transmission-remote'
 #alias mpv='SDL_VIDEODRIVER=wayland mpv'
-#alias vim='nvim'
+alias vim='nvim'
 ###
 
 PS1="[\[\e[31m\]\u\[\e[m\]@\[\e[36m\]\h\[\e[m\] \W]\\$ "
