@@ -33,7 +33,7 @@ set incsearch
 
 " Moar config
 set scrolloff=8
-set colorcolumn=96
+set colorcolumn=80
 set signcolumn=yes
 set termguicolors
 set background=dark
