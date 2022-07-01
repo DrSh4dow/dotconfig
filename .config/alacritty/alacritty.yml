@@ -1,18 +1,18 @@
 font:
   normal:
-    family: Source Code Pro 
+    family: Comic Code Ligatures
     style: Regular
 
   bold:
-    family: Source Code Pro
+    family: Comic Code Ligatures
     style: Bold
 
   italic:
-    family: Source Code Pro
+    family: Comic Code Ligatures
     style: Italic
 
   bold_italic:
-    family: Source Code Pro
+    family: Comic Code Ligatures
     style: Bold Italic
 
   size: 10

@@ -10,10 +10,10 @@ fi
 ### Some enviromental variables
 
 ## Wayland Variables
-export CLUTTER_BACKEND=wayland
-export MOZ_ENABLE_WAYLAND=1
-export _JAVA_AWT_WM_NONREPARENTING=1
-export XDG_SESSION_TYPE=wayland
+#export CLUTTER_BACKEND=wayland
+#export MOZ_ENABLE_WAYLAND=1
+#export _JAVA_AWT_WM_NONREPARENTING=1
+#export XDG_SESSION_TYPE=wayland
 #export QT_QPA_PLATFORM=wayland-egl
 #export SDL_VIDEODRIVER=wayland
 #export XDG_CURRENT_DESKTOP=sway
@@ -26,16 +26,16 @@ export XDG_SESSION_TYPE=wayland
 export EDITOR=vim
 export VISUAL=code
 export VIDEO=mpv
-export IMAGE=gwenview
+export IMAGE=eog
 export OPENER="xdg-open"
-export READER=okular
+export READER=evince
 export GOROOT="/usr/lib/go"
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
 export PATH="$GOBIN:$HOME/Projects/dotconfig/scripts:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/bin:$PATH"
 export CLICOLOR=1
 export TERM=xterm-256color
-export TERMINAL=konsole
+export TERMINAL=alacritty
 export BROWSER=firefox
 export PAGER="less"
 #export WM="sway"
