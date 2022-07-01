@@ -47,14 +47,14 @@ set clipboard+=unnamedplus
 call plug#begin('~/.vim/plugged')
 
 " Telescope and dependencies
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
 
 " Theme
 Plug 'gruvbox-community/gruvbox'
 
 " LSPCONFIG
-Plug 'neovim/nvim-lspconfig'
+" Plug 'neovim/nvim-lspconfig'
 
 call plug#end()
 
