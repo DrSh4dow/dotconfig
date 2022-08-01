@@ -25,8 +25,8 @@ fi
 ### Exports
 export EDITOR=vim
 export VISUAL=code
-export VIDEO=mpv
-export IMAGE=eog
+export VIDEO=vlc
+export IMAGE=okular
 export OPENER="xdg-open"
 export READER=evince
 export GOROOT="/usr/lib/go"
@@ -35,8 +35,8 @@ export GOBIN="$GOPATH/bin"
 export PATH="$GOBIN:$HOME/Projects/dotconfig/scripts:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/bin:$PATH"
 export CLICOLOR=1
 export TERM=xterm-256color
-export TERMINAL=alacritty
-export BROWSER=firefox
+export TERMINAL=konsole
+export BROWSER=firefox-developer-edition
 export PAGER="less"
 #export WM="sway"
 export COLORTERM="truecolor"
@@ -87,13 +87,14 @@ unset rc
 ### Aliases
 alias ls='exa'
 alias l='exa -lahg --icons'
-alias grep='grep --color=auto'
+alias grep='rg --color=auto'
 alias mv='mv -i'
 alias cmatrix='cmatrix -bC blue'
 alias tiktak='tty-clock -scC 4'
 alias tr='transmission-remote'
 #alias mpv='SDL_VIDEODRIVER=wayland mpv'
 alias vim='nvim'
+alias cat='bat -pp' 
 ###
 
 PS1="[\[\e[31m\]\u\[\e[m\]@\[\e[36m\]\h\[\e[m\] \W]\\$ "
