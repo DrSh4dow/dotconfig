@@ -1,0 +1,183 @@
+
+### Variables
+#
+#
+#
+
+	set $mod Mod4
+	set $left h
+	set $down j
+	set $up k
+	set $right l
+	set $term foot
+
+
+### Key bindings
+#
+# Basics:
+#
+    # Start a terminal
+    bindsym $mod+Return exec $term
+
+    # Start a Graphical File Manager
+    bindsym $mod+Shift+Return exec dolphin
+    bindsym XF86HomePage exec dolphin
+
+    # Start a Terminal File Manager
+    bindsym $mod+n exec $term -e nnn
+
+    # Kill focused window
+    bindsym $mod+Shift+q kill
+
+    # Wofi Menu
+    bindsym $mod+Shift+d exec wofi
+    bindsym XF86Search exec wofi
+
+    # Lock Screen
+    bindsym $mod+l exec swaylock 
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    bindsym $mod+Shift+c reload
+
+    # Exit sway (logs you out of your Wayland session)
+    bindsym Insert exec wlogout
+
+### Utilities
+    # Take an Screenshot of a rectangular area (copy to clipboard)
+    bindsym Control+Shift+Print exec grim -g "$(slurp)" -t png - | wl-copy -t image/png 
+
+    # Take an Screenshot of an area and save it to Pictures
+    bindsym Print exec grim -g "$(slurp)" -t png ~/Pictures/$(date +%Y-%m-%d_%H-%m-%s).png
+
+    # Start Webcam Screencast
+    bindsym $mod+w exec /home/drsh4dow/Projects/myconfigs/scripts/webcam-screencast
+
+    # Start screen recording
+    bindsym $mod+Shift+Print exec foot wf-recorder -a -f "$(date --iso)-$RANDOM.mkv"
+
+    # audio
+    bindsym XF86AudioRaiseVolume exec pamixer -i 5 && pamixer --get-volume > $SWAYSOCK.wob
+    bindsym XF86AudioLowerVolume exec pamixer -d 5 && pamixer --get-volume > $SWAYSOCK.wob
+    bindsym XF86AudioMute exec pamixer -t && notify-send "Muted: $(pamixer --get-mute)"
+
+    bindsym XF86AudioPlay exec playerctl play-pause
+    bindsym XF86AudioNext exec playerctl next
+    bindsym XF86AudioPrev exec playerctl previous
+
+    # Brightness 
+    bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+    bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+
+    # Show date and time
+    bindsym $mod+apostrophe exec notify-send Fecha "$(date)"
+
+    # Change Wallpaper to Random
+    bindsym $mod+exclamdown exec setrandom $HOME/Pictures/backgrounds
+
+    # Toggle Waybar
+#    bindsym $mod+u exec /usr/local/bin/toggle-waybar
+
+### Aplications
+#Browser
+    bindsym $mod+b exec firefox-developer-edition
+
+#ncspot
+    bindsym $mod+m exec foot ncspot
+
+#Email Client
+    bindsym XF86Mail exec thunderbird
+
+#Calculator
+    bindsym XF86Calculator exec qalculate-qt
+
+#
+# Moving around:
+#
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+    bindsym Alt+Tab focus next
+
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+
+#
+# Workspaces:
+#
+    # Switch to workspace
+    bindsym $mod+1 workspace 1
+    bindsym $mod+2 workspace 2
+    bindsym $mod+3 workspace 3
+    bindsym $mod+4 workspace 4
+    bindsym $mod+5 workspace 5
+    bindsym $mod+6 workspace 6
+    bindsym $mod+7 workspace 7
+    bindsym $mod+8 workspace 8
+    bindsym $mod+9 workspace 9
+    bindsym $mod+0 workspace 10
+    # Move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace 1
+    bindsym $mod+Shift+2 move container to workspace 2
+    bindsym $mod+Shift+3 move container to workspace 3
+    bindsym $mod+Shift+4 move container to workspace 4
+    bindsym $mod+Shift+5 move container to workspace 5
+    bindsym $mod+Shift+6 move container to workspace 6
+    bindsym $mod+Shift+7 move container to workspace 7
+    bindsym $mod+Shift+8 move container to workspace 8
+    bindsym $mod+Shift+9 move container to workspace 9
+    bindsym $mod+Shift+0 move container to workspace 10
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+#
+# Layout stuff:
+#
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    bindsym $mod+Alt+Down splitv
+    bindsym $mod+Alt+Right splith
+
+    bindsym $mod+t layout tabbed
+    bindsym $mod+e layout default
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+space focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+#
+# Scratchpad:
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+p move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+p scratchpad show
+#
+# Resizing containers:
+#
+    # Moar Gaps
+    bindsym $mod+minus exec swaymsg gaps outer current plus 4 && swaymsg gaps inner current plus 4
+
+    # Less Gaps
+    bindsym $mod+plus exec swaymsg gaps outer current minus 4 && swaymsg gaps inner current minus 4
+    

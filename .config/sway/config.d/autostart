@@ -1,0 +1,25 @@
+
+### Autostart applications
+#
+#
+#
+
+# Polkit manager
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# Notification Manager
+exec mako
+
+# XDG-app manager
+exec dex -a -s ~/.config/autostart/
+
+# Clipboard manager
+exec wl-paste -t text --watch clipman store
+
+# Audio Bar
+exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob -W 240 -H 32 -a right -a top -M 24 --background-color "#161925ff" --border-color "#161925ff" --bar-color "#c74dedff" -o 0
+
+# Waybar
+bar {
+  swaybar_command waybar
+}
