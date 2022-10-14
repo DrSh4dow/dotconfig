@@ -26,9 +26,9 @@ fi
 export EDITOR=vim
 export VISUAL=code
 export VIDEO=mpv
-#export IMAGE=okular
+export IMAGE=okular
 export OPENER="xdg-open"
-export READER=evince
+export READER=okular
 export GOROOT="/usr/lib/go"
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
@@ -36,11 +36,15 @@ export PATH="$GOBIN:$HOME/Projects/dotconfig/scripts:$HOME/.local/bin:$HOME/.car
 export CLICOLOR=1
 export TERM=xterm-256color
 export TERMINAL=gnome-terminal
-export BROWSER=firefox
+export BROWSER=firefox-developer-editor
 export PAGER="less"
 #export WM="sway"
 export COLORTERM="truecolor"
 export RUSTFLAGS="-C target-cpu=native -C opt-level=2"
+
+### Neovide config
+export NEOVIDE_FRAMELESS=true 
+export NEOVIDE_FRAME=none neovide
 
 
 ### NNN Configuration
@@ -91,9 +95,9 @@ alias grep='rg --color=auto'
 alias mv='mv -i'
 alias cmatrix='cmatrix -bC blue'
 alias tiktak='tty-clock -scC 4'
-alias tr='transmission-remote'
+#alias tr='transmission-remote'
 #alias mpv='SDL_VIDEODRIVER=wayland mpv'
-#alias vim='nvim'
+alias vim='nvim'
 alias cat='bat -pp' 
 ###
 
