@@ -11,7 +11,7 @@ fi
 
 ## Wayland Variables
 #export CLUTTER_BACKEND=wayland
-#export MOZ_ENABLE_WAYLAND=1
+export MOZ_ENABLE_WAYLAND=1
 #export _JAVA_AWT_WM_NONREPARENTING=1
 #export XDG_SESSION_TYPE=wayland
 #export QT_QPA_PLATFORM=wayland-egl
@@ -26,9 +26,9 @@ fi
 export EDITOR=vim
 export VISUAL=code
 export VIDEO=mpv
-export IMAGE=okular
+export IMAGE=eog
 export OPENER="xdg-open"
-export READER=okular
+export READER=evince
 export GOROOT="/usr/lib/go"
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
@@ -36,7 +36,7 @@ export PATH="$GOBIN:$HOME/Projects/dotconfig/scripts:$HOME/.local/bin:$HOME/.car
 export CLICOLOR=1
 export TERM=xterm-256color
 export TERMINAL=gnome-terminal
-export BROWSER=firefox-developer-editor
+export BROWSER=firefox
 export PAGER="less"
 #export WM="sway"
 export COLORTERM="truecolor"
@@ -106,4 +106,5 @@ PS1="[\[\e[31m\]\u\[\e[m\]@\[\e[36m\]\h\[\e[m\] \W]\\$ "
 ### Macros
 bind "set completion-ignore-case on"
 
-neofetch
+#neofetch
+. "$HOME/.cargo/env"
