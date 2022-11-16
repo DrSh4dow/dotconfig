@@ -27,6 +27,29 @@ return packer.startup(function(use)
     -- plugin for packer itself
     use 'wbthomason/packer.nvim'
 
+    -- some dependancies
+    use 'nvim-lua/plenary.nvim'
+
+    -- tmux & split window navigation
+    use 'christoomey/vim-tmux-navigator'
+
+    -- maximizes and restores current window
+    use 'szw/vim-maximizer'
+
+    -- vim surround
+    use 'tpope/vim-surround'
+
+    -- commenting with gc
+    use 'numToStr/Comment.nvim'
+
+    -- file explorer
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional, for file icons
+        },
+    }
+
     -- colorscheme
     use 'gruvbox-community/gruvbox'
 
