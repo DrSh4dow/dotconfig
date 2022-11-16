@@ -4,3 +4,7 @@ require("drsh4dow.core.keymaps")
 require("drsh4dow.core.colorscheme")
 require("drsh4dow.plugins.comment")
 require("drsh4dow.plugins.nvim-tree")
+require("drsh4dow.plugins.lualine")
+require("drsh4dow.plugins.telescope")
+require("drsh4dow.plugins.nvim-cmp")
+
