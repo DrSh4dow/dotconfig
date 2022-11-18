@@ -18,7 +18,6 @@ keymap.set("n", "<leader>sh", "<C-w>s")
 keymap.set("n", "<leader>se", "<C-w>=")
 keymap.set("n", "<leader>sq", ":close<CR>")
 
-
 keymap.set("n", "<leader>to", ":tabnew<CR>") -- Open new tab
 
 keymap.set("n", "<leader>tq", ":tabclose<CR>") -- close current tab
