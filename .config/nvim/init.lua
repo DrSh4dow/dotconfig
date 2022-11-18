@@ -7,4 +7,7 @@ require("drsh4dow.plugins.nvim-tree")
 require("drsh4dow.plugins.lualine")
 require("drsh4dow.plugins.telescope")
 require("drsh4dow.plugins.nvim-cmp")
-
+require("drsh4dow.plugins.lsp.mason")
+require("drsh4dow.plugins.lsp.lspsaga")
+require("drsh4dow.plugins.lsp.lspconfig")
+require("drsh4dow.plugins.lsp.null-ls")
