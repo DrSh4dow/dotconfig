@@ -46,7 +46,6 @@ export RUSTFLAGS="-C target-cpu=native -C opt-level=2"
 export NEOVIDE_FRAMELESS=true 
 export NEOVIDE_FRAME=none neovide
 
-
 ### NNN Configuration
 export NNN_TRASH=1
 export NNN_COLORS='4444'
