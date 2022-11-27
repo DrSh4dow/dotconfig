@@ -18,13 +18,14 @@ keymap.set("n", "<leader>sh", "<C-w>s")
 keymap.set("n", "<leader>se", "<C-w>=")
 keymap.set("n", "<leader>sq", ":close<CR>")
 
+-- tab windows
 keymap.set("n", "<leader>to", ":tabnew<CR>") -- Open new tab
-
 keymap.set("n", "<leader>tq", ":tabclose<CR>") -- close current tab
-
 keymap.set("n", "<leader>tn", ":tabn<CR>") -- go to next tab
-
 keymap.set("n", "<leader>tp", ":tabp<CR>") -- got to previous tab
+
+-- trigger formating
+keymap.set("n", "<leader>pp", ":lua vim.lsp.buf.format()<CR>")
 
 -- Plugin keymaps
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- Vim-Maximizer
