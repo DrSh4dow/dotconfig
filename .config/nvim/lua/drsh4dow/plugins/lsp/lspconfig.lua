@@ -39,7 +39,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- used to enable autocompletion
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local capabilities = cmp_nvim_lsp.default_capabilities()
 
 lspconfig["html"].setup({
 	capabilities = capabilities,
@@ -107,6 +107,11 @@ lspconfig["cmake"].setup({
 })
 
 lspconfig["svelte"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lspconfig["prismals"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
