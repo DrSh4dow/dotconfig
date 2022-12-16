@@ -113,6 +113,9 @@ return packer.startup(function(use)
 	-- colorscheme
 	use("gruvbox-community/gruvbox")
 
+	-- copilot
+	use("github/copilot.vim")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
