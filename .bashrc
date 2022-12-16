@@ -12,7 +12,7 @@ fi
 ## Wayland Variables
 #export CLUTTER_BACKEND=wayland
 export MOZ_ENABLE_WAYLAND=1
-#export _JAVA_AWT_WM_NONREPARENTING=1
+export _JAVA_AWT_WM_NONREPARENTING=1
 #export XDG_SESSION_TYPE=wayland
 #export QT_QPA_PLATFORM=wayland-egl
 #export SDL_VIDEODRIVER=wayland
