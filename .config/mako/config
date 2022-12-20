@@ -1,4 +1,4 @@
-max-visible=1
+max-visible=2
 font="Nunito" 10
 border-color=#44475a
 background-color=#282a36
@@ -8,3 +8,4 @@ border-radius=5
 default-timeout=3000
 ignore-timeout=1
 layer=overlay
+output=DP-1

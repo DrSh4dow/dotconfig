@@ -20,8 +20,8 @@
     bindsym $mod+Return exec $term
 
     # Start a Graphical File Manager
-    bindsym $mod+Shift+Return exec dolphin
-    bindsym XF86HomePage exec dolphin
+    bindsym $mod+Shift+Return exec nautilus -w
+    bindsym XF86HomePage exec nautilus -w
 
     # Start a Terminal File Manager
     bindsym $mod+n exec $term -e nnn
@@ -34,7 +34,7 @@
     bindsym XF86Search exec wofi
 
     # Lock Screen
-    bindsym $mod+l exec swaylock 
+    bindsym $mod+BackSpace exec swaylock 
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -54,7 +54,7 @@
     bindsym Control+Shift+Print exec grim -g "$(slurp)" -t png - | wl-copy -t image/png 
 
     # Take an Screenshot of an area and save it to Pictures
-    bindsym Print exec grim -g "$(slurp)" -t png ~/Pictures/$(date +%Y-%m-%d_%H-%m-%s).png
+    bindsym Print exec IMG=~/Pictures/$(date +%Y-%m-%d_%H-%m-%s).png && grim -g "$(slurp)" -t png $IMG && wl-copy < $IMG
 
     # Start Webcam Screencast
     bindsym $mod+w exec /home/drsh4dow/Projects/myconfigs/scripts/webcam-screencast
@@ -86,7 +86,7 @@
 
 ### Aplications
 #Browser
-    bindsym $mod+b exec firefox-developer-edition
+    bindsym $mod+b exec firefox
 
 #ncspot
     bindsym $mod+m exec foot ncspot
@@ -100,31 +100,31 @@
 #
 # Moving around:
 #
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
     bindsym Alt+Tab focus next
 
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
 
 #
 # Workspaces:
 #
     # Switch to workspace
-    bindsym $mod+1 workspace 1
-    bindsym $mod+2 workspace 2
-    bindsym $mod+3 workspace 3
-    bindsym $mod+4 workspace 4
-    bindsym $mod+5 workspace 5
-    bindsym $mod+6 workspace 6
-    bindsym $mod+7 workspace 7
-    bindsym $mod+8 workspace 8
-    bindsym $mod+9 workspace 9
-    bindsym $mod+0 workspace 10
+    bindsym $mod+1 workspace v1 ; workspace 1 
+    bindsym $mod+2 workspace v2 ; workspace 2 
+    bindsym $mod+3 workspace v3 ; workspace 3 
+    bindsym $mod+4 workspace v4 ; workspace 4 
+    bindsym $mod+5 workspace v5 ; workspace 5 
+    bindsym $mod+6 workspace v6 ; workspace 6 
+    bindsym $mod+7 workspace v7 ; workspace 7 
+    bindsym $mod+8 workspace v8 ; workspace 8 
+    bindsym $mod+9 workspace v9 ; workspace 9 
+    bindsym $mod+0 workspace v10 ; workspace 10
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace 1
     bindsym $mod+Shift+2 move container to workspace 2
@@ -144,8 +144,8 @@
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+Alt+Down splitv
-    bindsym $mod+Alt+Right splith
+    bindsym $mod+Alt+$down splitv
+    bindsym $mod+Alt+$right splith
 
     bindsym $mod+t layout tabbed
     bindsym $mod+e layout default
@@ -179,5 +179,5 @@
     bindsym $mod+minus exec swaymsg gaps outer current plus 4 && swaymsg gaps inner current plus 4
 
     # Less Gaps
-    bindsym $mod+plus exec swaymsg gaps outer current minus 4 && swaymsg gaps inner current minus 4
+    bindsym $mod+equal exec swaymsg gaps outer current minus 4 && swaymsg gaps inner current minus 4
     

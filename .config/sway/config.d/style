@@ -16,6 +16,7 @@
     exec_always {
         gsettings set $gnome-schema gtk-theme 'Dracula'
         gsettings set $gnome-schema icon-theme 'BeautyLine'
+        gsettings set org.gnome.desktop.privacy remember-recent-files false
     }
 
 
@@ -35,16 +36,3 @@
 	default_floating_border pixel 1
 	gaps outer 8
 	gaps inner 8
-
-### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-#
-
-	output * bg /home/drsh4dow/Pictures/backgrounds/1949.png fill
-
-#
-# Resolution Configuration:
-#
-	#output eDP-1 resolution 2560x1600 position 0,0 scale 2 
-#	output DP-1 mode 1920x1080@165.003Hz

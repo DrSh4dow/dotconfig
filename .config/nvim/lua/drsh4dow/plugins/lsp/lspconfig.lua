@@ -36,7 +36,7 @@ local on_attach = function(client, bufnr)
 	keymap.set("i", "<C-i>", function()
 		vim.lsp.buf.signature_help()
 	end) -- Signature help
-
+	require("lsp-inlayhints").on_attach(client, bufnr)
 	if client.name == "tsserver" then
 		keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>")
 	end
@@ -121,6 +121,20 @@ lspconfig["prismals"].setup({
 })
 
 lspconfig["rust_analyzer"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	settings = {
+		["rust-analyzer"] = {
+			inlayHints = {
+				chainingHints = {
+					enable = true,
+				},
+			},
+		},
+	},
+})
+
+lspconfig["pylsp"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
