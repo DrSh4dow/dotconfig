@@ -1,6 +1,6 @@
 show=drun
-width=75%
-height=75%
+width=880px
+height=400px
 term=alacritty
 hide_scroll=false
 insensitive=true

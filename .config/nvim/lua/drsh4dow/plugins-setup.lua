@@ -89,6 +89,7 @@ return packer.startup(function(use)
 	})
 	use("jose-elias-alvarez/typescript.nvim")
 	use("onsails/lspkind.nvim")
+	use("lvimuser/lsp-inlayhints.nvim")
 
 	-- formatting & linting
 	use("jose-elias-alvarez/null-ls.nvim")
@@ -114,7 +115,7 @@ return packer.startup(function(use)
 	use("gruvbox-community/gruvbox")
 
 	-- copilot
-	use("github/copilot.vim")
+	-- use("github/copilot.vim")
 
 	if packer_bootstrap then
 		require("packer").sync()
