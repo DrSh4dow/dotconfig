@@ -13,6 +13,11 @@ if not typescript_setup then
 	return
 end
 
+local rt_status, rt = pcall(require, "rust-tools")
+if not rt_status then
+	return
+end
+
 local keymap = vim.keymap -- for conciseness
 
 -- enable keybinds for available lsp server
@@ -36,7 +41,6 @@ local on_attach = function(client, bufnr)
 	keymap.set("i", "<C-i>", function()
 		vim.lsp.buf.signature_help()
 	end) -- Signature help
-	require("lsp-inlayhints").on_attach(client, bufnr)
 	if client.name == "tsserver" then
 		keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>")
 	end
@@ -44,6 +48,33 @@ end
 
 -- used to enable autocompletion
 local capabilities = cmp_nvim_lsp.default_capabilities()
+
+rt.setup({
+	server = {
+		capabilities = capabilities,
+		on_attach = on_attach,
+		settings = {
+			["rust-analyzer"] = {
+				assist = {
+					importEnforceGranularity = true,
+					importPrefix = "crate",
+				},
+				cargo = {
+					allFeatures = true,
+				},
+				checkOnSave = {
+					command = "clippy",
+				},
+			},
+			inlayHints = {
+				lifetimeElisionHints = {
+					enable = true,
+					useParameterNames = true,
+				},
+			},
+		},
+	},
+})
 
 lspconfig["html"].setup({
 	capabilities = capabilities,
@@ -120,21 +151,33 @@ lspconfig["prismals"].setup({
 	on_attach = on_attach,
 })
 
-lspconfig["rust_analyzer"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	settings = {
-		["rust-analyzer"] = {
-			inlayHints = {
-				chainingHints = {
-					enable = true,
-				},
-			},
-		},
-	},
-})
+-- lspconfig["rust_analyzer"].setup({
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- 	settings = {
+-- 		["rust-analyzer"] = {
+-- 			inlayHints = {
+-- 				chainingHints = {
+-- 					enable = true,
+-- 				},
+-- 			},
+-- 		},
+-- 	},
+-- })
 
 lspconfig["pylsp"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+})
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+	border = "rounded",
+})
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+
+vim.diagnostic.config({
+	float = {
+		border = "rounded",
+	},
 })

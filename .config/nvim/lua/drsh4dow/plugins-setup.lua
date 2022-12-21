@@ -69,8 +69,6 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
 
-	--
-
 	-- snippets
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
@@ -89,7 +87,7 @@ return packer.startup(function(use)
 	})
 	use("jose-elias-alvarez/typescript.nvim")
 	use("onsails/lspkind.nvim")
-	use("lvimuser/lsp-inlayhints.nvim")
+	use("simrat39/rust-tools.nvim")
 
 	-- formatting & linting
 	use("jose-elias-alvarez/null-ls.nvim")
