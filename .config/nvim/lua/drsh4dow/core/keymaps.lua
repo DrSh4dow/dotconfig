@@ -30,7 +30,15 @@ keymap.set("n", "<leader>tn", ":tabn<CR>") -- go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") -- got to previous tab
 
 -- trigger formating
-keymap.set("n", "<leader>pp", ":lua vim.lsp.buf.format()<CR>")
+keymap.set("n", "<leader>pp", function()
+	vim.lsp.buf.format({
+		timeout_ms = 5000,
+		filter = function(client)
+			--  only use null-ls for formatting instead of lsp server
+			return client.name == "null-ls"
+		end,
+	})
+end)
 
 -- Plugin keymaps
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- Vim-Maximizer
@@ -47,7 +55,12 @@ keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
 keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>")
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>")
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
-keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
+
+-- telescope git
+keymap.set("n", "<leader>gh", "<cmd>Telescope git_commits<cr>")
+keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>")
+keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>")
+keymap.set("n", "<leader>gc", "<cmd>Telescope git_bcommits<cr>")
 
 -- replace word
 vim.keymap.set("n", "<leader>rw", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
