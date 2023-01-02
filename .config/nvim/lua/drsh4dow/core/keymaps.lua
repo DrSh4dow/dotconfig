@@ -33,10 +33,10 @@ keymap.set("n", "<leader>tp", ":tabp<CR>") -- got to previous tab
 keymap.set("n", "<leader>pp", function()
 	vim.lsp.buf.format({
 		timeout_ms = 5000,
-		filter = function(client)
-			--  only use null-ls for formatting instead of lsp server
-			return client.name == "null-ls"
-		end,
+		-- filter = function(client)
+		--  only use null-ls for formatting instead of lsp server
+		-- return client.name == "null-ls"
+		-- end,
 	})
 end)
 

@@ -15,6 +15,7 @@ exec mako
 
 # XDG-app manager
 exec dex -a -s ~/.config/autostart/
+exec dex -a -s /etc/xdg/autostart/
 
 # Clipboard manager
 exec wl-paste -t text --watch clipman store

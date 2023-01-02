@@ -111,6 +111,7 @@ return packer.startup(function(use)
 
 	-- colorscheme
 	use("gruvbox-community/gruvbox")
+	use({ "catppuccin/nvim", as = "catppuccin" })
 
 	-- copilot
 	-- use("github/copilot.vim")
