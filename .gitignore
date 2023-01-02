@@ -1,3 +1,4 @@
 *.config/ncspot/creden*
 *.config/ncspot/user*
 *.config/tmux/plugins
+*.config/tmux/plugins**
