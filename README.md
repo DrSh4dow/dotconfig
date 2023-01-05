@@ -1,4 +1,6 @@
 # Config Files
+Config files that work on any Linux environment.
+Also, the deserved wallpapers that everyone should have;)
 
 ```
                         __________
