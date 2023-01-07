@@ -29,6 +29,9 @@ keymap.set("n", "<leader>tq", ":tabclose<CR>") -- close current tab
 keymap.set("n", "<leader>tn", ":tabn<CR>") -- go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") -- got to previous tab
 
+-- rare error
+keymap.set("i",  "<Tab>", "<Tab>") -- default tab behavior
+
 -- trigger formating
 keymap.set("n", "<leader>pp", function()
 	vim.lsp.buf.format({
