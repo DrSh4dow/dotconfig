@@ -30,18 +30,18 @@ keymap.set("n", "<leader>tn", ":tabn<CR>") -- go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") -- got to previous tab
 
 -- rare error
-keymap.set("i",  "<Tab>", "<Tab>") -- default tab behavior
+keymap.set("i", "<Tab>", "<Tab>") -- default tab behavior
 
 -- trigger formating
 keymap.set("n", "<leader>pp", function()
 	vim.lsp.buf.format({
 		timeout_ms = 5000,
 		-- filter = function(client)
-		--  only use null-ls for formatting instead of lsp server
+		-- only use null-ls for formatting instead of lsp server
 		-- return client.name == "null-ls"
 		-- end,
 	})
-end)
+end, { noremap = true })
 
 -- Plugin keymaps
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- Vim-Maximizer
