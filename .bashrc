@@ -105,3 +105,4 @@ PS1="[\[\e[31m\]\u\[\e[m\]@\[\e[36m\]\h\[\e[m\] \W]\\$ "
 bind "set completion-ignore-case on"
 
 neofetch
+source /usr/share/nvm/init-nvm.sh
