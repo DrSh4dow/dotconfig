@@ -89,7 +89,7 @@
     bindsym $mod+b exec firefox
 
     # hacking Profile
-    bindsym $mod+v exec firefox -P "bug-bounty"
+    # bindsym $mod+v exec firefox -P "bug-bounty"
 
 #ncspot
     bindsym $mod+m exec foot ncspot
