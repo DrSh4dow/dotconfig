@@ -1,0 +1,26 @@
+### workspace priority
+#
+workspace "L1" output  DisplayPort-2
+workspace "L2" output  DisplayPort-2
+workspace "L3" output  DisplayPort-2
+workspace "L4" output  DisplayPort-2
+workspace "L5" output  DisplayPort-2
+workspace "L6" output  DisplayPort-2
+workspace "L7" output  DisplayPort-2
+workspace "L8" output  DisplayPort-2
+workspace "L9" output  DisplayPort-2
+workspace "L10" output DisplayPort-2
+
+workspace "1" output  DisplayPort-0
+workspace "2" output  DisplayPort-0
+workspace "3" output  DisplayPort-0
+workspace "4" output  DisplayPort-0
+workspace "5" output  DisplayPort-0
+workspace "6" output  DisplayPort-0
+workspace "7" output  DisplayPort-0
+workspace "8" output  DisplayPort-0
+workspace "9" output  DisplayPort-0
+workspace "10" output DisplayPort-0
+
+focus_follows_mouse no
+mouse_warping none

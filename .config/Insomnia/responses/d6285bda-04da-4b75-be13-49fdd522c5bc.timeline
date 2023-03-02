@@ -1,0 +1,112 @@
+[
+	{
+		"value": "Preparing request to https://backend.freethefreela.com/api/list/freelancer/categories/960",
+		"name": "Text",
+		"timestamp": 1677596901509
+	},
+	{
+		"value": "Current time is 2023-02-28T15:08:21.509Z",
+		"name": "Text",
+		"timestamp": 1677596901509
+	},
+	{
+		"value": "Enable automatic URL encoding",
+		"name": "Text",
+		"timestamp": 1677596901509
+	},
+	{
+		"value": "Using default HTTP version",
+		"name": "Text",
+		"timestamp": 1677596901509
+	},
+	{
+		"value": "Enable timeout of 30000ms",
+		"name": "Text",
+		"timestamp": 1677596901509
+	},
+	{
+		"value": "Enable SSL validation",
+		"name": "Text",
+		"timestamp": 1677596901509
+	},
+	{
+		"name": "Text",
+		"value": "Found bundle for host backend.freethefreela.com: 0x31d0036242a0 [serially]\n",
+		"timestamp": 1677596901510
+	},
+	{
+		"name": "Text",
+		"value": "Can not multiplex, even if we wanted to!\n",
+		"timestamp": 1677596901510
+	},
+	{
+		"name": "Text",
+		"value": "Re-using existing connection! (#13) with host backend.freethefreela.com\n",
+		"timestamp": 1677596901510
+	},
+	{
+		"name": "Text",
+		"value": "Connected to backend.freethefreela.com (54.197.92.110) port 443 (#13)\n",
+		"timestamp": 1677596901510
+	},
+	{
+		"name": "HeaderOut",
+		"value": "GET /api/list/freelancer/categories/960 HTTP/1.1\r\nHost: backend.freethefreela.com\r\nUser-Agent: insomnia/2022.7.5\r\nAccept: */*\r\n\r\n",
+		"timestamp": 1677596901510
+	},
+	{
+		"name": "Text",
+		"value": "Mark bundle as not supporting multiuse\n",
+		"timestamp": 1677596901647
+	},
+	{
+		"name": "HeaderIn",
+		"value": "HTTP/1.1 200 OK\r\n",
+		"timestamp": 1677596901647
+	},
+	{
+		"name": "HeaderIn",
+		"value": "access-control-allow-origin: *\r\n",
+		"timestamp": 1677596901647
+	},
+	{
+		"name": "HeaderIn",
+		"value": "content-length: 1106\r\n",
+		"timestamp": 1677596901647
+	},
+	{
+		"name": "HeaderIn",
+		"value": "content-type: text/html; charset=utf-8\r\n",
+		"timestamp": 1677596901647
+	},
+	{
+		"name": "HeaderIn",
+		"value": "date: Tue, 28 Feb 2023 15:08:21 GMT\r\n",
+		"timestamp": 1677596901647
+	},
+	{
+		"name": "HeaderIn",
+		"value": "server: envoy\r\n",
+		"timestamp": 1677596901647
+	},
+	{
+		"name": "HeaderIn",
+		"value": "x-envoy-upstream-service-time: 12\r\n",
+		"timestamp": 1677596901647
+	},
+	{
+		"name": "HeaderIn",
+		"value": "\r\n",
+		"timestamp": 1677596901647
+	},
+	{
+		"name": "Text",
+		"value": "Received 1106 B chunk",
+		"timestamp": 1677596901647
+	},
+	{
+		"name": "Text",
+		"value": "Connection #13 to host backend.freethefreela.com left intact\n",
+		"timestamp": 1677596901647
+	}
+]

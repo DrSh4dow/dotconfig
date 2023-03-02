@@ -1,0 +1,202 @@
+[
+	{
+		"value": "Preparing request to https://backend.freethefreela.com/api/list/freelancer/960",
+		"name": "Text",
+		"timestamp": 1677596871288
+	},
+	{
+		"value": "Current time is 2023-02-28T15:07:51.288Z",
+		"name": "Text",
+		"timestamp": 1677596871288
+	},
+	{
+		"value": "Enable automatic URL encoding",
+		"name": "Text",
+		"timestamp": 1677596871288
+	},
+	{
+		"value": "Using default HTTP version",
+		"name": "Text",
+		"timestamp": 1677596871289
+	},
+	{
+		"value": "Enable timeout of 30000ms",
+		"name": "Text",
+		"timestamp": 1677596871289
+	},
+	{
+		"value": "Enable SSL validation",
+		"name": "Text",
+		"timestamp": 1677596871289
+	},
+	{
+		"name": "Text",
+		"value": "  Trying 54.197.92.110:443...\n",
+		"timestamp": 1677596871608
+	},
+	{
+		"name": "Text",
+		"value": "Connected to backend.freethefreela.com (54.197.92.110) port 443 (#11)\n",
+		"timestamp": 1677596871733
+	},
+	{
+		"name": "Text",
+		"value": "ALPN, offering h2\n",
+		"timestamp": 1677596871733
+	},
+	{
+		"name": "Text",
+		"value": "ALPN, offering http/1.1\n",
+		"timestamp": 1677596871733
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.3 (OUT), TLS handshake, Client hello (1):\n",
+		"timestamp": 1677596871741
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.3 (IN), TLS handshake, Server hello (2):\n",
+		"timestamp": 1677596871865
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.2 (IN), TLS handshake, Certificate (11):\n",
+		"timestamp": 1677596871865
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.2 (IN), TLS handshake, Server key exchange (12):\n",
+		"timestamp": 1677596871866
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.2 (IN), TLS handshake, Server finished (14):\n",
+		"timestamp": 1677596871867
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.2 (OUT), TLS handshake, Client key exchange (16):\n",
+		"timestamp": 1677596871867
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.2 (OUT), TLS change cipher, Change cipher spec (1):\n",
+		"timestamp": 1677596871867
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.2 (OUT), TLS handshake, Finished (20):\n",
+		"timestamp": 1677596871867
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.2 (IN), TLS handshake, Finished (20):\n",
+		"timestamp": 1677596871990
+	},
+	{
+		"name": "Text",
+		"value": "SSL connection using TLSv1.2 / ECDHE-RSA-AES128-GCM-SHA256\n",
+		"timestamp": 1677596871990
+	},
+	{
+		"name": "Text",
+		"value": "ALPN, server did not agree to a protocol\n",
+		"timestamp": 1677596871990
+	},
+	{
+		"name": "Text",
+		"value": "Server certificate:\n",
+		"timestamp": 1677596871990
+	},
+	{
+		"name": "Text",
+		"value": " subject: CN=backend.freethefreela.com\n",
+		"timestamp": 1677596871990
+	},
+	{
+		"name": "Text",
+		"value": " start date: Dec  1 00:00:00 2022 GMT\n",
+		"timestamp": 1677596871990
+	},
+	{
+		"name": "Text",
+		"value": " expire date: Dec 30 23:59:59 2023 GMT\n",
+		"timestamp": 1677596871990
+	},
+	{
+		"name": "Text",
+		"value": " subjectAltName: host \"backend.freethefreela.com\" matched cert's \"backend.freethefreela.com\"\n",
+		"timestamp": 1677596871990
+	},
+	{
+		"name": "Text",
+		"value": " issuer: C=US; O=Amazon; CN=Amazon RSA 2048 M02\n",
+		"timestamp": 1677596871990
+	},
+	{
+		"name": "Text",
+		"value": " SSL certificate verify ok.\n",
+		"timestamp": 1677596871990
+	},
+	{
+		"name": "HeaderOut",
+		"value": "GET /api/list/freelancer/960 HTTP/1.1\r\nHost: backend.freethefreela.com\r\nUser-Agent: insomnia/2022.7.5\r\nAccept: */*\r\n\r\n",
+		"timestamp": 1677596871990
+	},
+	{
+		"name": "Text",
+		"value": "Mark bundle as not supporting multiuse\n",
+		"timestamp": 1677596872128
+	},
+	{
+		"name": "HeaderIn",
+		"value": "HTTP/1.1 200 OK\r\n",
+		"timestamp": 1677596872128
+	},
+	{
+		"name": "HeaderIn",
+		"value": "access-control-allow-origin: *\r\n",
+		"timestamp": 1677596872128
+	},
+	{
+		"name": "HeaderIn",
+		"value": "content-length: 1015\r\n",
+		"timestamp": 1677596872128
+	},
+	{
+		"name": "HeaderIn",
+		"value": "content-type: text/html; charset=utf-8\r\n",
+		"timestamp": 1677596872128
+	},
+	{
+		"name": "HeaderIn",
+		"value": "date: Tue, 28 Feb 2023 15:07:52 GMT\r\n",
+		"timestamp": 1677596872128
+	},
+	{
+		"name": "HeaderIn",
+		"value": "server: envoy\r\n",
+		"timestamp": 1677596872128
+	},
+	{
+		"name": "HeaderIn",
+		"value": "x-envoy-upstream-service-time: 12\r\n",
+		"timestamp": 1677596872128
+	},
+	{
+		"name": "HeaderIn",
+		"value": "\r\n",
+		"timestamp": 1677596872128
+	},
+	{
+		"name": "Text",
+		"value": "Received 1015 B chunk",
+		"timestamp": 1677596872128
+	},
+	{
+		"name": "Text",
+		"value": "Connection #11 to host backend.freethefreela.com left intact\n",
+		"timestamp": 1677596872129
+	}
+]

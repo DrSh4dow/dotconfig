@@ -1,0 +1,207 @@
+[
+	{
+		"value": "Preparing request to https://backend.freethefreela.com/api/update/freelancer-personal-info",
+		"name": "Text",
+		"timestamp": 1677377368943
+	},
+	{
+		"value": "Current time is 2023-02-26T02:09:28.943Z",
+		"name": "Text",
+		"timestamp": 1677377368943
+	},
+	{
+		"value": "Enable automatic URL encoding",
+		"name": "Text",
+		"timestamp": 1677377368943
+	},
+	{
+		"value": "Using default HTTP version",
+		"name": "Text",
+		"timestamp": 1677377368945
+	},
+	{
+		"value": "Enable timeout of 30000ms",
+		"name": "Text",
+		"timestamp": 1677377368945
+	},
+	{
+		"value": "Enable SSL validation",
+		"name": "Text",
+		"timestamp": 1677377368945
+	},
+	{
+		"name": "Text",
+		"value": "  Trying 54.198.134.255:443...\n",
+		"timestamp": 1677377368979
+	},
+	{
+		"name": "Text",
+		"value": "Connected to backend.freethefreela.com (54.198.134.255) port 443 (#0)\n",
+		"timestamp": 1677377369104
+	},
+	{
+		"name": "Text",
+		"value": "ALPN, offering h2\n",
+		"timestamp": 1677377369105
+	},
+	{
+		"name": "Text",
+		"value": "ALPN, offering http/1.1\n",
+		"timestamp": 1677377369105
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.3 (OUT), TLS handshake, Client hello (1):\n",
+		"timestamp": 1677377369114
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.3 (IN), TLS handshake, Server hello (2):\n",
+		"timestamp": 1677377369238
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.2 (IN), TLS handshake, Certificate (11):\n",
+		"timestamp": 1677377369238
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.2 (IN), TLS handshake, Server key exchange (12):\n",
+		"timestamp": 1677377369239
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.2 (IN), TLS handshake, Server finished (14):\n",
+		"timestamp": 1677377369240
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.2 (OUT), TLS handshake, Client key exchange (16):\n",
+		"timestamp": 1677377369240
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.2 (OUT), TLS change cipher, Change cipher spec (1):\n",
+		"timestamp": 1677377369240
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.2 (OUT), TLS handshake, Finished (20):\n",
+		"timestamp": 1677377369240
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.2 (IN), TLS handshake, Finished (20):\n",
+		"timestamp": 1677377369363
+	},
+	{
+		"name": "Text",
+		"value": "SSL connection using TLSv1.2 / ECDHE-RSA-AES128-GCM-SHA256\n",
+		"timestamp": 1677377369363
+	},
+	{
+		"name": "Text",
+		"value": "ALPN, server did not agree to a protocol\n",
+		"timestamp": 1677377369363
+	},
+	{
+		"name": "Text",
+		"value": "Server certificate:\n",
+		"timestamp": 1677377369363
+	},
+	{
+		"name": "Text",
+		"value": " subject: CN=backend.freethefreela.com\n",
+		"timestamp": 1677377369363
+	},
+	{
+		"name": "Text",
+		"value": " start date: Dec  1 00:00:00 2022 GMT\n",
+		"timestamp": 1677377369363
+	},
+	{
+		"name": "Text",
+		"value": " expire date: Dec 30 23:59:59 2023 GMT\n",
+		"timestamp": 1677377369363
+	},
+	{
+		"name": "Text",
+		"value": " subjectAltName: host \"backend.freethefreela.com\" matched cert's \"backend.freethefreela.com\"\n",
+		"timestamp": 1677377369363
+	},
+	{
+		"name": "Text",
+		"value": " issuer: C=US; O=Amazon; CN=Amazon RSA 2048 M02\n",
+		"timestamp": 1677377369363
+	},
+	{
+		"name": "Text",
+		"value": " SSL certificate verify ok.\n",
+		"timestamp": 1677377369363
+	},
+	{
+		"name": "HeaderOut",
+		"value": "POST /api/update/freelancer-personal-info HTTP/1.1\r\nHost: backend.freethefreela.com\r\nUser-Agent: insomnia/2022.7.5\r\nContent-Type: application/json\r\nAccept: */*\r\nContent-Length: 1904\r\n\r\n",
+		"timestamp": 1677377369363
+	},
+	{
+		"name": "DataOut",
+		"value": "{\n\t\"freelancer_id\": \"995\",\n\t\"freelancer_title\": \"\",\n\t\"freelancer_country\": 47,\n\t\"freelancer_location\": \"\",\n\t\"freelancer_rate\": \"\",\n\t\"freelancer_phone_country_code\": \"56\",\n\t\"freelancer_phone_number\": \"954004752\",\n\t\"freelancer_url_linkedin\": null,\n\t\"freelancer_photo\": \"data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cdesc%3E%22Initials%22%20by%20%22Florian%20K%C3%B6rner%22%2C%20licensed%20under%20%22CC0%201.0%22.%20%2F%20Remix%20of%20the%20original.%20-%20Created%20with%20dicebear.com%3C%2Fdesc%3E%3Cmetadata%20xmlns%3Adc%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%22%20xmlns%3Acc%3D%22http%3A%2F%2Fcreativecommons.org%2Fns%23%22%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%3E%3Crdf%3ARDF%3E%3Ccc%3AWork%3E%3Cdc%3Atitle%3EInitials%3C%2Fdc%3Atitle%3E%3Cdc%3Acreator%3E%3Ccc%3AAgent%20rdf%3Aabout%3D%22%22%3E%3Cdc%3Atitle%3EFlorian%20K%C3%B6rner%3C%2Fdc%3Atitle%3E%3C%2Fcc%3AAgent%3E%3C%2Fdc%3Acreator%3E%3Cdc%3Asource%3Ehttps%3A%2F%2Fgithub.com%2Fdicebear%2Fdicebear%3C%2Fdc%3Asource%3E%3Ccc%3Alicense%20rdf%3Aresource%3D%22https%3A%2F%2Fcreativecommons.org%2Fpublicdomain%2Fzero%2F1.0%2F%22%20%2F%3E%3C%2Fcc%3AWork%3E%3C%2Frdf%3ARDF%3E%3C%2Fmetadata%3E%3Cmask%20id%3D%22viewboxMask%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%220%22%20ry%3D%220%22%20x%3D%220%22%20y%3D%220%22%20fill%3D%22%23fff%22%20%2F%3E%3C%2Fmask%3E%3Cg%20mask%3D%22url(%23viewboxMask)%22%3E%3Crect%20fill%3D%22%23e53935%22%20width%3D%22100%22%20height%3D%22100%22%20x%3D%220%22%20y%3D%220%22%20%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%2250%22%20font-weight%3D%22400%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dy%3D%2217.800%22%3EDM%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E\",\n\t\"freelancer_language_default\": \"en\"\n}",
+		"timestamp": 1677377369363
+	},
+	{
+		"name": "Text",
+		"value": "Mark bundle as not supporting multiuse\n",
+		"timestamp": 1677377369520
+	},
+	{
+		"name": "HeaderIn",
+		"value": "HTTP/1.1 400 Bad Request\r\n",
+		"timestamp": 1677377369520
+	},
+	{
+		"name": "HeaderIn",
+		"value": "access-control-allow-origin: *\r\n",
+		"timestamp": 1677377369520
+	},
+	{
+		"name": "HeaderIn",
+		"value": "content-length: 37\r\n",
+		"timestamp": 1677377369520
+	},
+	{
+		"name": "HeaderIn",
+		"value": "content-type: application/json\r\n",
+		"timestamp": 1677377369520
+	},
+	{
+		"name": "HeaderIn",
+		"value": "date: Sun, 26 Feb 2023 02:09:29 GMT\r\n",
+		"timestamp": 1677377369520
+	},
+	{
+		"name": "HeaderIn",
+		"value": "server: envoy\r\n",
+		"timestamp": 1677377369520
+	},
+	{
+		"name": "HeaderIn",
+		"value": "x-envoy-upstream-service-time: 29\r\n",
+		"timestamp": 1677377369520
+	},
+	{
+		"name": "HeaderIn",
+		"value": "\r\n",
+		"timestamp": 1677377369520
+	},
+	{
+		"name": "Text",
+		"value": "Received 37 B chunk",
+		"timestamp": 1677377369520
+	},
+	{
+		"name": "Text",
+		"value": "Connection #0 to host backend.freethefreela.com left intact\n",
+		"timestamp": 1677377369520
+	}
+]

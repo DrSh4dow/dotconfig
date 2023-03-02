@@ -1,0 +1,1082 @@
+<!doctype html>
+<html lang=en>
+  <head>
+    <title>sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`freethefreela`.`freelancer_categories`, CONSTRAINT `freelancer_categories_ibfk_1` FOREIGN KEY (`freelancer_id`) REFERENCES `freelancer_profile` (`freelancer_id`))')
+[SQL: INSERT INTO freelancer_categories (freelancer_id, category_id, subcategory_id) VALUES (%(freelancer_id)s, %(category_id)s, %(subcategory_id)s)]
+[parameters: {'freelancer_id': 955, 'category_id': None, 'subcategory_id': None}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)
+ // Werkzeug Debugger</title>
+    <link rel="stylesheet" href="?__debugger__=yes&amp;cmd=resource&amp;f=style.css">
+    <link rel="shortcut icon"
+        href="?__debugger__=yes&amp;cmd=resource&amp;f=console.png">
+    <script src="?__debugger__=yes&amp;cmd=resource&amp;f=debugger.js"></script>
+    <script>
+      var CONSOLE_MODE = false,
+          EVALEX = true,
+          EVALEX_TRUSTED = false,
+          SECRET = "PrsP97ll1bUEQjeztixi";
+    </script>
+  </head>
+  <body style="background-color: #fff">
+    <div class="debugger">
+<h1>IntegrityError</h1>
+<div class="detail">
+  <p class="errormsg">sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1452, &#39;Cannot add or update a child row: a foreign key constraint fails (`freethefreela`.`freelancer_categories`, CONSTRAINT `freelancer_categories_ibfk_1` FOREIGN KEY (`freelancer_id`) REFERENCES `freelancer_profile` (`freelancer_id`))&#39;)
+[SQL: INSERT INTO freelancer_categories (freelancer_id, category_id, subcategory_id) VALUES (%(freelancer_id)s, %(category_id)s, %(subcategory_id)s)]
+[parameters: {&#39;freelancer_id&#39;: 955, &#39;category_id&#39;: None, &#39;subcategory_id&#39;: None}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)
+</p>
+</div>
+<h2 class="traceback">Traceback <em>(most recent call last)</em></h2>
+<div class="traceback">
+  <h3></h3>
+  <ul><li><div class="frame" id="frame-139900052217920">
+  <h4>File <cite class="filename">"/usr/local/lib64/python3.8/site-packages/sqlalchemy/engine/base.py"</cite>,
+      line <em class="line">1900</em>,
+      in <code class="function">_execute_context</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">                    </span>for fn in self.dialect.dispatch.do_execute:</pre>
+<pre class="line before"><span class="ws">                        </span>if fn(cursor, statement, parameters, context):</pre>
+<pre class="line before"><span class="ws">                            </span>evt_handled = True</pre>
+<pre class="line before"><span class="ws">                            </span>break</pre>
+<pre class="line before"><span class="ws">                </span>if not evt_handled:</pre>
+<pre class="line current"><span class="ws">                    </span>self.dialect.do_execute(</pre>
+<pre class="line after"><span class="ws">                        </span>cursor, statement, parameters, context</pre>
+<pre class="line after"><span class="ws">                    </span>)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">            </span>if self._has_events or self.engine._has_events:</pre>
+<pre class="line after"><span class="ws">                </span>self.dispatch.after_cursor_execute(</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052218032">
+  <h4>File <cite class="filename">"/usr/local/lib64/python3.8/site-packages/sqlalchemy/engine/default.py"</cite>,
+      line <em class="line">736</em>,
+      in <code class="function">do_execute</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">    </span>def do_executemany(self, cursor, statement, parameters, context=None):</pre>
+<pre class="line before"><span class="ws">        </span>cursor.executemany(statement, parameters)</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">    </span>def do_execute(self, cursor, statement, parameters, context=None):</pre>
+<pre class="line current"><span class="ws">        </span>cursor.execute(statement, parameters)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def do_execute_no_params(self, cursor, statement, context=None):</pre>
+<pre class="line after"><span class="ws">        </span>cursor.execute(statement)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def is_disconnect(self, e, connection, cursor):</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052218144">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/pymysql/cursors.py"</cite>,
+      line <em class="line">148</em>,
+      in <code class="function">execute</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">        </span>while self.nextset():</pre>
+<pre class="line before"><span class="ws">            </span>pass</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">        </span>query = self.mogrify(query, args)</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line current"><span class="ws">        </span>result = self._query(query)</pre>
+<pre class="line after"><span class="ws">        </span>self._executed = query</pre>
+<pre class="line after"><span class="ws">        </span>return result</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def executemany(self, query, args):</pre>
+<pre class="line after"><span class="ws">        </span># type: (str, list) -&gt; int</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052218256">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/pymysql/cursors.py"</cite>,
+      line <em class="line">310</em>,
+      in <code class="function">_query</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">    </span>def _query(self, q):</pre>
+<pre class="line before"><span class="ws">        </span>conn = self._get_db()</pre>
+<pre class="line before"><span class="ws">        </span>self._last_executed = q</pre>
+<pre class="line before"><span class="ws">        </span>self._clear_result()</pre>
+<pre class="line current"><span class="ws">        </span>conn.query(q)</pre>
+<pre class="line after"><span class="ws">        </span>self._do_get_result()</pre>
+<pre class="line after"><span class="ws">        </span>return self.rowcount</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def _clear_result(self):</pre>
+<pre class="line after"><span class="ws">        </span>self.rownumber = 0</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052218368">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/pymysql/connections.py"</cite>,
+      line <em class="line">548</em>,
+      in <code class="function">query</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">        </span># if DEBUG:</pre>
+<pre class="line before"><span class="ws">        </span>#     print(&#34;DEBUG: sending query:&#34;, sql)</pre>
+<pre class="line before"><span class="ws">        </span>if isinstance(sql, str):</pre>
+<pre class="line before"><span class="ws">            </span>sql = sql.encode(self.encoding, &#34;surrogateescape&#34;)</pre>
+<pre class="line before"><span class="ws">        </span>self._execute_command(COMMAND.COM_QUERY, sql)</pre>
+<pre class="line current"><span class="ws">        </span>self._affected_rows = self._read_query_result(unbuffered=unbuffered)</pre>
+<pre class="line after"><span class="ws">        </span>return self._affected_rows</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def next_result(self, unbuffered=False):</pre>
+<pre class="line after"><span class="ws">        </span>self._affected_rows = self._read_query_result(unbuffered=unbuffered)</pre>
+<pre class="line after"><span class="ws">        </span>return self._affected_rows</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052218480">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/pymysql/connections.py"</cite>,
+      line <em class="line">775</em>,
+      in <code class="function">_read_query_result</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">                </span>result.unbuffered_active = False</pre>
+<pre class="line before"><span class="ws">                </span>result.connection = None</pre>
+<pre class="line before"><span class="ws">                </span>raise</pre>
+<pre class="line before"><span class="ws">        </span>else:</pre>
+<pre class="line before"><span class="ws">            </span>result = MySQLResult(self)</pre>
+<pre class="line current"><span class="ws">            </span>result.read()</pre>
+<pre class="line after"><span class="ws">        </span>self._result = result</pre>
+<pre class="line after"><span class="ws">        </span>if result.server_status is not None:</pre>
+<pre class="line after"><span class="ws">            </span>self.server_status = result.server_status</pre>
+<pre class="line after"><span class="ws">        </span>return result.affected_rows</pre>
+<pre class="line after"><span class="ws"></span> </pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052218592">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/pymysql/connections.py"</cite>,
+      line <em class="line">1156</em>,
+      in <code class="function">read</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">        </span>if self.unbuffered_active:</pre>
+<pre class="line before"><span class="ws">            </span>self._finish_unbuffered_query()</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">    </span>def read(self):</pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line current"><span class="ws">            </span>first_packet = self.connection._read_packet()</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">            </span>if first_packet.is_ok_packet():</pre>
+<pre class="line after"><span class="ws">                </span>self._read_ok_packet(first_packet)</pre>
+<pre class="line after"><span class="ws">            </span>elif first_packet.is_load_local_packet():</pre>
+<pre class="line after"><span class="ws">                </span>self._read_load_local_packet(first_packet)</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052218704">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/pymysql/connections.py"</cite>,
+      line <em class="line">725</em>,
+      in <code class="function">_read_packet</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">        </span>packet = packet_type(bytes(buff), self.encoding)</pre>
+<pre class="line before"><span class="ws">        </span>if packet.is_error_packet():</pre>
+<pre class="line before"><span class="ws">            </span>if self._result is not None and self._result.unbuffered_active is True:</pre>
+<pre class="line before"><span class="ws">                </span>self._result.unbuffered_active = False</pre>
+<pre class="line current"><span class="ws">            </span>packet.raise_for_error()</pre>
+<pre class="line after"><span class="ws">        </span>return packet</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def _read_bytes(self, num_bytes):</pre>
+<pre class="line after"><span class="ws">        </span>self._sock.settimeout(self._read_timeout)</pre>
+<pre class="line after"><span class="ws">        </span>while True:</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052218816">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/pymysql/protocol.py"</cite>,
+      line <em class="line">221</em>,
+      in <code class="function">raise_for_error</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">        </span>self.rewind()</pre>
+<pre class="line before"><span class="ws">        </span>self.advance(1)  # field_count == error (we already know that)</pre>
+<pre class="line before"><span class="ws">        </span>errno = self.read_uint16()</pre>
+<pre class="line before"><span class="ws">        </span>if DEBUG:</pre>
+<pre class="line before"><span class="ws">            </span>print(&#34;errno =&#34;, errno)</pre>
+<pre class="line current"><span class="ws">        </span>err.raise_mysql_exception(self._data)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def dump(self):</pre>
+<pre class="line after"><span class="ws">        </span>dump_packet(self._data)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws"></span> </pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052218928">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/pymysql/err.py"</cite>,
+      line <em class="line">143</em>,
+      in <code class="function">raise_mysql_exception</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">    </span>errno = struct.unpack(&#34;&lt;h&#34;, data[1:3])[0]</pre>
+<pre class="line before"><span class="ws">    </span>errval = data[9:].decode(&#34;utf-8&#34;, &#34;replace&#34;)</pre>
+<pre class="line before"><span class="ws">    </span>errorclass = error_map.get(errno)</pre>
+<pre class="line before"><span class="ws">    </span>if errorclass is None:</pre>
+<pre class="line before"><span class="ws">        </span>errorclass = InternalError if errno &lt; 1000 else OperationalError</pre>
+<pre class="line current"><span class="ws">    </span>raise errorclass(errno, errval)</pre></div>
+</div>
+
+<li><div class="exc-divider">The above exception was the direct cause of the following exception:</div>
+<li><div class="frame" id="frame-139900052454976">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/flask/app.py"</cite>,
+      line <em class="line">2548</em>,
+      in <code class="function">__call__</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">    </span>def __call__(self, environ: dict, start_response: t.Callable) -&gt; t.Any:</pre>
+<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;The WSGI server calls the Flask application object as the</pre>
+<pre class="line before"><span class="ws">        </span>WSGI application. This calls :meth:`wsgi_app`, which can be</pre>
+<pre class="line before"><span class="ws">        </span>wrapped to apply middleware.</pre>
+<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+<pre class="line current"><span class="ws">        </span>return self.wsgi_app(environ, start_response)</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052455200">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/flask/app.py"</cite>,
+      line <em class="line">2528</em>,
+      in <code class="function">wsgi_app</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">            </span>try:</pre>
+<pre class="line before"><span class="ws">                </span>ctx.push()</pre>
+<pre class="line before"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
+<pre class="line before"><span class="ws">            </span>except Exception as e:</pre>
+<pre class="line before"><span class="ws">                </span>error = e</pre>
+<pre class="line current"><span class="ws">                </span>response = self.handle_exception(e)</pre>
+<pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
+<pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre>
+<pre class="line after"><span class="ws">                </span>raise</pre>
+<pre class="line after"><span class="ws">            </span>return response(environ, start_response)</pre>
+<pre class="line after"><span class="ws">        </span>finally:</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052377664">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/flask_cors/extension.py"</cite>,
+      line <em class="line">165</em>,
+      in <code class="function">wrapped_function</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">        </span># Wrap exception handlers with cross_origin</pre>
+<pre class="line before"><span class="ws">        </span># These error handlers will still respect the behavior of the route</pre>
+<pre class="line before"><span class="ws">        </span>if options.get(&#39;intercept_exceptions&#39;, True):</pre>
+<pre class="line before"><span class="ws">            </span>def _after_request_decorator(f):</pre>
+<pre class="line before"><span class="ws">                </span>def wrapped_function(*args, **kwargs):</pre>
+<pre class="line current"><span class="ws">                    </span>return cors_after_request(app.make_response(f(*args, **kwargs)))</pre>
+<pre class="line after"><span class="ws">                </span>return wrapped_function</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">            </span>if hasattr(app, &#39;handle_exception&#39;):</pre>
+<pre class="line after"><span class="ws">                </span>app.handle_exception = _after_request_decorator(</pre>
+<pre class="line after"><span class="ws">                    </span>app.handle_exception)</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052377776">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/flask/app.py"</cite>,
+      line <em class="line">2525</em>,
+      in <code class="function">wsgi_app</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">        </span>ctx = self.request_context(environ)</pre>
+<pre class="line before"><span class="ws">        </span>error: t.Optional[BaseException] = None</pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line before"><span class="ws">            </span>try:</pre>
+<pre class="line before"><span class="ws">                </span>ctx.push()</pre>
+<pre class="line current"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
+<pre class="line after"><span class="ws">            </span>except Exception as e:</pre>
+<pre class="line after"><span class="ws">                </span>error = e</pre>
+<pre class="line after"><span class="ws">                </span>response = self.handle_exception(e)</pre>
+<pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
+<pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052377888">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/flask/app.py"</cite>,
+      line <em class="line">1822</em>,
+      in <code class="function">full_dispatch_request</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">            </span>request_started.send(self)</pre>
+<pre class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+<pre class="line before"><span class="ws">            </span>if rv is None:</pre>
+<pre class="line before"><span class="ws">                </span>rv = self.dispatch_request()</pre>
+<pre class="line before"><span class="ws">        </span>except Exception as e:</pre>
+<pre class="line current"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
+<pre class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def finalize_request(</pre>
+<pre class="line after"><span class="ws">        </span>self,</pre>
+<pre class="line after"><span class="ws">        </span>rv: t.Union[ft.ResponseReturnValue, HTTPException],</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052378000">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/flask_cors/extension.py"</cite>,
+      line <em class="line">165</em>,
+      in <code class="function">wrapped_function</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">        </span># Wrap exception handlers with cross_origin</pre>
+<pre class="line before"><span class="ws">        </span># These error handlers will still respect the behavior of the route</pre>
+<pre class="line before"><span class="ws">        </span>if options.get(&#39;intercept_exceptions&#39;, True):</pre>
+<pre class="line before"><span class="ws">            </span>def _after_request_decorator(f):</pre>
+<pre class="line before"><span class="ws">                </span>def wrapped_function(*args, **kwargs):</pre>
+<pre class="line current"><span class="ws">                    </span>return cors_after_request(app.make_response(f(*args, **kwargs)))</pre>
+<pre class="line after"><span class="ws">                </span>return wrapped_function</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">            </span>if hasattr(app, &#39;handle_exception&#39;):</pre>
+<pre class="line after"><span class="ws">                </span>app.handle_exception = _after_request_decorator(</pre>
+<pre class="line after"><span class="ws">                    </span>app.handle_exception)</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052378112">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/flask/app.py"</cite>,
+      line <em class="line">1820</em>,
+      in <code class="function">full_dispatch_request</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line before"><span class="ws">            </span>request_started.send(self)</pre>
+<pre class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+<pre class="line before"><span class="ws">            </span>if rv is None:</pre>
+<pre class="line current"><span class="ws">                </span>rv = self.dispatch_request()</pre>
+<pre class="line after"><span class="ws">        </span>except Exception as e:</pre>
+<pre class="line after"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
+<pre class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def finalize_request(</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052378224">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/flask/app.py"</cite>,
+      line <em class="line">1796</em>,
+      in <code class="function">dispatch_request</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">            </span>and req.method == &#34;OPTIONS&#34;</pre>
+<pre class="line before"><span class="ws">        </span>):</pre>
+<pre class="line before"><span class="ws">            </span>return self.make_default_options_response()</pre>
+<pre class="line before"><span class="ws">        </span># otherwise dispatch to the handler for that endpoint</pre>
+<pre class="line before"><span class="ws">        </span>view_args: t.Dict[str, t.Any] = req.view_args  # type: ignore[assignment]</pre>
+<pre class="line current"><span class="ws">        </span>return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def full_dispatch_request(self) -&gt; Response:</pre>
+<pre class="line after"><span class="ws">        </span>&#34;&#34;&#34;Dispatches the request and on top of that performs request</pre>
+<pre class="line after"><span class="ws">        </span>pre and postprocessing as well as HTTP exception catching and</pre>
+<pre class="line after"><span class="ws">        </span>error handling.</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052378336">
+  <h4>File <cite class="filename">"/app/routes/freelancer.py"</cite>,
+      line <em class="line">104</em>,
+      in <code class="function">CreateFreelancerCategoriesInList</code></h4>
+  <div class="source "><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">    </span>for info in data:</pre>
+<pre class="line before"><span class="ws">        </span>project = FreelancerCategories(freelancer_id=info.get(&#39;freelancer_id&#39;),</pre>
+<pre class="line before"><span class="ws">                                        </span>category_id=info.get(&#39;category&#39;), subcategory_id=info.get(&#39;subcategory&#39;))</pre>
+<pre class="line before"><span class="ws">        </span>db.session.add(project)</pre>
+<pre class="line current"><span class="ws">        </span>db.session.commit()</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>return (jsonify({&#39;message&#39;: &#39;Categories Created&#39; }),201)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws"></span>@app.route(&#39;/api/list/freelancer-skills/&lt;int:id&gt;&#39;, methods=[&#39;GET&#39;])</pre>
+<pre class="line after"><span class="ws"></span>def ListFreelancerSkillsByID(id):</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052378448">
+  <h4>File <cite class="filename">"&lt;string&gt;"</cite>,
+      line <em class="line">2</em>,
+      in <code class="function">commit</code></h4>
+  <div class="source "></div>
+</div>
+
+<li><div class="frame" id="frame-139900052378560">
+  <h4>File <cite class="filename">"/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/session.py"</cite>,
+      line <em class="line">1451</em>,
+      in <code class="function">commit</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+<pre class="line before"><span class="ws">        </span>if self._transaction is None:</pre>
+<pre class="line before"><span class="ws">            </span>if not self._autobegin():</pre>
+<pre class="line before"><span class="ws">                </span>raise sa_exc.InvalidRequestError(&#34;No transaction is begun.&#34;)</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line current"><span class="ws">        </span>self._transaction.commit(_to_root=self.future)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def prepare(self):</pre>
+<pre class="line after"><span class="ws">        </span>&#34;&#34;&#34;Prepare the current transaction in progress for two phase commit.</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">        </span>If no transaction is in progress, this method raises an</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052378672">
+  <h4>File <cite class="filename">"/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/session.py"</cite>,
+      line <em class="line">829</em>,
+      in <code class="function">commit</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">        </span>self._state = PREPARED</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">    </span>def commit(self, _to_root=False):</pre>
+<pre class="line before"><span class="ws">        </span>self._assert_active(prepared_ok=True)</pre>
+<pre class="line before"><span class="ws">        </span>if self._state is not PREPARED:</pre>
+<pre class="line current"><span class="ws">            </span>self._prepare_impl()</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">        </span>if self._parent is None or self.nested:</pre>
+<pre class="line after"><span class="ws">            </span>for conn, trans, should_commit, autoclose in set(</pre>
+<pre class="line after"><span class="ws">                </span>self._connections.values()</pre>
+<pre class="line after"><span class="ws">            </span>):</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052378784">
+  <h4>File <cite class="filename">"/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/session.py"</cite>,
+      line <em class="line">808</em>,
+      in <code class="function">_prepare_impl</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">        </span>if not self.session._flushing:</pre>
+<pre class="line before"><span class="ws">            </span>for _flush_guard in range(100):</pre>
+<pre class="line before"><span class="ws">                </span>if self.session._is_clean():</pre>
+<pre class="line before"><span class="ws">                    </span>break</pre>
+<pre class="line current"><span class="ws">                </span>self.session.flush()</pre>
+<pre class="line after"><span class="ws">            </span>else:</pre>
+<pre class="line after"><span class="ws">                </span>raise exc.FlushError(</pre>
+<pre class="line after"><span class="ws">                    </span>&#34;Over 100 subsequent flushes have occurred within &#34;</pre>
+<pre class="line after"><span class="ws">                    </span>&#34;session.commit() - is an after_flush() hook &#34;</pre>
+<pre class="line after"><span class="ws">                    </span>&#34;creating new objects?&#34;</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052378896">
+  <h4>File <cite class="filename">"/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/session.py"</cite>,
+      line <em class="line">3444</em>,
+      in <code class="function">flush</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">        </span>if self._is_clean():</pre>
+<pre class="line before"><span class="ws">            </span>return</pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line before"><span class="ws">            </span>self._flushing = True</pre>
+<pre class="line current"><span class="ws">            </span>self._flush(objects)</pre>
+<pre class="line after"><span class="ws">        </span>finally:</pre>
+<pre class="line after"><span class="ws">            </span>self._flushing = False</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def _flush_warning(self, method):</pre>
+<pre class="line after"><span class="ws">        </span>util.warn(</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052379008">
+  <h4>File <cite class="filename">"/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/session.py"</cite>,
+      line <em class="line">3584</em>,
+      in <code class="function">_flush</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">            </span>transaction.commit()</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">        </span>except:</pre>
+<pre class="line before"><span class="ws">            </span>with util.safe_reraise():</pre>
+<pre class="line current"><span class="ws">                </span>transaction.rollback(_capture_exception=True)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def bulk_save_objects(</pre>
+<pre class="line after"><span class="ws">        </span>self,</pre>
+<pre class="line after"><span class="ws">        </span>objects,</pre>
+<pre class="line after"><span class="ws">        </span>return_defaults=False,</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052379120">
+  <h4>File <cite class="filename">"/usr/local/lib64/python3.8/site-packages/sqlalchemy/util/langhelpers.py"</cite>,
+      line <em class="line">70</em>,
+      in <code class="function">__exit__</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">        </span># see #2703 for notes</pre>
+<pre class="line before"><span class="ws">        </span>if type_ is None:</pre>
+<pre class="line before"><span class="ws">            </span>exc_type, exc_value, exc_tb = self._exc_info</pre>
+<pre class="line before"><span class="ws">            </span>self._exc_info = None  # remove potential circular references</pre>
+<pre class="line before"><span class="ws">            </span>if not self.warn_only:</pre>
+<pre class="line current"><span class="ws">                </span>compat.raise_(</pre>
+<pre class="line after"><span class="ws">                    </span>exc_value,</pre>
+<pre class="line after"><span class="ws">                    </span>with_traceback=exc_tb,</pre>
+<pre class="line after"><span class="ws">                </span>)</pre>
+<pre class="line after"><span class="ws">        </span>else:</pre>
+<pre class="line after"><span class="ws">            </span>if not compat.py3k and self._exc_info and self._exc_info[1]:</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052379232">
+  <h4>File <cite class="filename">"/usr/local/lib64/python3.8/site-packages/sqlalchemy/util/compat.py"</cite>,
+      line <em class="line">210</em>,
+      in <code class="function">raise_</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">            </span># intermediary exception does not change, but we can&#39;t figure</pre>
+<pre class="line before"><span class="ws">            </span># that out.</pre>
+<pre class="line before"><span class="ws">            </span>exception.__cause__ = replace_context</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line current"><span class="ws">            </span>raise exception</pre>
+<pre class="line after"><span class="ws">        </span>finally:</pre>
+<pre class="line after"><span class="ws">            </span># credit to</pre>
+<pre class="line after"><span class="ws">            </span># https://cosmicpercolator.com/2016/01/13/exception-leaks-in-python-2-and-3/</pre>
+<pre class="line after"><span class="ws">            </span># as the __traceback__ object creates a cycle</pre>
+<pre class="line after"><span class="ws">            </span>del exception, replace_context, from_, with_traceback</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052379344">
+  <h4>File <cite class="filename">"/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/session.py"</cite>,
+      line <em class="line">3544</em>,
+      in <code class="function">_flush</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">        </span>flush_context.transaction = transaction = self.begin(_subtrans=True)</pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line before"><span class="ws">            </span>self._warn_on_events = True</pre>
+<pre class="line before"><span class="ws">            </span>try:</pre>
+<pre class="line current"><span class="ws">                </span>flush_context.execute()</pre>
+<pre class="line after"><span class="ws">            </span>finally:</pre>
+<pre class="line after"><span class="ws">                </span>self._warn_on_events = False</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">            </span>self.dispatch.after_flush(self, flush_context)</pre>
+<pre class="line after"><span class="ws"></span> </pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052379456">
+  <h4>File <cite class="filename">"/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/unitofwork.py"</cite>,
+      line <em class="line">456</em>,
+      in <code class="function">execute</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">                </span>while set_:</pre>
+<pre class="line before"><span class="ws">                    </span>n = set_.pop()</pre>
+<pre class="line before"><span class="ws">                    </span>n.execute_aggregate(self, set_)</pre>
+<pre class="line before"><span class="ws">        </span>else:</pre>
+<pre class="line before"><span class="ws">            </span>for rec in topological.sort(self.dependencies, postsort_actions):</pre>
+<pre class="line current"><span class="ws">                </span>rec.execute(self)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def finalize_flush_changes(self):</pre>
+<pre class="line after"><span class="ws">        </span>&#34;&#34;&#34;Mark processed objects as clean / deleted after a successful</pre>
+<pre class="line after"><span class="ws">        </span>flush().</pre>
+<pre class="line after"><span class="ws"></span> </pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052379568">
+  <h4>File <cite class="filename">"/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/unitofwork.py"</cite>,
+      line <em class="line">630</em>,
+      in <code class="function">execute</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">        </span>self.sort_key = (&#34;SaveUpdateAll&#34;, mapper._sort_key)</pre>
+<pre class="line before"><span class="ws">        </span>assert mapper is mapper.base_mapper</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">    </span>@util.preload_module(&#34;sqlalchemy.orm.persistence&#34;)</pre>
+<pre class="line before"><span class="ws">    </span>def execute(self, uow):</pre>
+<pre class="line current"><span class="ws">        </span>util.preloaded.orm_persistence.save_obj(</pre>
+<pre class="line after"><span class="ws">            </span>self.mapper,</pre>
+<pre class="line after"><span class="ws">            </span>uow.states_for_mapper_hierarchy(self.mapper, False, False),</pre>
+<pre class="line after"><span class="ws">            </span>uow,</pre>
+<pre class="line after"><span class="ws">        </span>)</pre>
+<pre class="line after"><span class="ws"></span> </pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052379680">
+  <h4>File <cite class="filename">"/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/persistence.py"</cite>,
+      line <em class="line">245</em>,
+      in <code class="function">save_obj</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">            </span>mapper,</pre>
+<pre class="line before"><span class="ws">            </span>table,</pre>
+<pre class="line before"><span class="ws">            </span>update,</pre>
+<pre class="line before"><span class="ws">        </span>)</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line current"><span class="ws">        </span>_emit_insert_statements(</pre>
+<pre class="line after"><span class="ws">            </span>base_mapper,</pre>
+<pre class="line after"><span class="ws">            </span>uowtransaction,</pre>
+<pre class="line after"><span class="ws">            </span>mapper,</pre>
+<pre class="line after"><span class="ws">            </span>table,</pre>
+<pre class="line after"><span class="ws">            </span>insert,</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052379792">
+  <h4>File <cite class="filename">"/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/persistence.py"</cite>,
+      line <em class="line">1238</em>,
+      in <code class="function">_emit_insert_statements</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">                            </span>statement.values(value_params),</pre>
+<pre class="line before"><span class="ws">                            </span>params,</pre>
+<pre class="line before"><span class="ws">                            </span>execution_options=execution_options,</pre>
+<pre class="line before"><span class="ws">                        </span>)</pre>
+<pre class="line before"><span class="ws">                    </span>else:</pre>
+<pre class="line current"><span class="ws">                        </span>result = connection._execute_20(</pre>
+<pre class="line after"><span class="ws">                            </span>statement,</pre>
+<pre class="line after"><span class="ws">                            </span>params,</pre>
+<pre class="line after"><span class="ws">                            </span>execution_options=execution_options,</pre>
+<pre class="line after"><span class="ws">                        </span>)</pre>
+<pre class="line after"><span class="ws"></span> </pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052379904">
+  <h4>File <cite class="filename">"/usr/local/lib64/python3.8/site-packages/sqlalchemy/engine/base.py"</cite>,
+      line <em class="line">1705</em>,
+      in <code class="function">_execute_20</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">        </span>except AttributeError as err:</pre>
+<pre class="line before"><span class="ws">            </span>util.raise_(</pre>
+<pre class="line before"><span class="ws">                </span>exc.ObjectNotExecutableError(statement), replace_context=err</pre>
+<pre class="line before"><span class="ws">            </span>)</pre>
+<pre class="line before"><span class="ws">        </span>else:</pre>
+<pre class="line current"><span class="ws">            </span>return meth(self, args_10style, kwargs_10style, execution_options)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def exec_driver_sql(</pre>
+<pre class="line after"><span class="ws">        </span>self, statement, parameters=None, execution_options=None</pre>
+<pre class="line after"><span class="ws">    </span>):</pre>
+<pre class="line after"><span class="ws">        </span>r&#34;&#34;&#34;Executes a SQL statement construct and returns a</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052380016">
+  <h4>File <cite class="filename">"/usr/local/lib64/python3.8/site-packages/sqlalchemy/sql/elements.py"</cite>,
+      line <em class="line">334</em>,
+      in <code class="function">_execute_on_connection</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">    </span>def _execute_on_connection(</pre>
+<pre class="line before"><span class="ws">        </span>self, connection, multiparams, params, execution_options, _force=False</pre>
+<pre class="line before"><span class="ws">    </span>):</pre>
+<pre class="line before"><span class="ws">        </span>if _force or self.supports_execution:</pre>
+<pre class="line current"><span class="ws">            </span>return connection._execute_clauseelement(</pre>
+<pre class="line after"><span class="ws">                </span>self, multiparams, params, execution_options</pre>
+<pre class="line after"><span class="ws">            </span>)</pre>
+<pre class="line after"><span class="ws">        </span>else:</pre>
+<pre class="line after"><span class="ws">            </span>raise exc.ObjectNotExecutableError(self)</pre>
+<pre class="line after"><span class="ws"></span> </pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052380128">
+  <h4>File <cite class="filename">"/usr/local/lib64/python3.8/site-packages/sqlalchemy/engine/base.py"</cite>,
+      line <em class="line">1572</em>,
+      in <code class="function">_execute_clauseelement</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">            </span>column_keys=keys,</pre>
+<pre class="line before"><span class="ws">            </span>for_executemany=for_executemany,</pre>
+<pre class="line before"><span class="ws">            </span>schema_translate_map=schema_translate_map,</pre>
+<pre class="line before"><span class="ws">            </span>linting=self.dialect.compiler_linting | compiler.WARN_LINTING,</pre>
+<pre class="line before"><span class="ws">        </span>)</pre>
+<pre class="line current"><span class="ws">        </span>ret = self._execute_context(</pre>
+<pre class="line after"><span class="ws">            </span>dialect,</pre>
+<pre class="line after"><span class="ws">            </span>dialect.execution_ctx_cls._init_compiled,</pre>
+<pre class="line after"><span class="ws">            </span>compiled_sql,</pre>
+<pre class="line after"><span class="ws">            </span>distilled_params,</pre>
+<pre class="line after"><span class="ws">            </span>execution_options,</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052380240">
+  <h4>File <cite class="filename">"/usr/local/lib64/python3.8/site-packages/sqlalchemy/engine/base.py"</cite>,
+      line <em class="line">1943</em>,
+      in <code class="function">_execute_context</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">                    </span># CursorResult already exhausted rows / has no rows.</pre>
+<pre class="line before"><span class="ws">                    </span># close us now</pre>
+<pre class="line before"><span class="ws">                    </span>branched.close()</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">        </span>except BaseException as e:</pre>
+<pre class="line current"><span class="ws">            </span>self._handle_dbapi_exception(</pre>
+<pre class="line after"><span class="ws">                </span>e, statement, parameters, cursor, context</pre>
+<pre class="line after"><span class="ws">            </span>)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">        </span>return result</pre>
+<pre class="line after"><span class="ws"></span> </pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052380352">
+  <h4>File <cite class="filename">"/usr/local/lib64/python3.8/site-packages/sqlalchemy/engine/base.py"</cite>,
+      line <em class="line">2124</em>,
+      in <code class="function">_handle_dbapi_exception</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">                    </span>self._autorollback()</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">            </span>if newraise:</pre>
+<pre class="line before"><span class="ws">                </span>util.raise_(newraise, with_traceback=exc_info[2], from_=e)</pre>
+<pre class="line before"><span class="ws">            </span>elif should_wrap:</pre>
+<pre class="line current"><span class="ws">                </span>util.raise_(</pre>
+<pre class="line after"><span class="ws">                    </span>sqlalchemy_exception, with_traceback=exc_info[2], from_=e</pre>
+<pre class="line after"><span class="ws">                </span>)</pre>
+<pre class="line after"><span class="ws">            </span>else:</pre>
+<pre class="line after"><span class="ws">                </span>util.raise_(exc_info[1], with_traceback=exc_info[2])</pre>
+<pre class="line after"><span class="ws"></span> </pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052380464">
+  <h4>File <cite class="filename">"/usr/local/lib64/python3.8/site-packages/sqlalchemy/util/compat.py"</cite>,
+      line <em class="line">210</em>,
+      in <code class="function">raise_</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">            </span># intermediary exception does not change, but we can&#39;t figure</pre>
+<pre class="line before"><span class="ws">            </span># that out.</pre>
+<pre class="line before"><span class="ws">            </span>exception.__cause__ = replace_context</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line current"><span class="ws">            </span>raise exception</pre>
+<pre class="line after"><span class="ws">        </span>finally:</pre>
+<pre class="line after"><span class="ws">            </span># credit to</pre>
+<pre class="line after"><span class="ws">            </span># https://cosmicpercolator.com/2016/01/13/exception-leaks-in-python-2-and-3/</pre>
+<pre class="line after"><span class="ws">            </span># as the __traceback__ object creates a cycle</pre>
+<pre class="line after"><span class="ws">            </span>del exception, replace_context, from_, with_traceback</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052380576">
+  <h4>File <cite class="filename">"/usr/local/lib64/python3.8/site-packages/sqlalchemy/engine/base.py"</cite>,
+      line <em class="line">1900</em>,
+      in <code class="function">_execute_context</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">                    </span>for fn in self.dialect.dispatch.do_execute:</pre>
+<pre class="line before"><span class="ws">                        </span>if fn(cursor, statement, parameters, context):</pre>
+<pre class="line before"><span class="ws">                            </span>evt_handled = True</pre>
+<pre class="line before"><span class="ws">                            </span>break</pre>
+<pre class="line before"><span class="ws">                </span>if not evt_handled:</pre>
+<pre class="line current"><span class="ws">                    </span>self.dialect.do_execute(</pre>
+<pre class="line after"><span class="ws">                        </span>cursor, statement, parameters, context</pre>
+<pre class="line after"><span class="ws">                    </span>)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">            </span>if self._has_events or self.engine._has_events:</pre>
+<pre class="line after"><span class="ws">                </span>self.dispatch.after_cursor_execute(</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052380688">
+  <h4>File <cite class="filename">"/usr/local/lib64/python3.8/site-packages/sqlalchemy/engine/default.py"</cite>,
+      line <em class="line">736</em>,
+      in <code class="function">do_execute</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">    </span>def do_executemany(self, cursor, statement, parameters, context=None):</pre>
+<pre class="line before"><span class="ws">        </span>cursor.executemany(statement, parameters)</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">    </span>def do_execute(self, cursor, statement, parameters, context=None):</pre>
+<pre class="line current"><span class="ws">        </span>cursor.execute(statement, parameters)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def do_execute_no_params(self, cursor, statement, context=None):</pre>
+<pre class="line after"><span class="ws">        </span>cursor.execute(statement)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def is_disconnect(self, e, connection, cursor):</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052380800">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/pymysql/cursors.py"</cite>,
+      line <em class="line">148</em>,
+      in <code class="function">execute</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">        </span>while self.nextset():</pre>
+<pre class="line before"><span class="ws">            </span>pass</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">        </span>query = self.mogrify(query, args)</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line current"><span class="ws">        </span>result = self._query(query)</pre>
+<pre class="line after"><span class="ws">        </span>self._executed = query</pre>
+<pre class="line after"><span class="ws">        </span>return result</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def executemany(self, query, args):</pre>
+<pre class="line after"><span class="ws">        </span># type: (str, list) -&gt; int</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052380912">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/pymysql/cursors.py"</cite>,
+      line <em class="line">310</em>,
+      in <code class="function">_query</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">    </span>def _query(self, q):</pre>
+<pre class="line before"><span class="ws">        </span>conn = self._get_db()</pre>
+<pre class="line before"><span class="ws">        </span>self._last_executed = q</pre>
+<pre class="line before"><span class="ws">        </span>self._clear_result()</pre>
+<pre class="line current"><span class="ws">        </span>conn.query(q)</pre>
+<pre class="line after"><span class="ws">        </span>self._do_get_result()</pre>
+<pre class="line after"><span class="ws">        </span>return self.rowcount</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def _clear_result(self):</pre>
+<pre class="line after"><span class="ws">        </span>self.rownumber = 0</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052381024">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/pymysql/connections.py"</cite>,
+      line <em class="line">548</em>,
+      in <code class="function">query</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">        </span># if DEBUG:</pre>
+<pre class="line before"><span class="ws">        </span>#     print(&#34;DEBUG: sending query:&#34;, sql)</pre>
+<pre class="line before"><span class="ws">        </span>if isinstance(sql, str):</pre>
+<pre class="line before"><span class="ws">            </span>sql = sql.encode(self.encoding, &#34;surrogateescape&#34;)</pre>
+<pre class="line before"><span class="ws">        </span>self._execute_command(COMMAND.COM_QUERY, sql)</pre>
+<pre class="line current"><span class="ws">        </span>self._affected_rows = self._read_query_result(unbuffered=unbuffered)</pre>
+<pre class="line after"><span class="ws">        </span>return self._affected_rows</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def next_result(self, unbuffered=False):</pre>
+<pre class="line after"><span class="ws">        </span>self._affected_rows = self._read_query_result(unbuffered=unbuffered)</pre>
+<pre class="line after"><span class="ws">        </span>return self._affected_rows</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052381136">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/pymysql/connections.py"</cite>,
+      line <em class="line">775</em>,
+      in <code class="function">_read_query_result</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">                </span>result.unbuffered_active = False</pre>
+<pre class="line before"><span class="ws">                </span>result.connection = None</pre>
+<pre class="line before"><span class="ws">                </span>raise</pre>
+<pre class="line before"><span class="ws">        </span>else:</pre>
+<pre class="line before"><span class="ws">            </span>result = MySQLResult(self)</pre>
+<pre class="line current"><span class="ws">            </span>result.read()</pre>
+<pre class="line after"><span class="ws">        </span>self._result = result</pre>
+<pre class="line after"><span class="ws">        </span>if result.server_status is not None:</pre>
+<pre class="line after"><span class="ws">            </span>self.server_status = result.server_status</pre>
+<pre class="line after"><span class="ws">        </span>return result.affected_rows</pre>
+<pre class="line after"><span class="ws"></span> </pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052381248">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/pymysql/connections.py"</cite>,
+      line <em class="line">1156</em>,
+      in <code class="function">read</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">        </span>if self.unbuffered_active:</pre>
+<pre class="line before"><span class="ws">            </span>self._finish_unbuffered_query()</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">    </span>def read(self):</pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line current"><span class="ws">            </span>first_packet = self.connection._read_packet()</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">            </span>if first_packet.is_ok_packet():</pre>
+<pre class="line after"><span class="ws">                </span>self._read_ok_packet(first_packet)</pre>
+<pre class="line after"><span class="ws">            </span>elif first_packet.is_load_local_packet():</pre>
+<pre class="line after"><span class="ws">                </span>self._read_load_local_packet(first_packet)</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052381360">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/pymysql/connections.py"</cite>,
+      line <em class="line">725</em>,
+      in <code class="function">_read_packet</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">        </span>packet = packet_type(bytes(buff), self.encoding)</pre>
+<pre class="line before"><span class="ws">        </span>if packet.is_error_packet():</pre>
+<pre class="line before"><span class="ws">            </span>if self._result is not None and self._result.unbuffered_active is True:</pre>
+<pre class="line before"><span class="ws">                </span>self._result.unbuffered_active = False</pre>
+<pre class="line current"><span class="ws">            </span>packet.raise_for_error()</pre>
+<pre class="line after"><span class="ws">        </span>return packet</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def _read_bytes(self, num_bytes):</pre>
+<pre class="line after"><span class="ws">        </span>self._sock.settimeout(self._read_timeout)</pre>
+<pre class="line after"><span class="ws">        </span>while True:</pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052381472">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/pymysql/protocol.py"</cite>,
+      line <em class="line">221</em>,
+      in <code class="function">raise_for_error</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">        </span>self.rewind()</pre>
+<pre class="line before"><span class="ws">        </span>self.advance(1)  # field_count == error (we already know that)</pre>
+<pre class="line before"><span class="ws">        </span>errno = self.read_uint16()</pre>
+<pre class="line before"><span class="ws">        </span>if DEBUG:</pre>
+<pre class="line before"><span class="ws">            </span>print(&#34;errno =&#34;, errno)</pre>
+<pre class="line current"><span class="ws">        </span>err.raise_mysql_exception(self._data)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def dump(self):</pre>
+<pre class="line after"><span class="ws">        </span>dump_packet(self._data)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws"></span> </pre></div>
+</div>
+
+<li><div class="frame" id="frame-139900052381584">
+  <h4>File <cite class="filename">"/usr/local/lib/python3.8/site-packages/pymysql/err.py"</cite>,
+      line <em class="line">143</em>,
+      in <code class="function">raise_mysql_exception</code></h4>
+  <div class="source library"><pre class="line before"><span class="ws">    </span>errno = struct.unpack(&#34;&lt;h&#34;, data[1:3])[0]</pre>
+<pre class="line before"><span class="ws">    </span>errval = data[9:].decode(&#34;utf-8&#34;, &#34;replace&#34;)</pre>
+<pre class="line before"><span class="ws">    </span>errorclass = error_map.get(errno)</pre>
+<pre class="line before"><span class="ws">    </span>if errorclass is None:</pre>
+<pre class="line before"><span class="ws">        </span>errorclass = InternalError if errno &lt; 1000 else OperationalError</pre>
+<pre class="line current"><span class="ws">    </span>raise errorclass(errno, errval)</pre></div>
+</div>
+</ul>
+  <blockquote>sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1452, &#39;Cannot add or update a child row: a foreign key constraint fails (`freethefreela`.`freelancer_categories`, CONSTRAINT `freelancer_categories_ibfk_1` FOREIGN KEY (`freelancer_id`) REFERENCES `freelancer_profile` (`freelancer_id`))&#39;)
+[SQL: INSERT INTO freelancer_categories (freelancer_id, category_id, subcategory_id) VALUES (%(freelancer_id)s, %(category_id)s, %(subcategory_id)s)]
+[parameters: {&#39;freelancer_id&#39;: 955, &#39;category_id&#39;: None, &#39;subcategory_id&#39;: None}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)
+</blockquote>
+</div>
+
+<div class="plain">
+    <p>
+      This is the Copy/Paste friendly version of the traceback.
+    </p>
+    <textarea cols="50" rows="10" name="code" readonly>Traceback (most recent call last):
+  File &#34;/usr/local/lib64/python3.8/site-packages/sqlalchemy/engine/base.py&#34;, line 1900, in _execute_context
+    self.dialect.do_execute(
+  File &#34;/usr/local/lib64/python3.8/site-packages/sqlalchemy/engine/default.py&#34;, line 736, in do_execute
+    cursor.execute(statement, parameters)
+  File &#34;/usr/local/lib/python3.8/site-packages/pymysql/cursors.py&#34;, line 148, in execute
+    result = self._query(query)
+  File &#34;/usr/local/lib/python3.8/site-packages/pymysql/cursors.py&#34;, line 310, in _query
+    conn.query(q)
+  File &#34;/usr/local/lib/python3.8/site-packages/pymysql/connections.py&#34;, line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File &#34;/usr/local/lib/python3.8/site-packages/pymysql/connections.py&#34;, line 775, in _read_query_result
+    result.read()
+  File &#34;/usr/local/lib/python3.8/site-packages/pymysql/connections.py&#34;, line 1156, in read
+    first_packet = self.connection._read_packet()
+  File &#34;/usr/local/lib/python3.8/site-packages/pymysql/connections.py&#34;, line 725, in _read_packet
+    packet.raise_for_error()
+  File &#34;/usr/local/lib/python3.8/site-packages/pymysql/protocol.py&#34;, line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File &#34;/usr/local/lib/python3.8/site-packages/pymysql/err.py&#34;, line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1452, &#39;Cannot add or update a child row: a foreign key constraint fails (`freethefreela`.`freelancer_categories`, CONSTRAINT `freelancer_categories_ibfk_1` FOREIGN KEY (`freelancer_id`) REFERENCES `freelancer_profile` (`freelancer_id`))&#39;)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File &#34;/usr/local/lib/python3.8/site-packages/flask/app.py&#34;, line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+  File &#34;/usr/local/lib/python3.8/site-packages/flask/app.py&#34;, line 2528, in wsgi_app
+    response = self.handle_exception(e)
+  File &#34;/usr/local/lib/python3.8/site-packages/flask_cors/extension.py&#34;, line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File &#34;/usr/local/lib/python3.8/site-packages/flask/app.py&#34;, line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File &#34;/usr/local/lib/python3.8/site-packages/flask/app.py&#34;, line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File &#34;/usr/local/lib/python3.8/site-packages/flask_cors/extension.py&#34;, line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File &#34;/usr/local/lib/python3.8/site-packages/flask/app.py&#34;, line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File &#34;/usr/local/lib/python3.8/site-packages/flask/app.py&#34;, line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File &#34;/app/routes/freelancer.py&#34;, line 104, in CreateFreelancerCategoriesInList
+    db.session.commit()
+  File &#34;&lt;string&gt;&#34;, line 2, in commit
+  File &#34;/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/session.py&#34;, line 1451, in commit
+    self._transaction.commit(_to_root=self.future)
+  File &#34;/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/session.py&#34;, line 829, in commit
+    self._prepare_impl()
+  File &#34;/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/session.py&#34;, line 808, in _prepare_impl
+    self.session.flush()
+  File &#34;/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/session.py&#34;, line 3444, in flush
+    self._flush(objects)
+  File &#34;/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/session.py&#34;, line 3584, in _flush
+    transaction.rollback(_capture_exception=True)
+  File &#34;/usr/local/lib64/python3.8/site-packages/sqlalchemy/util/langhelpers.py&#34;, line 70, in __exit__
+    compat.raise_(
+  File &#34;/usr/local/lib64/python3.8/site-packages/sqlalchemy/util/compat.py&#34;, line 210, in raise_
+    raise exception
+  File &#34;/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/session.py&#34;, line 3544, in _flush
+    flush_context.execute()
+  File &#34;/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/unitofwork.py&#34;, line 456, in execute
+    rec.execute(self)
+  File &#34;/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/unitofwork.py&#34;, line 630, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File &#34;/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/persistence.py&#34;, line 245, in save_obj
+    _emit_insert_statements(
+  File &#34;/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/persistence.py&#34;, line 1238, in _emit_insert_statements
+    result = connection._execute_20(
+  File &#34;/usr/local/lib64/python3.8/site-packages/sqlalchemy/engine/base.py&#34;, line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File &#34;/usr/local/lib64/python3.8/site-packages/sqlalchemy/sql/elements.py&#34;, line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File &#34;/usr/local/lib64/python3.8/site-packages/sqlalchemy/engine/base.py&#34;, line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File &#34;/usr/local/lib64/python3.8/site-packages/sqlalchemy/engine/base.py&#34;, line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File &#34;/usr/local/lib64/python3.8/site-packages/sqlalchemy/engine/base.py&#34;, line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File &#34;/usr/local/lib64/python3.8/site-packages/sqlalchemy/util/compat.py&#34;, line 210, in raise_
+    raise exception
+  File &#34;/usr/local/lib64/python3.8/site-packages/sqlalchemy/engine/base.py&#34;, line 1900, in _execute_context
+    self.dialect.do_execute(
+  File &#34;/usr/local/lib64/python3.8/site-packages/sqlalchemy/engine/default.py&#34;, line 736, in do_execute
+    cursor.execute(statement, parameters)
+  File &#34;/usr/local/lib/python3.8/site-packages/pymysql/cursors.py&#34;, line 148, in execute
+    result = self._query(query)
+  File &#34;/usr/local/lib/python3.8/site-packages/pymysql/cursors.py&#34;, line 310, in _query
+    conn.query(q)
+  File &#34;/usr/local/lib/python3.8/site-packages/pymysql/connections.py&#34;, line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File &#34;/usr/local/lib/python3.8/site-packages/pymysql/connections.py&#34;, line 775, in _read_query_result
+    result.read()
+  File &#34;/usr/local/lib/python3.8/site-packages/pymysql/connections.py&#34;, line 1156, in read
+    first_packet = self.connection._read_packet()
+  File &#34;/usr/local/lib/python3.8/site-packages/pymysql/connections.py&#34;, line 725, in _read_packet
+    packet.raise_for_error()
+  File &#34;/usr/local/lib/python3.8/site-packages/pymysql/protocol.py&#34;, line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File &#34;/usr/local/lib/python3.8/site-packages/pymysql/err.py&#34;, line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1452, &#39;Cannot add or update a child row: a foreign key constraint fails (`freethefreela`.`freelancer_categories`, CONSTRAINT `freelancer_categories_ibfk_1` FOREIGN KEY (`freelancer_id`) REFERENCES `freelancer_profile` (`freelancer_id`))&#39;)
+[SQL: INSERT INTO freelancer_categories (freelancer_id, category_id, subcategory_id) VALUES (%(freelancer_id)s, %(category_id)s, %(subcategory_id)s)]
+[parameters: {&#39;freelancer_id&#39;: 955, &#39;category_id&#39;: None, &#39;subcategory_id&#39;: None}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)
+</textarea>
+</div>
+<div class="explanation">
+  The debugger caught an exception in your WSGI application.  You can now
+  look at the traceback which led to the error.  <span class="nojavascript">
+  If you enable JavaScript you can also use additional features such as code
+  execution (if the evalex feature is enabled), automatic pasting of the
+  exceptions and much more.</span>
+</div>
+      <div class="footer">
+        Brought to you by <strong class="arthur">DON'T PANIC</strong>, your
+        friendly Werkzeug powered traceback interpreter.
+      </div>
+    </div>
+
+    <div class="pin-prompt">
+      <div class="inner">
+        <h3>Console Locked</h3>
+        <p>
+          The console is locked and needs to be unlocked by entering the PIN.
+          You can find the PIN printed out on the standard output of your
+          shell that runs the server.
+        <form>
+          <p>PIN:
+            <input type=text name=pin size=14>
+            <input type=submit name=btn value="Confirm Pin">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!--
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.8/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/usr/local/lib64/python3.8/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+  File "/usr/local/lib/python3.8/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.8/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.8/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.8/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.8/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.8/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/usr/local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1452, 'Cannot add or update a child row: a foreign key constraint fails (`freethefreela`.`freelancer_categories`, CONSTRAINT `freelancer_categories_ibfk_1` FOREIGN KEY (`freelancer_id`) REFERENCES `freelancer_profile` (`freelancer_id`))')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/app/routes/freelancer.py", line 104, in CreateFreelancerCategoriesInList
+    db.session.commit()
+  File "<string>", line 2, in commit
+  File "/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/session.py", line 1451, in commit
+    self._transaction.commit(_to_root=self.future)
+  File "/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/session.py", line 829, in commit
+    self._prepare_impl()
+  File "/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/session.py", line 808, in _prepare_impl
+    self.session.flush()
+  File "/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/session.py", line 3444, in flush
+    self._flush(objects)
+  File "/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/session.py", line 3584, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/usr/local/lib64/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/usr/local/lib64/python3.8/site-packages/sqlalchemy/util/compat.py", line 210, in raise_
+    raise exception
+  File "/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/session.py", line 3544, in _flush
+    flush_context.execute()
+  File "/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/unitofwork.py", line 456, in execute
+    rec.execute(self)
+  File "/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/unitofwork.py", line 630, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
+    _emit_insert_statements(
+  File "/usr/local/lib64/python3.8/site-packages/sqlalchemy/orm/persistence.py", line 1238, in _emit_insert_statements
+    result = connection._execute_20(
+  File "/usr/local/lib64/python3.8/site-packages/sqlalchemy/engine/base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/usr/local/lib64/python3.8/site-packages/sqlalchemy/sql/elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/usr/local/lib64/python3.8/site-packages/sqlalchemy/engine/base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/usr/local/lib64/python3.8/site-packages/sqlalchemy/engine/base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "/usr/local/lib64/python3.8/site-packages/sqlalchemy/engine/base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "/usr/local/lib64/python3.8/site-packages/sqlalchemy/util/compat.py", line 210, in raise_
+    raise exception
+  File "/usr/local/lib64/python3.8/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "/usr/local/lib64/python3.8/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+  File "/usr/local/lib/python3.8/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.8/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.8/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.8/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.8/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.8/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/usr/local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`freethefreela`.`freelancer_categories`, CONSTRAINT `freelancer_categories_ibfk_1` FOREIGN KEY (`freelancer_id`) REFERENCES `freelancer_profile` (`freelancer_id`))')
+[SQL: INSERT INTO freelancer_categories (freelancer_id, category_id, subcategory_id) VALUES (%(freelancer_id)s, %(category_id)s, %(subcategory_id)s)]
+[parameters: {'freelancer_id': 955, 'category_id': None, 'subcategory_id': None}]
+(Background on this error at: https://sqlalche.me/e/14/gkpj)
+
+
+-->

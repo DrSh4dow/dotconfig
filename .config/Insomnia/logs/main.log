@@ -1,0 +1,13 @@
+[2023-03-01 13:26:07.167] [info]  Running version 2022.7.5
+[2023-03-01 13:26:07.192] [error] [electron client protocol] FAILED to set default protocol 'insomnia://'
+[2023-03-01 13:26:07.210] [info]  [electron client protocol] the current executable is not the default protocol for 'insomnia://'
+[2023-03-01 13:26:07.251] [info]  [electron client protocol] the default application set for 'insomnia://' is 'insomnia.desktop
+'
+[2023-03-01 13:26:07.442] [info]  [fix] Running database repairs
+[2023-03-01 13:26:07.495] [info]  [db] Initialized DB at /home/drsh4dow/.config/Insomnia/insomnia.$TYPE.db
+[2023-03-01 13:26:07.495] [info]  [db] Init responses DB
+[2023-03-01 13:26:07.495] [info]  [db] Init websocket-responses DB
+[2023-03-01 13:26:07.501] [info]  [localstorage] Initialized at /home/drsh4dow/.config/Insomnia/localStorage
+[2023-03-01 13:26:07.582] [info]  [main] Loading file:///opt/Insomnia/resources/app.asar/index.html
+[2023-03-01 13:26:08.097] [info]  [updater] Updater not running platform=linux dev=false
+[2023-03-01 13:26:09.517] [info]  [main] Window ready, handling command line arguments [ '/opt/Insomnia/insomnia' ]
