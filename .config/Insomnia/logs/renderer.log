@@ -1,0 +1,57 @@
+[2023-03-01 13:26:08.434] [info]  [db] Initialized DB client
+[2023-03-01 13:26:08.545] [warn]  The vm module of Node.js is deprecated in the renderer process and will be removed.
+[2023-03-01 13:26:08.548] [warn]  The vm module of Node.js is deprecated in the renderer process and will be removed.
+[2023-03-01 13:26:08.792] [warn]  The vm module of Node.js is deprecated in the renderer process and will be removed.
+[2023-03-01 13:26:08.876] [info]  {
+  workspaceData: {
+    activeWorkspace: {
+      _id: 'wrk_1220daba0b614f05ae9985322c1f22a7',
+      type: 'Workspace',
+      parentId: 'proj_default-project',
+      modified: 1677187862922,
+      created: 1677187862922,
+      name: 'New Document',
+      description: '',
+      scope: 'design'
+    },
+    activeProject: {
+      _id: 'proj_default-project',
+      type: 'Project',
+      parentId: null,
+      modified: 1677187862597,
+      created: 1677187862597,
+      name: 'Insomnia',
+      remoteId: null
+    },
+    gitRepository: null,
+    activeWorkspaceMeta: {
+      _id: 'wrkm_bf8e3eee73d84d088b3ea0f1321c289f',
+      type: 'WorkspaceMeta',
+      parentId: 'wrk_1220daba0b614f05ae9985322c1f22a7',
+      modified: 1677616722235,
+      created: 1677187862926,
+      activeActivity: 'debug',
+      activeEnvironmentId: null,
+      activeRequestId: 'req_ea0634e190264f4cb0b557cc8e2418d9',
+      activeUnitTestSuiteId: 'uts_6eb8e697c2724228afa64f16c900025c',
+      cachedGitLastAuthor: null,
+      cachedGitLastCommitTime: null,
+      cachedGitRepositoryBranch: null,
+      gitRepositoryId: null,
+      hasSeen: true,
+      paneHeight: 0.5,
+      paneWidth: 0.5,
+      sidebarFilter: '',
+      sidebarHidden: false,
+      sidebarWidth: 19,
+      pushSnapshotOnInitialize: false
+    }
+  }
+}
+[2023-03-01 13:26:09.006] [info]  [FileSystemDriver] Initialized in "/home/drsh4dow/.config/Insomnia/version-control"
+[2023-03-01 13:26:09.007] [info]  [sync] checking for collections which need to be moved into a remote project
+[2023-03-01 13:26:09.009] [info]  [FileSystemDriver] Initialized in "/home/drsh4dow/.config/Insomnia/version-control"
+[2023-03-01 13:26:52.139] [info]  [network] Sending req=req_9b788d71ce0a4615a7dd178ec126e208 env=null
+[2023-03-01 13:26:53.577] [info]  [network] Response succeeded req=req_9b788d71ce0a4615a7dd178ec126e208 status=500
+[2023-03-01 13:27:19.413] [info]  [network] Sending req=req_9b788d71ce0a4615a7dd178ec126e208 env=null
+[2023-03-01 13:27:19.920] [info]  [network] Response succeeded req=req_9b788d71ce0a4615a7dd178ec126e208 status=500

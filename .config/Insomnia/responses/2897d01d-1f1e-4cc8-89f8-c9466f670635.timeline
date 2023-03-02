@@ -1,0 +1,122 @@
+[
+	{
+		"value": "Preparing request to https://backend.freethefreela.com/api/list/freelancer/categories/960",
+		"name": "Text",
+		"timestamp": 1677596891522
+	},
+	{
+		"value": "Current time is 2023-02-28T15:08:11.522Z",
+		"name": "Text",
+		"timestamp": 1677596891522
+	},
+	{
+		"value": "Enable automatic URL encoding",
+		"name": "Text",
+		"timestamp": 1677596891522
+	},
+	{
+		"value": "Using default HTTP version",
+		"name": "Text",
+		"timestamp": 1677596891523
+	},
+	{
+		"value": "Enable timeout of 30000ms",
+		"name": "Text",
+		"timestamp": 1677596891523
+	},
+	{
+		"value": "Enable SSL validation",
+		"name": "Text",
+		"timestamp": 1677596891523
+	},
+	{
+		"name": "Text",
+		"value": "Found bundle for host backend.freethefreela.com: 0x31d0038a8930 [serially]\n",
+		"timestamp": 1677596891523
+	},
+	{
+		"name": "Text",
+		"value": "Can not multiplex, even if we wanted to!\n",
+		"timestamp": 1677596891523
+	},
+	{
+		"name": "Text",
+		"value": "Re-using existing connection! (#11) with host backend.freethefreela.com\n",
+		"timestamp": 1677596891523
+	},
+	{
+		"name": "Text",
+		"value": "Connected to backend.freethefreela.com (54.197.92.110) port 443 (#11)\n",
+		"timestamp": 1677596891523
+	},
+	{
+		"name": "HeaderOut",
+		"value": "GET /api/list/freelancer/categories/960 HTTP/1.1\r\nHost: backend.freethefreela.com\r\nUser-Agent: insomnia/2022.7.5\r\nAccept: */*\r\n\r\n",
+		"timestamp": 1677596891523
+	},
+	{
+		"name": "Text",
+		"value": "Mark bundle as not supporting multiuse\n",
+		"timestamp": 1677596891660
+	},
+	{
+		"name": "HeaderIn",
+		"value": "HTTP/1.1 200 OK\r\n",
+		"timestamp": 1677596891660
+	},
+	{
+		"name": "HeaderIn",
+		"value": "access-control-allow-origin: *\r\n",
+		"timestamp": 1677596891660
+	},
+	{
+		"name": "HeaderIn",
+		"value": "content-length: 466\r\n",
+		"timestamp": 1677596891660
+	},
+	{
+		"name": "HeaderIn",
+		"value": "content-type: text/html; charset=utf-8\r\n",
+		"timestamp": 1677596891660
+	},
+	{
+		"name": "HeaderIn",
+		"value": "date: Tue, 28 Feb 2023 15:08:11 GMT\r\n",
+		"timestamp": 1677596891660
+	},
+	{
+		"name": "HeaderIn",
+		"value": "server: envoy\r\n",
+		"timestamp": 1677596891660
+	},
+	{
+		"name": "HeaderIn",
+		"value": "x-envoy-upstream-service-time: 11\r\n",
+		"timestamp": 1677596891660
+	},
+	{
+		"name": "HeaderIn",
+		"value": "connection: close\r\n",
+		"timestamp": 1677596891660
+	},
+	{
+		"name": "HeaderIn",
+		"value": "\r\n",
+		"timestamp": 1677596891660
+	},
+	{
+		"name": "Text",
+		"value": "Received 466 B chunk",
+		"timestamp": 1677596891660
+	},
+	{
+		"name": "Text",
+		"value": "Closing connection 11\n",
+		"timestamp": 1677596891660
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.2 (OUT), TLS alert, close notify (256):\n",
+		"timestamp": 1677596891660
+	}
+]

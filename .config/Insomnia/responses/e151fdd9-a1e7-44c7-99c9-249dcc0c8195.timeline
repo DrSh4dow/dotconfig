@@ -1,0 +1,242 @@
+[
+	{
+		"value": "Preparing request to https://backend.freethefreela.com/api/list/freelancer/av-skilltest/id",
+		"name": "Text",
+		"timestamp": 1677188188021
+	},
+	{
+		"value": "Current time is 2023-02-23T21:36:28.021Z",
+		"name": "Text",
+		"timestamp": 1677188188021
+	},
+	{
+		"value": "Enable automatic URL encoding",
+		"name": "Text",
+		"timestamp": 1677188188021
+	},
+	{
+		"value": "Using default HTTP version",
+		"name": "Text",
+		"timestamp": 1677188188022
+	},
+	{
+		"value": "Enable timeout of 30000ms",
+		"name": "Text",
+		"timestamp": 1677188188022
+	},
+	{
+		"value": "Enable SSL validation",
+		"name": "Text",
+		"timestamp": 1677188188022
+	},
+	{
+		"name": "Text",
+		"value": "Too old connection (207 seconds), disconnect it\n",
+		"timestamp": 1677188188022
+	},
+	{
+		"name": "Text",
+		"value": "Connection 1 seems to be dead!\n",
+		"timestamp": 1677188188022
+	},
+	{
+		"name": "Text",
+		"value": "Closing connection 1\n",
+		"timestamp": 1677188188022
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.2 (OUT), TLS alert, close notify (256):\n",
+		"timestamp": 1677188188022
+	},
+	{
+		"name": "Text",
+		"value": "Too old connection (207 seconds), disconnect it\n",
+		"timestamp": 1677188188023
+	},
+	{
+		"name": "Text",
+		"value": "Connection 2 seems to be dead!\n",
+		"timestamp": 1677188188023
+	},
+	{
+		"name": "Text",
+		"value": "Closing connection 2\n",
+		"timestamp": 1677188188023
+	},
+	{
+		"name": "Text",
+		"value": "Hostname in DNS cache was stale, zapped\n",
+		"timestamp": 1677188188023
+	},
+	{
+		"name": "Text",
+		"value": "  Trying 54.198.134.255:443...\n",
+		"timestamp": 1677188188082
+	},
+	{
+		"name": "Text",
+		"value": "Connected to backend.freethefreela.com (54.198.134.255) port 443 (#3)\n",
+		"timestamp": 1677188188205
+	},
+	{
+		"name": "Text",
+		"value": "ALPN, offering h2\n",
+		"timestamp": 1677188188205
+	},
+	{
+		"name": "Text",
+		"value": "ALPN, offering http/1.1\n",
+		"timestamp": 1677188188205
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.3 (OUT), TLS handshake, Client hello (1):\n",
+		"timestamp": 1677188188213
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.3 (IN), TLS handshake, Server hello (2):\n",
+		"timestamp": 1677188188336
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.2 (IN), TLS handshake, Certificate (11):\n",
+		"timestamp": 1677188188336
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.2 (IN), TLS handshake, Server key exchange (12):\n",
+		"timestamp": 1677188188337
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.2 (IN), TLS handshake, Server finished (14):\n",
+		"timestamp": 1677188188337
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.2 (OUT), TLS handshake, Client key exchange (16):\n",
+		"timestamp": 1677188188337
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.2 (OUT), TLS change cipher, Change cipher spec (1):\n",
+		"timestamp": 1677188188337
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.2 (OUT), TLS handshake, Finished (20):\n",
+		"timestamp": 1677188188337
+	},
+	{
+		"name": "Text",
+		"value": "TLSv1.2 (IN), TLS handshake, Finished (20):\n",
+		"timestamp": 1677188188458
+	},
+	{
+		"name": "Text",
+		"value": "SSL connection using TLSv1.2 / ECDHE-RSA-AES128-GCM-SHA256\n",
+		"timestamp": 1677188188458
+	},
+	{
+		"name": "Text",
+		"value": "ALPN, server did not agree to a protocol\n",
+		"timestamp": 1677188188458
+	},
+	{
+		"name": "Text",
+		"value": "Server certificate:\n",
+		"timestamp": 1677188188458
+	},
+	{
+		"name": "Text",
+		"value": " subject: CN=backend.freethefreela.com\n",
+		"timestamp": 1677188188458
+	},
+	{
+		"name": "Text",
+		"value": " start date: Dec  1 00:00:00 2022 GMT\n",
+		"timestamp": 1677188188458
+	},
+	{
+		"name": "Text",
+		"value": " expire date: Dec 30 23:59:59 2023 GMT\n",
+		"timestamp": 1677188188458
+	},
+	{
+		"name": "Text",
+		"value": " subjectAltName: host \"backend.freethefreela.com\" matched cert's \"backend.freethefreela.com\"\n",
+		"timestamp": 1677188188458
+	},
+	{
+		"name": "Text",
+		"value": " issuer: C=US; O=Amazon; CN=Amazon RSA 2048 M02\n",
+		"timestamp": 1677188188458
+	},
+	{
+		"name": "Text",
+		"value": " SSL certificate verify ok.\n",
+		"timestamp": 1677188188458
+	},
+	{
+		"name": "HeaderOut",
+		"value": "GET /api/list/freelancer/av-skilltest/id HTTP/1.1\r\nHost: backend.freethefreela.com\r\nUser-Agent: insomnia/2022.7.5\r\nAccept: */*\r\n\r\n",
+		"timestamp": 1677188188458
+	},
+	{
+		"name": "Text",
+		"value": "Mark bundle as not supporting multiuse\n",
+		"timestamp": 1677188188786
+	},
+	{
+		"name": "HeaderIn",
+		"value": "HTTP/1.1 201 Created\r\n",
+		"timestamp": 1677188188786
+	},
+	{
+		"name": "HeaderIn",
+		"value": "access-control-allow-origin: *\r\n",
+		"timestamp": 1677188188786
+	},
+	{
+		"name": "HeaderIn",
+		"value": "content-length: 300\r\n",
+		"timestamp": 1677188188786
+	},
+	{
+		"name": "HeaderIn",
+		"value": "content-type: application/json\r\n",
+		"timestamp": 1677188188786
+	},
+	{
+		"name": "HeaderIn",
+		"value": "date: Thu, 23 Feb 2023 21:36:28 GMT\r\n",
+		"timestamp": 1677188188786
+	},
+	{
+		"name": "HeaderIn",
+		"value": "server: envoy\r\n",
+		"timestamp": 1677188188786
+	},
+	{
+		"name": "HeaderIn",
+		"value": "x-envoy-upstream-service-time: 204\r\n",
+		"timestamp": 1677188188786
+	},
+	{
+		"name": "HeaderIn",
+		"value": "\r\n",
+		"timestamp": 1677188188786
+	},
+	{
+		"name": "Text",
+		"value": "Received 300 B chunk",
+		"timestamp": 1677188188786
+	},
+	{
+		"name": "Text",
+		"value": "Connection #3 to host backend.freethefreela.com left intact\n",
+		"timestamp": 1677188188786
+	}
+]

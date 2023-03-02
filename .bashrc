@@ -11,13 +11,13 @@ fi
 
 ## Wayland Variables
 #export CLUTTER_BACKEND=wayland
-export MOZ_ENABLE_WAYLAND=1
-export _JAVA_AWT_WM_NONREPARENTING=1
-export XDG_SESSION_TYPE=wayland
+#export MOZ_ENABLE_WAYLAND=1
+#export _JAVA_AWT_WM_NONREPARENTING=1
+#export XDG_SESSION_TYPE=wayland
 #export QT_QPA_PLATFORM=wayland-egl
 #export SDL_VIDEODRIVER=wayland
-export XDG_CURRENT_DESKTOP=sway
-export QT_QPA_PLATFORMTHEME=qt5ct
+#export XDG_CURRENT_DESKTOP=sway
+#export QT_QPA_PLATFORMTHEME=qt5ct
 
 ## HiDPI Variables
 #export QT_AUTO_SCREEN_SCALE_FACTOR=1
@@ -35,10 +35,10 @@ export GOBIN="$GOPATH/bin"
 export PATH="$GOBIN:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/bin:$PATH"
 export CLICOLOR=1
 export TERM=xterm-256color
-export TERMINAL=foot
+export TERMINAL=alacritty
 export BROWSER=firefox
 export PAGER="less"
-export WM="sway"
+export WM="i3"
 export COLORTERM="truecolor"
 export RUSTFLAGS="-C target-cpu=native -C opt-level=2"
 
@@ -55,9 +55,9 @@ export NNN_PLUG='m:nmount;d:dragdrop'
 
 ################################################
 ### Start Sway
-if [ "$(tty)" = "/dev/tty1" ]; then
-	exec sway
-fi
+#if [ "$(tty)" = "/dev/tty1" ]; then
+#	exec sway
+#fi
 
 
 ### Start Xorg
@@ -104,5 +104,5 @@ PS1="[\[\e[31m\]\u\[\e[m\]@\[\e[36m\]\h\[\e[m\] \W]\\$ "
 ### Macros
 bind "set completion-ignore-case on"
 
-neofetch
+neofetch --ascii_distro Arch
 source /usr/share/nvm/init-nvm.sh

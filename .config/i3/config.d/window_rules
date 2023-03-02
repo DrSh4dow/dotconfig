@@ -1,0 +1,78 @@
+
+##################
+# floating rules #
+##################
+
+# set floating (nontiling) for apps needing it
+for_window [class="Yad" instance="yad"] floating enable
+for_window [class="Galculator" instance="galculator"] floating enable
+for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
+
+# set floating (nontiling) for special apps
+for_window [class="Xsane" instance="xsane"] floating enable
+for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
+for_window [class="qt5ct" instance="qt5ct"] floating enable
+for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
+for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
+for_window [class="Pamac-manager"] floating enable
+for_window [window_role="About"] floating enable
+
+# set border of floating window
+for_window [class="urxvt"] border pixel 1
+
+# set size of floating window
+#for_window [window_role="(?i)GtkFileChooserDialog"] resize set 640 480 #to set size of file choose dialog
+#for_window [class=".*"] resize set 640 480 #to change size of all floating windows 
+
+# set position of floating window
+#for_window [class=".*"] move position center
+for_window [title="Alacritty"] border pixel 1
+for_window [title="Foot"] border pixel 1
+
+# set floating (nontiling)for apps needing it:
+for_window [title="Calculator"] floating enable
+for_window [title="Progress"] floating enable
+for_window [title="zenity"] floating enable
+for_window [title="video0"] floating enable
+for_window [class="Yad" instance="yad"] floating enable
+for_window [class="Xsane" instance="xsane"] floating enable
+for_window [class="qt5ct" instance="qt5ct"] floating enable, resize set width 60 ppt height 50 ppt
+for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
+for_window [class="Lxappearance"] floating enable, resize set width 60 ppt height 50 ppt
+# set floating for window roles
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+for_window [window_role="About"] floating enable
+for_window [title="File Operation Progress"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
+for_window [title="Picture in picture"] floating enable, sticky enable
+for_window [title="nmtui"] floating enable,  resize set width 50 ppt height 70 ppt
+for_window [title="htop"] floating enable, resize set width 50 ppt height 70 ppt
+for_window [title="Save File"] floating enable
+for_window [title="Friends List"] floating enable
+for_window [class="Steam"] floating enable; max_render_time off
+for_window [class="gamescope"] inhibit_idle fullscreen; floating enable; border none
+for_window [class=".*.exe"] inhibit_idle fullscreen; floating enable; border none
+for_window [class="steam_app.*"] inhibit_idle fullscreen; floating enable; border none
+for_window [title="(?:Open|Save) (?:File|Folder|As)"] floating enable; sticky enable
+
+for_window [class="Anydesk"] inhibit_idle visible; border none; move container to workspace number 2
+for_window [class="clonehero"] inhibit_idle visible; border none
+for_window [class="Microsoft Teams - Preview"] floating enable
+for_window [instance="chromium"] inhibit_idle fullscreen; border none; max_render_time off
+for_window [instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] floating enable
+for_window [class="Nightly"] inhibit_idle fullscreen; border none; max_render_time off
+for_window [class="Wfica"] border none; inhibit_idle visible
+for_window [class="Nxplayer.bin"] border none
+for_window [title="^(File|Folder)\s*Already Exists\s*—\s*"] floating enable
+for_window [title="^(Copying|Moving)\s*—\s*Dolphin"] inhibit_idle open; floating enable
+for_window [title="^Extracting\s"] inhibit_idle open; floating enable
+for_window [title="^Information\s*—\s*Dolphin"] floating enable
+for_window [title="^Loading archive"] floating enable
+for_window [instance="yakyak"] floating enable
+for_window [title="MAX - Iridium"] floating enable; sticky enable; border pixel 1
+for_window [title="MAX - Chromium"] floating enable; sticky enable; border pixel 1
+for_window [title="https:\/\/max.niceincontact.com\/index.html - Chromium"] floating enable; sticky enable; border pixel 1
