@@ -14,7 +14,7 @@
     set $gnome-schema org.gnome.desktop.interface
 
     exec_always {
-        # gsettings set $gnome-schema gtk-theme 'Dracula'
+        gsettings set $gnome-schema gtk-theme 'Catppuccin-Dark'
         gsettings set $gnome-schema icon-theme 'BeautyLine'
         gsettings set org.gnome.desktop.privacy remember-recent-files false
     }
