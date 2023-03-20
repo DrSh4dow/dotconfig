@@ -37,8 +37,8 @@ keymap.set("n", "<leader>pp", function()
 	vim.lsp.buf.format({
 		timeout_ms = 5000,
 		-- filter = function(client)
-		-- only use null-ls for formatting instead of lsp server
-		-- return client.name == "null-ls"
+		-- 	-- only use null-ls for formatting instead of lsp server
+		-- 	return client.name == "null-ls"
 		-- end,
 	})
 end, { noremap = true })
