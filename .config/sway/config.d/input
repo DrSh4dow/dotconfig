@@ -10,8 +10,8 @@ input type:touchpad {
 }
 
 input type:keyboard { 
-  xkb_layout us
-    xkb_variant "alt-intl"
+  xkb_layout es
+    # xkb_variant "alt-intl"
 }
 
 seat seat0 hide_cursor 5000

@@ -44,6 +44,10 @@ local on_attach = function(client, bufnr)
 	if client.name == "tsserver" then
 		keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>")
 	end
+
+	if client.name == "eslint" then
+		keymap.set("n", "<leader>pf", "<cmd>EslintFixAll<CR>", opts) -- see outline on right hand side
+	end
 end
 
 -- used to enable autocompletion
@@ -109,7 +113,8 @@ lspconfig["emmet_ls"].setup({
 lspconfig["lua_ls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
-	settings = { -- custom settings for lua
+	settings = {
+		-- custom settings for lua
 		Lua = {
 			-- make the language server recognize "vim" global
 			diagnostics = {
@@ -136,12 +141,22 @@ lspconfig["bashls"].setup({
 	on_attach = on_attach,
 })
 
+lspconfig["eslint"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
 lspconfig["cmake"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
 
 lspconfig["svelte"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lspconfig["astro"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })

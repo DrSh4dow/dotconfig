@@ -12,11 +12,11 @@ fi
 ## Wayland Variables
 #export CLUTTER_BACKEND=wayland
 export MOZ_ENABLE_WAYLAND=1
-export _JAVA_AWT_WM_NONREPARENTING=1
+# export _JAVA_AWT_WM_NONREPARENTING=1
 export XDG_SESSION_TYPE=wayland
 #export QT_QPA_PLATFORM=wayland-egl
 #export SDL_VIDEODRIVER=wayland
-export XDG_CURRENT_DESKTOP=sway
+# export XDG_CURRENT_DESKTOP=sway
 export QT_QPA_PLATFORMTHEME=qt6ct
 
 ## HiDPI Variables
@@ -55,9 +55,9 @@ export NNN_PLUG='m:nmount;d:dragdrop'
 
 ################################################
 ### Start Sway
-if [ "$(tty)" = "/dev/tty1" ]; then
-	exec sway
-fi
+# if [ "$(tty)" = "/dev/tty1" ]; then
+# 	exec sway
+# fi
 
 
 ### Start Xorg
@@ -104,5 +104,17 @@ PS1="[\[\e[31m\]\u\[\e[m\]@\[\e[36m\]\h\[\e[m\] \W]\\$ "
 ### Macros
 bind "set completion-ignore-case on"
 
-neofetch
+# neofetch
 # source /usr/share/nvm/init-nvm.sh
+
+# pnpm
+export PNPM_HOME="/home/drsh4dow/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# tabtab source for packages
+# uninstall by removing these lines
+[ -f ~/.config/tabtab/bash/__tabtab.bash ] && . ~/.config/tabtab/bash/__tabtab.bash || true
