@@ -49,3 +49,4 @@ opt.splitbelow = true
 
 -- misc
 opt.iskeyword:append("-")
+opt.mouse = "c"

@@ -33,6 +33,9 @@ return packer.startup(function(use)
 	-- tmux & split window navigation
 	use("christoomey/vim-tmux-navigator")
 
+	-- indent mini
+	use("echasnovski/mini.indentscope")
+
 	-- maximizes and restores current window
 	use("szw/vim-maximizer")
 
