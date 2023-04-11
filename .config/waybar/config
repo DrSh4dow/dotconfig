@@ -1,11 +1,20 @@
 {
   "layer": "top",
-    "modules-left": ["sway/workspaces"],
-    "modules-center": ["sway/window"],
+    "modules-left": ["wlr/workspaces"],
+    "modules-center": ["hyprland/window"],
     "modules-right": ["tray","pulseaudio","memory","cpu","network","battery","clock"],
     "sway/window": {
       "format": "{}",
       "max-length": 50
+    },
+    "hyprland/window": {
+      "format": "{}",
+      "separate-outputs": false,
+      "max-length": 50
+    },
+    "wlr/workspaces": {
+      "on-scroll-up": "hyprctl dispatch workspace e+1",
+      "on-scroll-down": "hyprctl dispatch workspace e-1"
     },
     "clock": {
       "interval": 60,
