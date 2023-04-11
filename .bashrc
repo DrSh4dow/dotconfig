@@ -4,23 +4,22 @@
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-        . /etc/bashrc
+	. /etc/bashrc
 fi
 
 ### Some enviromental variables
 
 ## Wayland Variables
-#export CLUTTER_BACKEND=wayland
-export MOZ_ENABLE_WAYLAND=1
-# export _JAVA_AWT_WM_NONREPARENTING=1
+export GDK_BACKEND=wayland,x11
+export QT_QPA_PLATFORM="wayland;xcb"
+export SDL_VIDEODRIVER=wayland
+export CLUTTER_BACKEND=wayland
+export XDG_CURRENT_DESKTOP=Hyprland
 export XDG_SESSION_TYPE=wayland
-#export QT_QPA_PLATFORM=wayland-egl
-#export SDL_VIDEODRIVER=wayland
-# export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_DESKTOP=Hyprland
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export QT_QPA_PLATFORMTHEME=qt6ct
-
-## HiDPI Variables
-#export QT_AUTO_SCREEN_SCALE_FACTOR=1
 
 ### Exports
 export EDITOR=nvim
@@ -28,7 +27,7 @@ export VISUAL=nvim
 export VIDEO=mpv
 export IMAGE=eog
 export OPENER="xdg-open"
-export READER=evince
+export READER=zathura
 export GOROOT="/usr/lib/go"
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
@@ -36,14 +35,14 @@ export PATH="$GOBIN:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/bin:$PATH"
 export CLICOLOR=1
 export TERM=xterm-256color
 export TERMINAL=foot
-export BROWSER=firefox
+export BROWSER=firefox-developer-edition
 export PAGER="less"
-export WM="sway"
+export WM="hyprland"
 export COLORTERM="truecolor"
 export RUSTFLAGS="-C target-cpu=native -C opt-level=2"
 
 ### Neovide config
-export NEOVIDE_FRAMELESS=true 
+export NEOVIDE_FRAMELESS=true
 export NEOVIDE_FRAME=none neovide
 
 ### NNN Configuration
@@ -59,6 +58,10 @@ export NNN_PLUG='m:nmount;d:dragdrop'
 # 	exec sway
 # fi
 
+### Start Hyprland
+if [ "$(tty)" = "/dev/tty1" ]; then
+	exec Hyprland
+fi
 
 ### Start Xorg
 #if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
@@ -71,17 +74,16 @@ export NNN_PLUG='m:nmount;d:dragdrop'
 #fi
 ################################################
 
-
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
-        for rc in ~/.bashrc.d/*; do
-                if [ -f "$rc" ]; then
-                        . "$rc"
-                fi
-        done
+	for rc in ~/.bashrc.d/*; do
+		if [ -f "$rc" ]; then
+			. "$rc"
+		fi
+	done
 fi
 
 unset rc
@@ -96,7 +98,7 @@ alias tiktak='tty-clock -scC 4'
 #alias tr='transmission-remote'
 alias mpv='SDL_VIDEODRIVER=wayland mpv'
 alias vim='nvim'
-alias cat='bat -pp' 
+alias cat='bat -pp'
 ###
 
 PS1="[\[\e[31m\]\u\[\e[m\]@\[\e[36m\]\h\[\e[m\] \W]\\$ "
@@ -110,8 +112,8 @@ bind "set completion-ignore-case on"
 # pnpm
 export PNPM_HOME="/home/drsh4dow/.local/share/pnpm"
 case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
+*":$PNPM_HOME:"*) ;;
+*) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
 
