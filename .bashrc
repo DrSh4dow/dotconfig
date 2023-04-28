@@ -33,7 +33,6 @@ export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
 export PATH="$GOBIN:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/bin:$PATH"
 export CLICOLOR=1
-export TERM=xterm-256color
 export TERMINAL=foot
 export BROWSER=firefox-developer-edition
 export PAGER="less"
