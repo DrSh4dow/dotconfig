@@ -59,6 +59,7 @@ export NNN_PLUG='m:nmount;d:dragdrop'
 
 ### Start Hyprland
 if [ "$(tty)" = "/dev/tty1" ]; then
+	systemctl --user import-environment
 	exec Hyprland
 fi
 
