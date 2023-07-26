@@ -15,7 +15,7 @@ font:
     family: Comic Code Ligatures
     style: Bold Italic
 
-  size: 10
+  size: 11
 
 window:
   opacity: 0.80
