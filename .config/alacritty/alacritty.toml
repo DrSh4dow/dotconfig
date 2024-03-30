@@ -1,0 +1,50 @@
+[colors.bright]
+black = "0x21222c"
+blue = "0xd6acff"
+cyan = "0xa4ffff"
+green = "0x69ff94"
+magenta = "0xff92df"
+red = "0xff6e6e"
+white = "0xffffff"
+yellow = "0xffffa5"
+
+[colors.normal]
+black = "0x21222c"
+blue = "0xbd93f9"
+cyan = "0x8be9fd"
+green = "0x50fa7b"
+magenta = "0xff79c6"
+red = "0xff5555"
+white = "0xf8f8f2"
+yellow = "0xf1fa8c"
+
+[colors.primary]
+background = "0x111111"
+foreground = "0xdcdccc"
+
+[font]
+size = 11
+
+[font.bold]
+family = "Comic Code Ligatures"
+style = "Bold"
+
+[font.bold_italic]
+family = "Comic Code Ligatures"
+style = "Bold Italic"
+
+[font.italic]
+family = "Comic Code Ligatures"
+style = "Italic"
+
+[font.normal]
+family = "Comic Code Ligatures"
+style = "Regular"
+
+[window]
+decorations = "none"
+opacity = 0.8
+
+[window.dimensions]
+columns = 96
+lines = 32
