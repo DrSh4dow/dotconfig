@@ -117,11 +117,10 @@ neofetch
 [ -f ~/.config/tabtab/bash/__tabtab.bash ] && . ~/.config/tabtab/bash/__tabtab.bash || true
 
 # pnpm
-export PNPM_HOME="/home/drsh4dow/.local/share/pnpm"
-case ":$PATH:" in
-*":$PNPM_HOME:"*) ;;
-*) export PATH="$PNPM_HOME:$PATH" ;;
-esac
+source ~/completion-for-pnpm.bash
 # pnpm end
 #
 source /usr/share/nvm/init-nvm.sh
+
+# Turso
+export PATH="/home/drsh4dow/.turso:$PATH"
