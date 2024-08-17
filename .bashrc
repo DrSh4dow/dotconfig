@@ -4,7 +4,7 @@
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+  . /etc/bashrc
 fi
 
 ### Some enviromental variables
@@ -56,16 +56,19 @@ export NNN_FIFO='/tmp/nnn.fifo'
 export NNN_PLUG='m:nmount;d:dragdrop'
 
 ################################################
-### Start Sway
-# if [ "$(tty)" = "/dev/tty1" ]; then
-# 	exec sway
-# fi
-
 ### Start Hyprland
 if [ "$(tty)" = "/dev/tty1" ]; then
-	systemctl --user import-environment
-	exec Hyprland
+  systemctl --user import-environment
+  exec Hyprland
 fi
+
+### Start Sway
+# if [ "$(tty)" = "/dev/tty1" ]; then
+#   systemctl --user import-environment
+#   if [ -z "$WAYLAND_DISPLAY" ]; then
+#     exec sway
+#   fi
+# fi
 
 ### Start Xorg
 #if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
@@ -83,11 +86,11 @@ fi
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
-	for rc in ~/.bashrc.d/*; do
-		if [ -f "$rc" ]; then
-			. "$rc"
-		fi
-	done
+  for rc in ~/.bashrc.d/*; do
+    if [ -f "$rc" ]; then
+      . "$rc"
+    fi
+  done
 fi
 
 unset rc
@@ -117,10 +120,17 @@ neofetch
 [ -f ~/.config/tabtab/bash/__tabtab.bash ] && . ~/.config/tabtab/bash/__tabtab.bash || true
 
 # pnpm
-source ~/completion-for-pnpm.bash
+# source ~/completion-for-pnpm.bash
 # pnpm end
 #
 source /usr/share/nvm/init-nvm.sh
 
+# fly completions
+source "$HOME/.fly-completions.bash"
+
 # Turso
 export PATH="/home/drsh4dow/.turso:$PATH"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$BUN_INSTALL/bin:$PATH

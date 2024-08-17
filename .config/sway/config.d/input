@@ -10,8 +10,15 @@ input type:touchpad {
 }
 
 input type:keyboard { 
-  xkb_layout es
-    # xkb_variant "alt-intl"
+  xkb_layout "us"
+  xkb_variant "alt-intl"
+  repeat_delay 300
+  repeat_rate 60
+}
+
+input type:pointer {
+  accel_profile flat
+  pointer_accel 0 # set mouse sensitivity (between -1 and 1)
 }
 
 seat seat0 hide_cursor 5000

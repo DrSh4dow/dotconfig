@@ -3,22 +3,38 @@
 #
 #
 #
+exec xrandr --output DP-2 --primary
 
 # env variables for pipewire
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 # Polkit manager
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec /usr/lib/polkit-kde-authentication-agent-1
 
 # Notification Manager
-exec mako
+exec dunst
+
+# Network Manager
+exec nm-applet
+
+# Bluetooth manager
+exec dex /etc/xdg/autostart/blueman.desktop
 
 # XDG-app manager
 exec dex -a -s ~/.config/autostart/
-exec dex -a -s /etc/xdg/autostart/
-
+# exec dex -a -s /etc/xdg/autostart/
+#
 # Clipboard manager
-exec wl-paste -t text --watch clipman store
+exec wl-paste --type text --watch cliphist store #Stores only text data
+exec wl-paste --type image --watch cliphist store #Stores only image data
+
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
+# gnome style
+exec gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+exec gsettings set org.gnome.desktop.interface gtk-theme 'Catppuccin-Mocha-Standard-Blue-Dark'
+exec gsettings set org.gnome.desktop.interface icon-theme 'BeautyLine'
+exec gsettings set org.gnome.desktop.privacy remember-recent-files false
 
 # Waybar
 bar {

@@ -9,7 +9,8 @@
 	set $down j
 	set $up k
 	set $right l
-	set $term foot
+	set $term kitty
+  set $browser firefox-developer-edition
 
 
 ### Key bindings
@@ -20,8 +21,8 @@
     bindsym $mod+Return exec $term
 
     # Start a Graphical File Manager
-    bindsym $mod+Shift+Return exec nautilus -w
-    bindsym XF86HomePage exec nautilus -w
+    bindsym $mod+Shift+Return exec thunar -w
+    bindsym XF86HomePage exec thunar -w
 
     # Start a Terminal File Manager
     bindsym $mod+n exec $term -e nnn
@@ -86,10 +87,10 @@
 
 ### Aplications
 #Browser
-    bindsym $mod+b exec firefox
+    bindsym $mod+b exec $browser
 
     # hacking Profile
-    # bindsym $mod+v exec firefox -P "bug-bounty"
+    # bindsym $mod+v exec $browser -P "bug-bounty"
 
 #ncspot
     bindsym $mod+m exec foot ncspot
@@ -128,6 +129,7 @@
     bindsym $mod+8  workspace 8 
     bindsym $mod+9  workspace 9 
     bindsym $mod+0  workspace 10
+
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace 1
     bindsym $mod+Shift+2 move container to workspace 2
@@ -182,4 +184,4 @@
     bindsym $mod+minus exec swaymsg gaps outer current plus 4 && swaymsg gaps inner current plus 4
 
     # Less Gaps
-    bindsym $mod+plus exec swaymsg gaps outer current minus 4 && swaymsg gaps inner current minus 4
+    bindsym $mod+equal exec swaymsg gaps outer current minus 4 && swaymsg gaps inner current minus 4
