@@ -35,5 +35,5 @@
 
 	default_border pixel 1
 	default_floating_border pixel 1
-	gaps outer 8
-	gaps inner 8
+	gaps outer 0
+	gaps inner 0
