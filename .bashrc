@@ -19,7 +19,7 @@ export XDG_SESSION_TYPE=wayland
 export XDG_SESSION_DESKTOP=Hyprland
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_QPA_PLATFORMTHEME=qt6ct
 # export QT_QPA_PLATFORMTHEME=qt6ct
 
 ### Exports
@@ -113,23 +113,11 @@ PS1="[\[\e[31m\]\u\[\e[m\]@\[\e[36m\]\h\[\e[m\] \W]\\$ "
 ### Macros
 bind "set completion-ignore-case on"
 
-neofetch
+# neofetch
 
 # tabtab source for packages
 # uninstall by removing these lines
 [ -f ~/.config/tabtab/bash/__tabtab.bash ] && . ~/.config/tabtab/bash/__tabtab.bash || true
-
-# pnpm
-# source ~/completion-for-pnpm.bash
-# pnpm end
-#
-source /usr/share/nvm/init-nvm.sh
-
-# fly completions
-source "$HOME/.fly-completions.bash"
-
-# Turso
-export PATH="/home/drsh4dow/.turso:$PATH"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
