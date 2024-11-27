@@ -115,10 +115,19 @@ bind "set completion-ignore-case on"
 
 # neofetch
 
-# tabtab source for packages
-# uninstall by removing these lines
-[ -f ~/.config/tabtab/bash/__tabtab.bash ] && . ~/.config/tabtab/bash/__tabtab.bash || true
+# pnpm
+source ~/.completion-for-pnpm.bash
+# pnpm end
+#
+source /usr/share/nvm/init-nvm.sh
+
+# fly completions
+source "$HOME/.fly-completions.bash"
+
+# Turso
+export PATH="/home/drsh4dow/.turso:$PATH"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
+. "/home/drsh4dow/.deno/env"
