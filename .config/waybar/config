@@ -22,6 +22,7 @@
     },
     "clock": {
       "interval": 60,
+      "timezone": "America/Santiago",
       "format": "{:%d, %b  %H:%M}",
       "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
