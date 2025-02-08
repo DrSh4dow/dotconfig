@@ -12,15 +12,15 @@ fi
 ## Wayland Variables
 # export GDK_BACKEND=wayland,x11
 # export QT_QPA_PLATFORM="wayland;xcb"
-# export SDL_VIDEODRIVER=wayland
+export SDL_VIDEODRIVER=wayland,x11,windows
 # export CLUTTER_BACKEND=wayland
 export XDG_CURRENT_DESKTOP=Hyprland
 export XDG_SESSION_TYPE=wayland
 export XDG_SESSION_DESKTOP=Hyprland
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-export QT_QPA_PLATFORMTHEME=qt6ct
-# export QT_QPA_PLATFORMTHEME=qt6ct
+# export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_QPA_PLATFORMTHEME=qt5ct:qt6ct
 
 ### Exports
 export EDITOR=nvim
@@ -36,7 +36,7 @@ export FLYCTL_INSTALL="/home/drsh4dow/.fly"
 export PATH="$GOBIN:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/bin:$FLYCTL_INSTALL/bin:$PATH"
 export CLICOLOR=1
 export TERMINAL=kitty
-export BROWSER=firefox-developer-edition
+export BROWSER=zen-browser
 export PAGER="less"
 export NODE_OPTIONS=--max-old-space-size=8192
 
@@ -57,9 +57,9 @@ export NNN_PLUG='m:nmount;d:dragdrop'
 
 ################################################
 ### Start Hyprland
-if [ "$(tty)" = "/dev/tty1" ]; then
+if uwsm check may-start; then
   systemctl --user import-environment
-  exec Hyprland
+  exec uwsm start hyprland.desktop
 fi
 
 ### Start Sway
@@ -130,4 +130,3 @@ export PATH="/home/drsh4dow/.turso:$PATH"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
-. "/home/drsh4dow/.deno/env"
