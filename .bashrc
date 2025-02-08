@@ -57,9 +57,9 @@ export NNN_PLUG='m:nmount;d:dragdrop'
 
 ################################################
 ### Start Hyprland
-if [ "$(tty)" = "/dev/tty1" ]; then
+if uwsm check may-start; then
   systemctl --user import-environment
-  exec Hyprland
+  exec uwsm start hyprland.desktop
 fi
 
 ### Start Sway
