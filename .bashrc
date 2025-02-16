@@ -21,6 +21,7 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=1
 export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 # export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_QPA_PLATFORMTHEME=qt5ct:qt6ct
+export ATAC_THEME=/home/drsh4dow/.config/atac/pastel_dark_theme.toml
 
 ### Exports
 export EDITOR=nvim
