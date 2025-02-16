@@ -36,7 +36,7 @@ export GOBIN="$GOPATH/bin"
 export FLYCTL_INSTALL="/home/drsh4dow/.fly"
 export PATH="$GOBIN:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/bin:$FLYCTL_INSTALL/bin:$PATH"
 export CLICOLOR=1
-export TERMINAL=kitty
+export TERMINAL=ghostty
 export BROWSER=zen-browser
 export PAGER="less"
 export NODE_OPTIONS=--max-old-space-size=8192
