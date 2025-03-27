@@ -1,4 +1,4 @@
 #!/bin/bash
 
-sudo tc qdisc del dev enp6s0 root
+sudo tc qdisc del dev wlan0 root
 echo "== Speed recovered successful =="
