@@ -8,10 +8,13 @@ end
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
+-- default shell
+config.default_prog = { "/usr/bin/bash" }
+
 -- This is where you actually apply your config choices
 
 config.font = wezterm.font("Comic Code Ligatures", {
-  weight = "Medium",
+	weight = "Medium",
 })
 config.font_size = 11.0
 
@@ -34,7 +37,7 @@ config.window_padding = {
 	left = 0,
 }
 
-config.window_background_opacity = 0.7
+config.window_background_opacity = 0.8
 
 -- config.hide_tab_bar_if_only_one_tab = true
 config.enable_tab_bar = false
@@ -44,7 +47,6 @@ config.foreground_text_hsb = {
 	saturation = 1.0,
 	brightness = 1.0,
 }
-
 
 -- and finally, return the configuration to wezterm
 return config
