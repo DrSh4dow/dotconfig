@@ -7,8 +7,7 @@
 #
 # Dependencies (optional but recommended):
 # - delta (pager)
-# - difftastic (difft) (AST-aware diff)
-# Lazygit supports multiple pagers; cycle with '|'
+# Lazygit uses a single pager in this setup
 
 gui:
   # Faster / less clutter
@@ -68,19 +67,13 @@ git:
     - main
     - master
 
-  # Multi-pager setup; cycle with '|'
+  # Single pager setup
   pagers:
-    # 1) delta: best general-purpose readability + clickable line numbers
+    # delta: best general-purpose readability + clickable line numbers
     - pager: >-
         delta --dark --paging=never --line-numbers
         --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
       colorArg: always
-
-    # 2) difftastic: structural diff for refactors / AI rewrites
-    - externalDiffCommand: difft --color=always
-
-    # 3) fallback plain pager (useful if delta/difft aren’t available)
-    - pager: less -R
 
 refresher:
   # Max review fidelity with quick local updates; no background fetches
