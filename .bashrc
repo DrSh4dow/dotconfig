@@ -8,6 +8,8 @@ if [ -f /etc/bashrc ]; then
 fi
 
 ### Some enviromental variables
+export OPENCODE_EXPERIMENTAL_LSP_TOOL=true
+export MOZ_ENABLE_WAYLAND=1
 
 ## Wayland Variables
 export SDL_VIDEODRIVER=wayland,x11,windows
@@ -90,8 +92,8 @@ fi
 unset rc
 
 ### Aliases
-alias ls='exa'
-alias l='exa -lahg --icons'
+alias ls='eza'
+alias l='eza -lahg --icons'
 alias grep='rg --color=auto'
 alias mv='mv -i'
 alias cmatrix='cmatrix -bC blue'
@@ -115,6 +117,9 @@ source /usr/share/nvm/init-nvm.sh
 # Turso
 export PATH="/home/drsh4dow/.turso:$PATH"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH=$BUN_INSTALL/bin:$PATH
+# moon
+export PATH="/home/drsh4dow/.moon/bin:$PATH"
+
+# proto
+export PROTO_HOME="$XDG_DATA_HOME/proto"
+export PATH="$PROTO_HOME/shims:$PROTO_HOME/bin:$PATH"

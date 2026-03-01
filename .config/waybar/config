@@ -76,7 +76,6 @@
       "spacing": 10
     },
     "battery": {
-      "bat": "BAT1",
       "interval": 60,
       "states": {
         "warning": 30,

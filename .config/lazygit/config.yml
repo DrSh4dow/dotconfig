@@ -1,0 +1,175 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
+
+# Opinionated config.yml for:
+# - Neovim-centric workflow
+# - AI-assisted coding (fast + safer diff auditing)
+# - Performance (less UI noise, fewer background fetches)
+#
+# Dependencies (optional but recommended):
+# - delta (pager)
+# - difftastic (difft) (AST-aware diff)
+# Lazygit supports multiple pagers; cycle with '|'
+
+gui:
+  # Faster / less clutter
+  mouseEvents: false
+  showRandomTip: false
+  showCommandLog: false
+
+  # Ergonomics for reviewing AI diffs
+  scrollHeight: 4
+  scrollPastBottom: true
+  scrollOffMargin: 4
+  wrapLinesInStagingView: true
+  useHunkModeInStagingView: true
+  mainPanelSplitMode: flexible
+  splitDiff: always
+
+  # Layout
+  sidePanelWidth: 0.28
+  expandFocusedSidePanel: true
+  expandedSidePanelWeight: 2
+  screenMode: normal
+  portraitMode: never
+
+  # Discoverability / visuals
+  showBottomLine: true
+  showPanelJumps: true
+  showListFooter: true
+  showFileTree: true
+  showRootItemInFileTree: true
+  showNumstatInFilesView: true
+
+  # If you have Nerd Fonts installed
+  nerdFontsVersion: "3"
+  showFileIcons: true
+
+  # Searching: fuzzy is typically faster for large repos than strict substring
+  filterMode: fuzzy
+
+  # Optional: turn off the “nuke” animation
+  animateExplosion: false
+
+git:
+  # Performance: fewer automatic background operations (turn back on if you prefer)
+  autoFetch: false
+  fetchAll: false
+  autoForwardBranches: none
+  autoRefresh: true
+
+  # Safer defaults for review
+  diffContextSize: 8
+  renameSimilarityThreshold: 70
+  ignoreWhitespaceInDiffView: false
+  disableForcePushing: true
+
+  # Main branches (used in some displays/behaviors)
+  mainBranches:
+    - main
+    - master
+
+  # Multi-pager setup; cycle with '|'
+  pagers:
+    # 1) delta: best general-purpose readability + clickable line numbers
+    - pager: >-
+        delta --dark --paging=never --line-numbers
+        --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+      colorArg: always
+
+    # 2) difftastic: structural diff for refactors / AI rewrites
+    - externalDiffCommand: difft --color=always
+
+    # 3) fallback plain pager (useful if delta/difft aren’t available)
+    - pager: less -R
+
+refresher:
+  # Max review fidelity with quick local updates; no background fetches
+  refreshInterval: 8
+  fetchInterval: 0
+
+os:
+  # Neovim in a new process (current schema keys)
+  edit: "nvim {{filename}}"
+  editAtLine: "nvim +{{line}} -- {{filename}}"
+  editAtLineAndWait: "nvim +{{line}} -- {{filename}}"
+  editInTerminal: true
+
+# AI-diff auditing helpers (available from '?' menu; uses Go-template placeholders)
+customCommands:
+  # One key opens a menu of “diff confidence” commands
+  - key: "X"
+    description: "Audit: diff confidence checks"
+    commandMenu:
+      # Unstaged diff with moved-code highlighting (great for refactors)
+      - key: "d"
+        context: "global"
+        description: "Diff (unstaged) with moved-code highlight"
+        command: "git diff --color-moved=dimmed-zebra"
+        output: "terminal"
+
+      # Staged diff with moved-code highlighting
+      - key: "s"
+        context: "global"
+        description: "Diff (staged) with moved-code highlight"
+        command: "git diff --staged --color-moved=dimmed-zebra"
+        output: "terminal"
+
+      # Word diff (useful for subtle edits, docs, configs)
+      - key: "w"
+        context: "global"
+        description: "Diff (staged) word-level"
+        command: "git diff --staged --word-diff=color"
+        output: "terminal"
+
+      # Whitespace / conflict marker checks
+      - key: "c"
+        context: "global"
+        description: "Diff check (staged whitespace / conflict markers)"
+        command: "git diff --staged --check"
+        output: "popup"
+        outputTitle: "git diff --staged --check"
+
+      # Quick status snapshot
+      - key: "g"
+        context: "global"
+        description: "Status (porcelain)"
+        command: "git status --porcelain=v1 -b"
+        output: "popup"
+        outputTitle: "git status"
+
+      # Staged summary: patch + stat + rename/copy detection
+      - key: "t"
+        context: "global"
+        description: "Diff (staged) patch+stat with rename/copy"
+        command: "git diff --staged --patch-with-stat --find-renames --find-copies"
+        output: "terminal"
+
+      # File-level signal with rename/copy markers
+      - key: "m"
+        context: "global"
+        description: "Diff (staged) name-status with rename/copy"
+        command: "git diff --staged --name-status -M -C"
+        output: "popup"
+        outputTitle: "git diff --staged --name-status -M -C"
+
+      # Numeric churn view (added/removed lines by file)
+      - key: "n"
+        context: "global"
+        description: "Diff (staged) numstat"
+        command: "git diff --staged --numstat"
+        output: "popup"
+        outputTitle: "git diff --staged --numstat"
+
+      # Branch-level patch review against upstream (if branch tracks one)
+      - key: "u"
+        context: "global"
+        description: "Branch diff vs upstream (patch+stat)"
+        command: "git diff --patch-with-stat --find-renames --find-copies @{upstream}...HEAD"
+        output: "terminal"
+
+  # Commit-range patch export (select a range of commits, then run this in commits view)
+  - key: "P"
+    context: "commits, subCommits"
+    description: "Format-patch selected commit range"
+    command: "git format-patch {{.SelectedCommitRange.From}}^..{{.SelectedCommitRange.To}}"
+    output: "terminal"
