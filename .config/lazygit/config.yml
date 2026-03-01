@@ -22,7 +22,7 @@ gui:
   wrapLinesInStagingView: true
   useHunkModeInStagingView: true
   mainPanelSplitMode: flexible
-  splitDiff: always
+  splitDiff: auto
 
   # Layout
   sidePanelWidth: 0.28
@@ -86,83 +86,3 @@ os:
   editAtLine: "nvim +{{line}} -- {{filename}}"
   editAtLineAndWait: "nvim +{{line}} -- {{filename}}"
   editInTerminal: true
-
-# AI-diff auditing helpers (available from '?' menu; uses Go-template placeholders)
-customCommands:
-  # One key opens a menu of “diff confidence” commands
-  - key: "X"
-    description: "Audit: diff confidence checks"
-    commandMenu:
-      # Unstaged diff with moved-code highlighting (great for refactors)
-      - key: "d"
-        context: "global"
-        description: "Diff (unstaged) with moved-code highlight"
-        command: "git diff --color-moved=dimmed-zebra"
-        output: "terminal"
-
-      # Staged diff with moved-code highlighting
-      - key: "s"
-        context: "global"
-        description: "Diff (staged) with moved-code highlight"
-        command: "git diff --staged --color-moved=dimmed-zebra"
-        output: "terminal"
-
-      # Word diff (useful for subtle edits, docs, configs)
-      - key: "w"
-        context: "global"
-        description: "Diff (staged) word-level"
-        command: "git diff --staged --word-diff=color"
-        output: "terminal"
-
-      # Whitespace / conflict marker checks
-      - key: "c"
-        context: "global"
-        description: "Diff check (staged whitespace / conflict markers)"
-        command: "git diff --staged --check"
-        output: "popup"
-        outputTitle: "git diff --staged --check"
-
-      # Quick status snapshot
-      - key: "g"
-        context: "global"
-        description: "Status (porcelain)"
-        command: "git status --porcelain=v1 -b"
-        output: "popup"
-        outputTitle: "git status"
-
-      # Staged summary: patch + stat + rename/copy detection
-      - key: "t"
-        context: "global"
-        description: "Diff (staged) patch+stat with rename/copy"
-        command: "git diff --staged --patch-with-stat --find-renames --find-copies"
-        output: "terminal"
-
-      # File-level signal with rename/copy markers
-      - key: "m"
-        context: "global"
-        description: "Diff (staged) name-status with rename/copy"
-        command: "git diff --staged --name-status -M -C"
-        output: "popup"
-        outputTitle: "git diff --staged --name-status -M -C"
-
-      # Numeric churn view (added/removed lines by file)
-      - key: "n"
-        context: "global"
-        description: "Diff (staged) numstat"
-        command: "git diff --staged --numstat"
-        output: "popup"
-        outputTitle: "git diff --staged --numstat"
-
-      # Branch-level patch review against upstream (if branch tracks one)
-      - key: "u"
-        context: "global"
-        description: "Branch diff vs upstream (patch+stat)"
-        command: "git diff --patch-with-stat --find-renames --find-copies @{upstream}...HEAD"
-        output: "terminal"
-
-  # Commit-range patch export (select a range of commits, then run this in commits view)
-  - key: "P"
-    context: "commits, subCommits"
-    description: "Format-patch selected commit range"
-    command: "git format-patch {{.SelectedCommitRange.From}}^..{{.SelectedCommitRange.To}}"
-    output: "terminal"
