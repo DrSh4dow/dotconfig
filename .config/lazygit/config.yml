@@ -11,7 +11,6 @@
 
 gui:
   # Faster / less clutter
-  mouseEvents: false
   showRandomTip: false
   showCommandLog: false
 
@@ -51,16 +50,15 @@ gui:
 
 git:
   # Performance: fewer automatic background operations (turn back on if you prefer)
-  autoFetch: false
-  fetchAll: false
-  autoForwardBranches: none
+  autoFetch: true
+  fetchAll: true
   autoRefresh: true
 
   # Safer defaults for review
   diffContextSize: 8
   renameSimilarityThreshold: 70
   ignoreWhitespaceInDiffView: false
-  disableForcePushing: true
+  disableForcePushing: false
 
   # Main branches (used in some displays/behaviors)
   mainBranches:
@@ -74,11 +72,6 @@ git:
         delta --dark --paging=never --line-numbers
         --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
       colorArg: always
-
-refresher:
-  # Max review fidelity with quick local updates; no background fetches
-  refreshInterval: 8
-  fetchInterval: 0
 
 os:
   # Neovim in a new process (current schema keys)

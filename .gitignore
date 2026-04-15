@@ -2,3 +2,8 @@
 *.config/ncspot/user*
 *.config/tmux/plugins
 *.config/tmux/plugins**
+sessions
+auth.json
+update-cache.json
+web-search.json
+skills

@@ -8,7 +8,6 @@ if [ -f /etc/bashrc ]; then
 fi
 
 ### Some enviromental variables
-export OPENCODE_EXPERIMENTAL_LSP_TOOL=true
 export MOZ_ENABLE_WAYLAND=1
 
 ## Wayland Variables
@@ -32,7 +31,7 @@ export FLYCTL_INSTALL="/home/drsh4dow/.fly"
 export PATH="$GOBIN:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/bin:$FLYCTL_INSTALL/bin:$PATH"
 export CLICOLOR=1
 export TERMINAL=wezterm
-export BROWSER=zen-browser
+export BROWSER=firefox-developer-edition
 export PAGER="less"
 export NODE_OPTIONS=--max-old-space-size=8192
 
@@ -113,6 +112,10 @@ fastfetch
 
 #
 source /usr/share/nvm/init-nvm.sh
+
+# Bun
+export PATH="/home/drsh4dow/.cache/.bun/bin:$PATH"
+export PATH="/home/drsh4dow/.bun/bin:$PATH"
 
 # Turso
 export PATH="/home/drsh4dow/.turso:$PATH"

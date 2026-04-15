@@ -1,0 +1,14 @@
+{
+  "lastChangelogVersion": "0.67.2",
+  "packages": [
+    "npm:pi-web-access",
+    "npm:pi-subagents"
+  ],
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.4",
+  "enabledModels": [
+    "openai-codex/gpt-5.4:high",
+    "anthropic/claude-opus-4-6:medium"
+  ],
+  "defaultThinkingLevel": "high"
+}

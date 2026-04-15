@@ -7,6 +7,7 @@ end
 
 -- This will hold the configuration.
 local config = wezterm.config_builder()
+local act = wezterm.action
 
 -- default shell
 config.default_prog = { "/usr/bin/bash" }
@@ -46,6 +47,82 @@ config.foreground_text_hsb = {
 	hue = 1.0,
 	saturation = 1.0,
 	brightness = 1.0,
+}
+
+config.keys = {
+	{
+		key = "Enter",
+		mods = "SHIFT",
+		action = act.SendString("\x1b[13;2u"),
+	},
+	{
+		key = "h",
+		mods = "CTRL",
+		action = act.ActivatePaneDirection("Left"),
+	},
+	{
+		key = "j",
+		mods = "CTRL",
+		action = act.ActivatePaneDirection("Down"),
+	},
+	{
+		key = "k",
+		mods = "CTRL",
+		action = act.ActivatePaneDirection("Up"),
+	},
+	{
+		key = "l",
+		mods = "CTRL",
+		action = act.ActivatePaneDirection("Right"),
+	},
+	{
+		key = "h",
+		mods = "CTRL|SHIFT",
+		action = act.AdjustPaneSize({ "Left", 5 }),
+	},
+	{
+		key = "j",
+		mods = "CTRL|SHIFT",
+		action = act.AdjustPaneSize({ "Down", 5 }),
+	},
+	{
+		key = "k",
+		mods = "CTRL|SHIFT",
+		action = act.AdjustPaneSize({ "Up", 5 }),
+	},
+	{
+		key = "l",
+		mods = "CTRL|SHIFT",
+		action = act.AdjustPaneSize({ "Right", 5 }),
+	},
+	{
+		key = "|",
+		mods = "CTRL|SHIFT",
+		action = act.SplitPane({
+			direction = "Right",
+			size = { Percent = 50 },
+		}),
+	},
+	{
+		key = "_",
+		mods = "CTRL|SHIFT",
+		action = act.SplitPane({
+			direction = "Down",
+			size = { Percent = 50 },
+		}),
+	},
+	{
+		key = "m",
+		mods = "CTRL|SHIFT",
+		action = act.TogglePaneZoomState,
+	},
+	{
+		key = "m",
+		mods = "CTRL|ALT",
+		action = act.PaneSelect({
+			mode = "SwapWithActiveKeepFocus",
+		}),
+	},
 }
 
 -- and finally, return the configuration to wezterm
