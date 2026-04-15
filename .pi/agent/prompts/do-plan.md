@@ -9,16 +9,18 @@ $ARGUMENTS
 
 ## Rules
 
-- Explore the relevant segments of the codebase and any documentation for the task.
-- Load any relevant skill only if it will be useful for what we're doing.
-- Only if it will be useful and make sense for the plan do online research.
 - Read-only. No edits, no code, no destructive actions.
-- Ask questions only if they materially change the plan.
 - Be extremely concise. Sacrifice grammar for concision.
-- Give direction, scope, tradeoffs, likely touch points, validation, risks.
 - Do not output exact changes or copy-paste implementation steps.
-- Big work: split into phases/slices. Small work: keep short.
 - If revising, rewrite the full plan, not a delta.
+- You MUST NOT implement the plan until the user says so.
+
+## Process
+
+- Load any relevant skill only if it will be useful for what we're doing.
+- Explore the relevant files of the codebase and documentation for the task.
+- Only if it makes sense for the plan, do online research.
+- Ask questions only if they materially change the plan.
 
 ## Output
 
@@ -28,7 +30,7 @@ $ARGUMENTS
 
 ### Plan
 
-1. Short phases/steps only
+1. Short phases/steps
 
 ### Validation / Risks
 
