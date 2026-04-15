@@ -1,5 +1,5 @@
 ---
-description: Execute a unit of work end-to-end: gather context, implement, validate, then commit.
+description: Execute a unit of work end-to-end.
 ---
 ## Task
 
