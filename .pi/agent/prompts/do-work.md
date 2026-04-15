@@ -7,9 +7,9 @@ $ARGUMENTS
 
 ## Process
 
-### 1. Understand the task
+### 1. Understand the task (Gather context)
 
-Read any referenced document. Explore the codebase to understand the relevant files, patterns, and conventions. If the task is ambiguous, ask the user to clarify scope before proceeding.
+Read any referenced document. Load any relevant skill for the task. Explore the codebase to understand the relevant files, patterns, and conventions. If the task is ambiguous, ask the user to clarify scope before proceeding.
 
 ### 2. Implement
 

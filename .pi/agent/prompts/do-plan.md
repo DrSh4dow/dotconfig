@@ -5,11 +5,13 @@ description: Research first, then output a very concise plan. Do not implement.
 
 Plan this work:
 
-$@
+$ARGUMENTS
 
 ## Rules
 
-- Explore first with available tools. Repo/docs first; web only if it materially helps.
+- Explore the relevant segments of the codebase and any documentation for the task.
+- Load any relevant skill only if it will be useful for what we're doing.
+- Only if it will be useful and make sense for the plan do online research.
 - Read-only. No edits, no code, no destructive actions.
 - Ask questions only if they materially change the plan.
 - Be extremely concise. Sacrifice grammar for concision.
@@ -21,14 +23,18 @@ $@
 ## Output
 
 ### TL;DR
+
 - 2-5 bullets
 
 ### Plan
+
 1. Short phases/steps only
 
 ### Validation / Risks
+
 - Short bullets if relevant
 
 ### Unresolved questions
+
 - List any
 - Otherwise: `None. Ready to implement.`
