@@ -34,7 +34,7 @@ $ARGUMENTS
 
 ### Validation / Risks
 
-- Short bullets if relevant
+- Short bullets that describe the testing/validation steps
 
 ### Unresolved questions
 
