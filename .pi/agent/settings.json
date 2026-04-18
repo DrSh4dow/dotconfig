@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.67.3",
+  "lastChangelogVersion": "0.67.68",
   "packages": [
     "npm:pi-web-access",
     "npm:pi-subagents"
@@ -8,9 +8,31 @@
   "defaultModel": "gpt-5.4",
   "enabledModels": [
     "openai-codex/gpt-5.4:high",
-    "anthropic/claude-opus-4-6:medium"
+    "anthropic/claude-opus-4-7:medium"
   ],
   "defaultThinkingLevel": "high",
   "hideThinkingBlock": true,
-  "treeFilterMode": "default"
+  "treeFilterMode": "default",
+  "subagents": {
+    "agentOverrides": {
+      "context-builder": {
+        "disabled": true
+      },
+      "planner": {
+        "disabled": true
+      },
+      "reviewer": {
+        "disabled": true
+      },
+      "worker": {
+        "disabled": true
+      },
+      "researcher": {
+        "disabled": true
+      },
+      "scout": {
+        "model": "anthropic/claude-sonnet-4-6"
+      }
+    }
+  }
 }
