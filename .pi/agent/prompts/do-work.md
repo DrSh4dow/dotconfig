@@ -1,5 +1,6 @@
 ---
 description: Execute a unit of work end-to-end.
+argument-hint: "<task>"
 ---
 ## Task
 
@@ -9,7 +10,7 @@ $ARGUMENTS
 
 ### 1. Understand the task (Gather context)
 
-Read any referenced document. Load any relevant skill for the task. Explore the codebase to understand the relevant files, patterns, and conventions. If the task is ambiguous, ask the user to clarify scope before proceeding.
+Read any referenced document. Load any relevant skill for the task before doing anything else. Explore the codebase to understand the relevant files, patterns, and conventions (prefer subagents for this task). If the task is ambiguous, ask the user to clarify scope before proceeding.
 
 ### 2. Implement
 
