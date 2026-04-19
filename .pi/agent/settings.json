@@ -7,8 +7,9 @@
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.4",
   "enabledModels": [
-    "openai-codex/gpt-5.4:high",
-    "anthropic/claude-opus-4-7:medium"
+    "openai-codex/gpt-5.4",
+    "anthropic/claude-opus-4-7",
+    "openai-codex/gpt-5.4-mini"
   ],
   "defaultThinkingLevel": "high",
   "hideThinkingBlock": true,
