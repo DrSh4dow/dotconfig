@@ -1,6 +1,8 @@
 ---
-description: Research first, then output a very concise plan. Do not implement.
+description: Ground first. Stress-test silently. Then output the minimum viable plan. Do not implement.
+argument-hint: "<instructions>"
 ---
+
 ## Task
 
 Plan this work:
@@ -10,33 +12,99 @@ $ARGUMENTS
 ## Rules
 
 - Read-only. No edits, no code, no destructive actions.
-- Be extremely concise. Sacrifice grammar for concision.
-- Do not output exact changes or copy-paste implementation steps.
+- Be extremely concise. No fluff, no performative thoroughness.
+- Output one recommended path, not a menu.
+- Do not implement, pseudo-implement, or describe patch-level edits.
+- Prefer repo evidence over guesses.
+- Prefer reuse over invention.
+- Ask questions only if the wrong default would cause material rework, risk, or scope drift.
+- If questions are needed, ask them once, in a grouped batch by theme, with a default assumption for each.
+- If blocked by questions, stop after asking them.
 - If revising, rewrite the full plan, not a delta.
-- You MUST NOT implement the plan until the user says so.
+- Never ask for info that can be recovered from the repo, docs, or focused research.
 
 ## Process
 
-- Load any relevant skill only if it will be useful for what we're doing.
-- Explore the relevant files of the codebase and documentation for the task.
-- Only if it makes sense for the plan, do online research.
-- Ask questions only if they materially change the plan.
+1. Ground
+   - Read referenced files/docs.
+   - Inspect the relevant code, tests, interfaces, constraints, conventions, and prior art.
+   - Use online research only if local context is insufficient or current external facts matter.
+
+2. Decide
+   - Define the done state.
+   - Identify the key constraint and main risk.
+   - Choose the simplest viable approach that fits the existing system.
+
+3. Stress-test silently
+   - Walk the decision tree internally.
+   - Surface hidden dependencies, edge cases, migration concerns, and likely failure modes.
+   - Kill weak branches early.
+   - Prefer extending existing primitives over adding new structure.
+   - For code work, use red -> green -> refactor when it meaningfully improves execution.
+   - Otherwise use the equivalent validation-first loop: define proof first, then the minimum path to it.
+
+4. Blockers
+   - If an unanswered question would materially change scope, architecture, sequencing, validation, or risk, ask one grouped batch and stop.
+   - Otherwise proceed with explicit assumptions.
+
+5. Write the plan
+   - Output the minimum path from current state -> working outcome.
+   - Sequence by dependency and risk.
+   - Make every phase outcome-based.
+   - Include proof, not just activity.
+
+## Standard
+
+A strong PLAN is:
+
+- **Grounded** — based on inspected evidence, not plausible guesses
+- **Minimal** — smallest credible path to done
+- **Ordered** — dependencies and risk handled early
+- **Decisive** — one best path
+- **Validation-first** — proof of success is built into the plan
+- **Reuse-first** — extends existing patterns before inventing new ones
+- **Honest** — names assumptions, risks, and unknowns briefly
+
+Reject:
+
+- generic advice
+- long option lists
+- vague steps like "add validation" or "handle edge cases"
+- invented abstractions without evidence they are needed
+- refactors without a concrete payoff
+- implementation detail disguised as planning
 
 ## Output
 
-### TL;DR
+If blocked, output exactly:
 
-- 2-5 bullets
+### Blockers
+
+- **[Theme]** Question?  
+  Default if unanswered: ...
+
+Otherwise output exactly:
+
+### Outcome
+
+- 1-2 bullets: what will be true when this is done
 
 ### Plan
 
-1. Short phases/steps
+1. **[Phase]** — outcome  
+   Reuse/touchpoints: ...  
+   Proof: ...
+2. **[Phase]** — outcome  
+   Reuse/touchpoints: ...  
+   Proof: ...
+3. Continue only as needed
 
-### Validation / Risks
+### Risks
 
-- Short bullets that describe the testing/validation steps
+- Biggest risk: ...
+- Weakest assumption: ...
+- Simplest fallback: ...
 
-### Unresolved questions
+### Status
 
-- List any
-- Otherwise: `None. Ready to implement.`
+`Ready to implement.`
