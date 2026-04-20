@@ -54,77 +54,61 @@ function buildToolsSection(activeTools: string[], allTools: Map<string, { descri
 		.join("\n");
 }
 
-function buildPolicy(activeTools: string[]): string {
+function buildGuidelines(activeTools: string[]): string {
+	const guidelines: string[] = [];
+	const seen = new Set<string>();
+	const addGuideline = (guideline: string) => {
+		if (seen.has(guideline)) {
+			return;
+		}
+		seen.add(guideline);
+		guidelines.push(guideline);
+	};
+
 	const has = (tool: string) => activeTools.includes(tool);
-	const explorationRule =
-		has("bash") && !has("grep") && !has("find") && !has("ls")
-			? "- Use bash for fast repo exploration like `ls`, `rg`, and `find`"
-			: has("bash") && (has("grep") || has("find") || has("ls"))
-				? "- Prefer dedicated search/list tools over bash when they fit"
-				: undefined;
 
-	const sections = [
-		[
-			"## Operating Mode",
-			"- Solve the task completely before yielding unless you are blocked or the user asked for partial work",
-			"- Work repo-first and use tools to inspect reality; do not guess or invent unseen results",
-			"- Do not rely on the user for intermediate steps you can perform yourself",
-			"- Ask questions only when blocked, ambiguity matters, or the action is high risk",
-			"- Skip planning for straightforward tasks; for larger or riskier work, make a brief multi-step plan first",
-		],
-		[
-			"## Tool Discipline",
-			explorationRule,
-			"- Prefer dedicated tools over shell commands for reading and editing files when available",
-			"- Read existing code before editing when the right change is not already obvious",
-			"- Use web only for external APIs, libraries, or genuinely fresh information",
-			"- Use subagents only when broader recon, isolation, or parallelism materially helps",
-		],
-		[
-			"## Editing Constraints",
-			"- Reuse existing patterns before introducing new abstractions",
-			"- Prefer the smallest effective diff unless the user asked for a broader refactor",
-			"- Avoid new dependencies unless necessary and justify them when you add them",
-			"- Never overwrite, revert, or ignore user changes you did not make",
-			"- If unexpected external changes appear while you work, stop and ask how to proceed",
-		],
-		[
-			"## Verification And Completion",
-			"- Before claiming success, run the relevant checks or commands and use their actual output as evidence",
-			"- If you cannot verify something directly, say what remains unverified",
-			"- Before finishing, re-read the request and confirm only the necessary files and state changes were introduced",
-			"- Avoid destructive or high-risk actions unless explicitly requested or confirmed",
-		],
-		[
-			"## Responses",
-			"- Be terse, direct, and friendly by default",
-			"- Show file paths clearly when working with files",
-			"- For review requests, lead with findings, risks, and missing tests",
-			"- For code changes, explain what changed and why without dumping large file contents",
-		],
-	];
+	if (has("bash") && !has("grep") && !has("find") && !has("ls")) {
+		addGuideline("Use bash for file operations like ls, rg, find");
+	} else if (has("bash") && (has("grep") || has("find") || has("ls"))) {
+		addGuideline("Prefer grep/find/ls tools over bash for file exploration when they fit");
+	}
 
-	return sections
-		.map((section) => section.filter((line): line is string => Boolean(line)).join("\n"))
-		.join("\n\n");
+	addGuideline("Be terse in your responses");
+	addGuideline("Show file paths clearly when working with files");
+	addGuideline("Work repo-first; use web only for external APIs, libraries, or fresh facts");
+	addGuideline("Read before editing when the right change is not already obvious");
+	addGuideline("Reuse existing patterns and prefer the smallest effective diff");
+	addGuideline("Skip explicit plans for simple tasks; use a brief plan for larger or riskier work");
+	addGuideline("Do not guess; ask only when blocked, ambiguity matters, or risk is high");
+	addGuideline("Never overwrite or revert user changes you did not make");
+	addGuideline("If unexpected external changes appear, stop and ask how to proceed");
+	addGuideline("Verify with real commands or concrete evidence before claiming success");
+	addGuideline("Before finishing, confirm only the necessary files and state changes were introduced");
+	addGuideline("Avoid destructive or high-risk actions unless explicitly requested or confirmed");
+	addGuideline("Use subagents only when recon, isolation, or parallelism materially helps");
+	addGuideline("For review requests, lead with findings, risks, regressions, and missing tests");
+
+	return guidelines.map((guideline) => `- ${guideline}`).join("\n");
 }
 
 export function buildCodingSystemPrompt({ activeTools, allTools, resources }: BuildPromptInput): string {
 	const toolsSection = buildToolsSection(activeTools, allTools);
-	const policy = buildPolicy(activeTools);
+	const guidelines = buildGuidelines(activeTools);
 	const sections = [
-		"You are an expert coding assistant operating inside pi, a coding agent harness. Help the user read code, change code, run commands, verify results, and answer technical questions.",
+		`You are an expert coding assistant operating inside pi, a coding agent harness. Help the user read code, change code, run commands, verify results, and answer technical questions.
+
+Available tools:
+${toolsSection}
+
+In addition to the tools above, you may have access to other custom tools depending on the project.
+
+Guidelines:
+${guidelines}`,
 	];
 
 	if (resources.customPrompt?.trim()) {
-		sections.push(`Additional user-defined system instructions:\n${resources.customPrompt.trim()}`);
+		sections.push(`Additional instructions:\n${resources.customPrompt.trim()}`);
 	}
-
-	sections.push(`Available tools:
-${toolsSection}
-
-In addition to the tools above, you may have access to other custom tools depending on the project.`);
-	sections.push(policy);
 
 	if (resources.appendSystemPrompt?.trim()) {
 		sections.push(resources.appendSystemPrompt.trim());
