@@ -1,6 +1,6 @@
 ---
 description: Execute a unit of work end-to-end.
-argument-hint: "<task>"
+argument-hint: "<task context>"
 ---
 ## Task
 
@@ -10,7 +10,7 @@ $ARGUMENTS
 
 ### 1. Understand the task (Gather context)
 
-Read any referenced document. Load any relevant skill for the task before doing anything else. Explore the codebase to understand the relevant files, patterns, and conventions (prefer subagents for this task). If the task is ambiguous, ask the user to clarify scope before proceeding.
+Read any referenced document. Load any relevant skill if it has a minimal chance to be useful for the task, do this before doing anything else. Explore the codebase to understand the relevant files if not already in context window. If the task is ambiguous, ask the user to clarify scope before proceeding.
 
 ### 2. Implement
 
@@ -18,7 +18,7 @@ Work through the plan step by step.
 
 ### 3. Validate
 
-Run the feedback loops (linting, type check, tests, etc) and fix any issues.
+Run the feedback loops (linting, type check, tests, etc), fix any issues, and run te prescribed validation steps from the plan.
 
 ### 4. Commit
 
