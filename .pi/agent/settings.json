@@ -13,27 +13,5 @@
   ],
   "defaultThinkingLevel": "high",
   "hideThinkingBlock": false,
-  "treeFilterMode": "default",
-  "subagents": {
-    "agentOverrides": {
-      "context-builder": {
-        "disabled": true
-      },
-      "planner": {
-        "disabled": true
-      },
-      "reviewer": {
-        "disabled": true
-      },
-      "worker": {
-        "disabled": true
-      },
-      "researcher": {
-        "disabled": true
-      },
-      "scout": {
-        "model": "anthropic/claude-sonnet-4-6"
-      }
-    }
-  }
+  "treeFilterMode": "default"
 }
