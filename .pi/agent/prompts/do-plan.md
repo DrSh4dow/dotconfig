@@ -20,7 +20,7 @@ $ARGUMENTS
 ## Process
 
 - Load any relevant skill if you think it has at least a 1% chance to be useful for the current task before doing anything else.
-- Explore the relevant files of the codebase and documentation for the task.
+- Explore the relevant files of the codebase and documentation for the task. try to use the `scout` subagent to optimize which files to focus on.
 - Do online research if applicable.
 - Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer.
 - Ask the questions one at a time.

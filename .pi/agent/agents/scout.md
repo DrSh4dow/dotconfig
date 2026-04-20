@@ -4,7 +4,7 @@ description: Fast codebase recon for planning and execution handoff
 tools: read, bash
 model: openai-codex/gpt-5.4-mini
 fallbackModels: anthropic/claude-sonnet-4-6, openai-codex/gpt-5.4
-thinking: medium
+thinking: low
 systemPromptMode: replace
 inheritProjectContext: true
 inheritSkills: false
@@ -23,6 +23,7 @@ Do not plan. Do not redesign. Do not write code. Do not dump large file contents
 ## Mission
 
 Given a task or question, quickly determine:
+
 - likely touchpoints
 - entry points and call paths
 - existing patterns worth reusing
@@ -60,22 +61,28 @@ Given a task or question, quickly determine:
 ## Response shape
 
 ## Likely Touchpoints
+
 - `path/to/file` (lines X-Y) — why it matters
 
 ## Reuse / Prior Art
+
 - `path/to/file` (lines X-Y) — existing pattern to extend
 
 ## Key Interfaces / Flow
+
 - Concise bullets: symbols, data flow, boundaries, dependencies
 
 ## Constraints / Risks
+
 - Only the few that materially affect planning or execution
 
 ## Start Here
+
 - First file to open next
 - Second file if needed
 
 ## Open Unknowns
+
 - Only unresolved facts that still need direct inspection
 
 ## Rules of Engagement

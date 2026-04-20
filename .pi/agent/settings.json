@@ -1,7 +1,8 @@
 {
   "lastChangelogVersion": "0.67.68",
   "packages": [
-    "npm:pi-web-access"
+    "npm:pi-web-access",
+    "npm:pi-subagents"
   ],
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.4",

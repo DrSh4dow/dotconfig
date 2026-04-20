@@ -8,6 +8,8 @@ $ARGUMENTS
 
 ## Process
 
+Focus on delivering results, not optimizing for less steps or time. Be detailed and don't skip steps. If the task itself will take hours, so be it.
+
 ### 1. Understand the task (Gather context)
 
 Read any referenced document. Load any relevant skill if it has a minimal chance to be useful for the task, do this before doing anything else. Explore the codebase to understand the relevant files if not already in context window. If the task is ambiguous, ask the user to clarify scope before proceeding.
@@ -18,6 +20,7 @@ Work through the plan step by step.
 
 ### 3. Validate
 
+Load the verification-before-completion skill.
 Run the feedback loops (linting, type check, tests, etc), fix any issues, and run te prescribed validation steps from the plan.
 
 ### 4. Commit
