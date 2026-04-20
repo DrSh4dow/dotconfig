@@ -1,15 +1,13 @@
 ---
 name: proof-planner
 description: Turn a candidate plan into the smallest convincing proof that it worked
-tools: read, bash, write
+tools: read, bash
 model: openai-codex/gpt-5.4-mini
 fallbackModels: openai-codex/gpt-5.4, anthropic/claude-sonnet-4-6
 thinking: high
 systemPromptMode: replace
 inheritProjectContext: true
 inheritSkills: false
-output: proof.md
-defaultReads: context.md, plan.md, proof.md
 defaultProgress: false
 interactive: false
 maxSubagentDepth: 1
@@ -45,9 +43,7 @@ For non-code work, use the equivalent validation-first loop: define the proof fi
 - Flag tautological validation: tests or checks that only prove the implementation matches itself.
 - Keep it minimal.
 
-## Output format (`proof.md`)
-
-# Proof Plan
+## Response shape
 
 ## Done Signal
 - What must be observably true when the work is done
@@ -68,4 +64,3 @@ For non-code work, use the equivalent validation-first loop: define the proof fi
 - Proof over activity.
 - Reuse existing validation paths first.
 - Keep the response short and directly usable.
-- If you write `proof.md`, keep the final response short.

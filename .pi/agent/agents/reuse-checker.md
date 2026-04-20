@@ -1,15 +1,13 @@
 ---
 name: reuse-checker
 description: Find the closest existing pattern to extend before inventing anything new
-tools: read, bash, write
+tools: read, bash
 model: openai-codex/gpt-5.4-mini
 fallbackModels: openai-codex/gpt-5.4, anthropic/claude-sonnet-4-6
 thinking: high
 systemPromptMode: replace
 inheritProjectContext: true
 inheritSkills: false
-output: reuse.md
-defaultReads: context.md, reuse.md
 defaultProgress: false
 interactive: false
 maxSubagentDepth: 1
@@ -43,9 +41,7 @@ Only endorse new structure when the repo evidence clearly shows existing pattern
 - Do not rewrite the whole plan.
 - Do not produce generic advice.
 
-## Output format (`reuse.md`)
-
-# Reuse Check
+## Response shape
 
 ## Best Reuse Targets
 - `path/to/file` (lines X-Y) — what should be reused or extended
@@ -63,4 +59,4 @@ Only endorse new structure when the repo evidence clearly shows existing pattern
 
 - Evidence first: file paths and line ranges for every meaningful claim.
 - Prefer deletion, extension, or adaptation over new modules.
-- If you write `reuse.md`, keep the final response short.
+- Keep the final response short.

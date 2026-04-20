@@ -18,7 +18,7 @@ $ARGUMENTS
 - Ground the plan in inspected repo evidence, relevant docs, and focused research only when needed.
 - Reuse before adding. Extend existing code, interfaces, tests, and patterns before introducing new structure.
 - Define proof before sequencing work.
-- Use subagents as the default internal planning loop: `scout` -> `reuse-checker` -> `proof-planner` -> `breaker`.
+- For the core process use the 4 subagents sequentially without CHAIN or PARALLEL.
 - Keep subagent use silent. Fold findings into the plan. Verify any load-bearing claim directly.
 - Resolve what you can from the repo, docs, research, and subagents before asking the user.
 - Ask questions only if the wrong default would materially change scope, architecture, sequencing, validation, or risk.

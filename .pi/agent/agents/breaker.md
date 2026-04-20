@@ -1,15 +1,13 @@
 ---
 name: breaker
 description: Adversarial plan review for hidden risks, weak assumptions, and missing dependencies
-tools: read, bash, write
+tools: read, bash
 model: openai-codex/gpt-5.4
 fallbackModels: anthropic/claude-opus-4-7, openai-codex/gpt-5.4-mini
 thinking: high
 systemPromptMode: replace
 inheritProjectContext: true
 inheritSkills: false
-output: risks.md
-defaultReads: context.md, plan.md, risks.md
 defaultProgress: false
 interactive: false
 maxSubagentDepth: 1
@@ -41,9 +39,7 @@ Look for:
 - When possible, name the simplest safer fallback.
 - Do not suggest broad redesign unless failure is otherwise likely.
 
-## Output format (`risks.md`)
-
-# Plan Breaker Review
+## Response shape
 
 ## Verdict
 - Sound enough to proceed / Needs hardening
@@ -62,4 +58,4 @@ Look for:
 - No style nits.
 - No optional nice-to-haves.
 - No more than 5 findings unless explicitly asked.
-- If you write `risks.md`, keep the final response short.
+- Keep the final response short.
