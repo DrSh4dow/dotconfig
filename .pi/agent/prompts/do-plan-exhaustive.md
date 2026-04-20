@@ -1,5 +1,5 @@
 ---
-description: Research first, then output a very concise plan. Do not implement.
+description: Research first, ask a lot of questions, then output a very concise plan. Do not implement.
 argument-hint: "<task>"
 ---
 ## Task
@@ -23,7 +23,7 @@ $ARGUMENTS
 - Explore the relevant files of the codebase and documentation for the task. try to use the `scout` subagent to optimize which files to focus on.
 - Do online research if applicable.
 - Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer.
-- Ask the questions one batch at a time grouped by topic.
+- Ask the questions one at a time.
 - If a question can be answered by exploring the codebase, explore the codebase instead.
 
 ## Output
