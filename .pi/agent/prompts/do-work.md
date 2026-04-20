@@ -6,9 +6,13 @@ argument-hint: "<task context>"
 
 $ARGUMENTS
 
-## Process
+## Rules
 
-Focus on delivering results, not optimizing for less steps or time. Be detailed and don't skip steps. If the task itself will take hours, so be it.
+- Focus on delivering results, not optimizing for less steps or time. Be detailed and don't skip steps. If the task itself will take hours, so be it.
+- Reuse constructs when possible. if not already in context, spawn the reuse-checker subagent to find out what can be reused.
+- Don't create unnecessary helper functions or abstractions. For example, if we can use some env variable from env.X lets use env.X instead of creating a getEnvX function.
+
+## Process
 
 ### 1. Understand the task (Gather context)
 

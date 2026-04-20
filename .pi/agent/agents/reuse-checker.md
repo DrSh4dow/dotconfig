@@ -4,7 +4,7 @@ description: Find the closest existing pattern to extend before inventing anythi
 tools: read, bash
 model: openai-codex/gpt-5.4-mini
 fallbackModels: openai-codex/gpt-5.4, anthropic/claude-sonnet-4-6
-thinking: high
+thinking: medium
 systemPromptMode: replace
 inheritProjectContext: true
 inheritSkills: false
