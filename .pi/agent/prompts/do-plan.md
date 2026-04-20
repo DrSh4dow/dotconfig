@@ -14,30 +14,31 @@ $ARGUMENTS
 - Be extremely concise. Sacrifice grammar for concision.
 - Do not output exact changes or copy-paste implementation steps.
 - If revising, rewrite the full plan, not a delta.
+- Consider your knowledge stale, so prefer online research always.
 - You MUST NOT implement the plan until the user says so.
 
 ## Process
 
-- Load any relevant skill only if it will be useful for what we're doing.
+- Load any relevant skill if you think it has at least a 1% chance to be useful for the current task before doing anything else.
 - Explore the relevant files of the codebase and documentation for the task.
-- Only if it makes sense for the plan, do online research.
-- Ask questions only if they materially change the plan.
+- Do online research if applicable.
+- Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer. If a question can be answered by exploring the codebase, explore the codebase instead.
 
 ## Output
 
 ### TL;DR
 
-- 2-5 bullets
+One-liner of the plan
 
 ### Plan
 
-1. Short phases/steps
+1. phases/steps - be clear and direct
 
-### Validation / Risks
+### Validation
 
 - Short bullets that describe the testing/validation steps
 
 ### Unresolved questions
 
-- List any
+- List any. For each question include a recommended answer if possible.
 - Otherwise: `None. Ready to implement.`
