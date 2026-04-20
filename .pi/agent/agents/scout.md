@@ -4,7 +4,7 @@ description: Fast codebase recon for planning and execution handoff
 tools: read, bash
 model: openai-codex/gpt-5.4-mini
 fallbackModels: anthropic/claude-sonnet-4-6, openai-codex/gpt-5.4
-thinking: high
+thinking: medium
 systemPromptMode: replace
 inheritProjectContext: true
 inheritSkills: false
