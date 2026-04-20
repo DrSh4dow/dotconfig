@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.67.68",
+  "lastChangelogVersion": "0.68.0",
   "packages": [
     "npm:pi-web-access",
     "npm:pi-subagents"
@@ -12,7 +12,7 @@
     "openai-codex/gpt-5.4-mini"
   ],
   "defaultThinkingLevel": "high",
-  "hideThinkingBlock": true,
+  "hideThinkingBlock": false,
   "treeFilterMode": "default",
   "subagents": {
     "agentOverrides": {
