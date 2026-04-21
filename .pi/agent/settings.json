@@ -2,7 +2,8 @@
   "lastChangelogVersion": "0.68.0",
   "packages": [
     "npm:pi-web-access",
-    "npm:pi-subagents"
+    "npm:pi-subagents",
+    "npm:pi-questions"
   ],
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.4",
@@ -12,6 +13,6 @@
     "openai-codex/gpt-5.4-mini"
   ],
   "defaultThinkingLevel": "high",
-  "hideThinkingBlock": false,
+  "hideThinkingBlock": true,
   "treeFilterMode": "default"
 }
