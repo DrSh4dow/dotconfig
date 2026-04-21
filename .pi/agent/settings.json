@@ -13,6 +13,6 @@
     "openai-codex/gpt-5.4-mini"
   ],
   "defaultThinkingLevel": "high",
-  "hideThinkingBlock": true,
+  "hideThinkingBlock": false,
   "treeFilterMode": "default"
 }
