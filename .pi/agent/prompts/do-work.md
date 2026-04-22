@@ -9,8 +9,8 @@ $ARGUMENTS
 ## Rules
 
 - Focus on delivering results, not optimizing for less steps or time. Be detailed and don't skip steps. If the task itself will take hours, so be it.
-- Reuse constructs when possible.
-- Don't create unnecessary helper functions or abstractions. For example, if we can use some env variable from env.X lets use env.X instead of creating a getEnvX function.
+- Reuse cross-repository constructs when possible.
+- Don't create unnecessary helper functions or abstractions. Prefer suckless philosophy.
 - Prefer a red-green-refactor approach.
 
 ## Process
