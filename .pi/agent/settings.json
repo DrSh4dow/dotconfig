@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.68.0",
+  "lastChangelogVersion": "0.68.1",
   "packages": [
     "npm:pi-web-access",
     "npm:pi-subagents",
