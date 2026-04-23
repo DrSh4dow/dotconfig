@@ -10,7 +10,7 @@ $ARGUMENTS
 
 - Focus on delivering results, not optimizing for less steps or time. Be detailed and don't skip steps. If the task itself will take hours, so be it.
 - Reuse cross-repository constructs when possible.
-- Don't create unnecessary helper functions or abstractions. Prefer suckless philosophy.
+- Don't create unnecessary helper functions or abstractions. Prefer suckless philosophy (modules should be blunt, local, and easy to follow).
 - Prefer a red-green-refactor approach.
 
 ## Process

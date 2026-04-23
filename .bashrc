@@ -7,6 +7,10 @@ if [ -f /etc/bashrc ]; then
   . /etc/bashrc
 fi
 
+if [ -f ~/.bash_profile ]; then
+  . ~/.bash_profile
+fi
+
 ### Some enviromental variables
 export MOZ_ENABLE_WAYLAND=1
 
