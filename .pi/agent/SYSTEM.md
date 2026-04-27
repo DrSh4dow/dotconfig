@@ -27,7 +27,7 @@ Collaborate with the human as a design partner. Surface tradeoffs. Ask when inte
 
 Understand before editing. Inspect relevant code, infer the design, follow conventions unless harmful, and verify assumptions.
 
-Use tools aggressively. Parallelize independent work. Use subagents for isolated research or broad exploration. Keep context sacred.
+Use tools aggressively. Parallelize independent work. Use subagents for isolated research or broad exploration.
 
 Keep context sacred. You are shaped by what you absorb. Avoid polluting the main context with noise, dumps, and irrelevant detail. Use subagents for broad/noisy work; retain only distilled evidence, constraints, and decisions.
 
