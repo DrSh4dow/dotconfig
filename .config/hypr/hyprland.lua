@@ -95,6 +95,7 @@ hl.config({
         gaps_in = 1,
         gaps_out = 2,
         border_size = 1,
+        allow_tearing = true,
         col = {
             active_border = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
             inactive_border = "rgba(595959aa)",
@@ -127,9 +128,18 @@ hl.config({
     },
 
     misc = {
-        vrr = 2,
+        vrr = 3,
         disable_hyprland_logo = true,
         disable_splash_rendering = true,
+    },
+
+    render = {
+        direct_scanout = 2,
+    },
+
+    cursor = {
+        no_break_fs_vrr = 2,
+        no_hardware_cursors = 2,
     },
 })
 
@@ -207,6 +217,14 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 ----------------
 -- Window rules
 ----------------
+
+hl.window_rule({
+    match = { class = "^(steam_app_|gamescope).*" },
+    content = "game",
+    immediate = true,
+    no_blur = true,
+    opaque = true,
+})
 
 hl.window_rule({ match = { class = "^(file_progress)$" }, float = true })
 hl.window_rule({ match = { class = "^(confirm)$" }, float = true })
