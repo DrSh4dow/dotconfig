@@ -56,6 +56,11 @@ config.keys = {
 		action = act.SendString("\x1b[13;2u"),
 	},
 	{
+		key = "Enter",
+		mods = "ALT",
+		action = act.DisableDefaultAssignment,
+	},
+	{
 		key = "h",
 		mods = "CTRL",
 		action = act.ActivatePaneDirection("Left"),

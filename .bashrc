@@ -7,6 +7,11 @@ if [ -f /etc/bashrc ]; then
   . /etc/bashrc
 fi
 
+# Source env definitions
+if [ -f ~/.bashenv ]; then
+  . ~/.bashenv
+fi
+
 ### Some enviromental variables
 export MOZ_ENABLE_WAYLAND=1
 
